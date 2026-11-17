@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1650f0">
+  <meta name="description" content="Língua Portuguesa do 6º ao 9º ano: 250 páginas, mais de 1.000 questões com gabarito, planejamentos bimestrais, slides e mapas mentais em PDF e Word editável dentro de um app organizado.">
+  <meta property="og:title" content="Biblioteca do Professor | Língua Portuguesa 6º ao 9º Ano">
+  <meta property="og:description" content="Materiais de Língua Portuguesa alinhados à BNCC organizados por ano, bimestre e categoria em um app.">
+  <title>Biblioteca do Professor | Língua Portuguesa 6º ao 9º Ano</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root{
+      --blue:#1650f0;
+      --blue-deep:#103ab5;
+      --ink:#111216;
+      --muted:#4c515b;
+      --line:#e1e1e1;
+      --paper:#f6f7f9;
+      --purple:#7650e8;
+      --orange:#f2a11b;
+      --pink:#e83298;
+      --cyan:#16a6dc;
+      --green:#22a66b;
+      --white-soft:#f5f5f7;
+      --white-muted:#d4d4d8;
+      --surface-light:#fafbfc;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:24px;overflow-x:hidden}
+    body{margin:0;background:var(--surface-light);color:var(--ink);font-family:"Poppins",Arial,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;font-weight:400;overflow-x:hidden}
+    p{max-width:68ch}
+    a{color:inherit}
+    :focus-visible{outline:3px solid #f2a11b;outline-offset:4px}
+
+    /* Espaçamento lateral generoso e centralizado no desktop e mobile */
+    .container{width:min(880px,calc(100% - 96px));margin-inline:auto}
+
+    .brand-icon{display:grid;place-items:center;width:39px;height:39px;border-radius:12px;background:var(--blue);color:var(--white-soft);flex-shrink:0}
+
+    /* Hero */
+    .hero{padding:28px 0 64px;background:linear-gradient(180deg,#f3f5fa 0,var(--surface-light) 88%);text-align:center}
+    .hero-kicker{display:inline-flex;align-items:center;gap:8px;border:1px solid #cdd8fa;border-radius:999px;background:var(--surface-light);padding:7px 14px;color:#2146ac;font-size:13.5px;font-weight:800;white-space:nowrap;max-width:100%}
+    .hero h1{max-width:820px;margin:18px auto 24px;font-size:clamp(2rem,5.5vw,3.9rem);line-height:1.06;font-weight:800;color:#090a0c}
+    .hero h1 em{font-family:"Poppins",Arial,sans-serif;font-style:normal;font-weight:800;letter-spacing:-.045em;color:var(--blue)}
+    .video-frame{position:relative;width:min(100%,780px);margin:0 auto;overflow:hidden;aspect-ratio:16/9;border:3px solid #111216;border-radius:22px;background:linear-gradient(135deg,#111216 0%,#182443 55%,#1650f0 150%);box-shadow:10px 10px 0 var(--blue),0 24px 50px #101c3830}
+    .video-placeholder{position:absolute;inset:0;display:grid;place-items:center;padding:20px;color:var(--white-soft)}
+    .video-placeholder:before,.video-placeholder:after{content:"";position:absolute;border:1px solid #f5f5f724;border-radius:50%;pointer-events:none}
+    .video-placeholder:before{width:52%;aspect-ratio:1;right:-8%;top:-45%}
+    .video-placeholder:after{width:35%;aspect-ratio:1;left:-13%;bottom:-34%}
+    .video-play{position:relative;z-index:1;display:grid;place-items:center;width:72px;height:72px;border-radius:50%;background:var(--white-soft);color:var(--blue);box-shadow:0 0 0 12px #f5f5f720;margin-inline:auto}
+    .video-label{position:relative;z-index:1;margin:16px 0 0;color:var(--white-soft);font-size:16px;font-weight:700}
+    .video-hint{position:absolute;z-index:1;left:16px;right:16px;bottom:14px;margin:0;color:var(--white-muted);font-size:13px}
+    .hero-sub{max-width:700px;margin:32px auto 0;color:#343840;font-size:clamp(1rem,2vw,1.15rem);line-height:1.7}
+    .hero-offer{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin:24px auto 0}
+    .price-old{color:#626773;text-decoration:line-through;font-size:17px;white-space:nowrap}
+    .price-now{font-family:"Poppins",Arial,sans-serif;font-size:34px;font-weight:800;line-height:1;color:#090a0c;white-space:nowrap}
+    .cta{display:inline-flex;min-height:56px;align-items:center;justify-content:center;gap:10px;border:2px solid var(--blue);border-radius:13px;background:var(--blue);padding:0 26px;color:var(--white-soft);text-decoration:none;font-size:17px;font-weight:700;box-shadow:0 5px 0 #0d329f;transition:transform .18s,background .18s,box-shadow .18s;white-space:nowrap}
+    .cta:hover{transform:translateY(-2px);background:var(--blue-deep);box-shadow:0 7px 0 #0d329f}
+    .microcopy{margin:12px auto 0;color:#50545d;font-size:14.5px}
+
+    /* Faixa de Benefícios Rápidos com Carrossel Automático Contínuo (Desktop e Mobile) */
+    .trust-strip{background:var(--blue);color:var(--white-soft);padding:14px 0;border-top:2px solid #090a0c;border-bottom:2px solid #090a0c;overflow:hidden;position:relative}
+    .trust-marquee{display:flex;width:max-content;animation:marqueeScroll 22s linear infinite;will-change:transform}
+    .trust-marquee:hover{animation-play-state:paused}
+    .trust-group{display:flex;align-items:center;gap:36px;padding-right:36px}
+    .trust-item{display:inline-flex;align-items:center;gap:8px;color:var(--white-soft);font-size:14.5px;font-weight:700;white-space:nowrap}
+    .trust-item i{color:#ffd166;flex-shrink:0}
+    @keyframes marqueeScroll{
+      0%{transform:translate3d(0,0,0)}
+      100%{transform:translate3d(-50%,0,0)}
+    }
+
+    /* Padrão de Seção */
+    .section{padding:76px 0}
+    .section-heading{max-width:700px;margin:0 auto 38px;text-align:center}
+    .section-heading h2{margin:0;font-size:clamp(1.85rem,4.2vw,2.95rem);line-height:1.12;color:#0b0c0e}
+    .section-heading p{margin:13px auto 0;color:#4c515b;font-size:17px}
+    .eyebrow{margin:0 auto 10px;color:var(--blue);font-size:13.5px;font-weight:800;letter-spacing:.03em;text-transform:uppercase}
+
+    /* Seção 1: Dor (Fundo Escuro #111216) */
+    .pain-section{background:#111216;color:var(--white-soft)}
+    .pain-section .eyebrow{color:#7da2ff}
+    .pain-section .section-heading h2{color:var(--white-soft)}
+    .pain-section .section-heading p{color:var(--white-muted)}
+    .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .color-card{position:relative;min-height:200px;overflow:hidden;border-radius:20px;padding:24px;color:var(--white-soft);box-shadow:0 12px 24px #0002;transition:transform .24s ease,box-shadow .24s ease}
+    .color-card:hover{transform:translateY(-5px);box-shadow:0 19px 34px #0003}
+    .color-card:after{content:"";position:absolute;width:130px;height:130px;right:-35px;bottom:-46px;border:18px solid #f5f5f724;border-radius:34px;transform:rotate(22deg)}
+    .color-card .icon{display:grid;place-items:center;width:44px;height:44px;border-radius:13px;background:#0002;color:var(--white-soft)}
+    .color-card h3{position:relative;z-index:1;margin:18px 0 7px;font-size:20.5px;line-height:1.2}
+    .color-card p{position:relative;z-index:1;margin:0;font-size:15px;line-height:1.55}
+    .color-blue{background:linear-gradient(135deg,#1650f0,#4776ff)}
+    .color-purple{background:linear-gradient(135deg,#7147e6,#a064f2)}
+    .color-orange{background:linear-gradient(135deg,#d97f04,#f5a618)}
+
+    /* Seção 2: Carrossel Automático Contínuo do Produto por Dentro (Fundo Claro #f1f4f9) */
+    .carousel-section{background:#f1f4f9;color:#111216;border-top:1px solid #dfe4ee;border-bottom:1px solid #dfe4ee;overflow:hidden}
+    .carousel-viewport{overflow:hidden;padding:8px 0 18px;width:100%}
+    .carousel-track{display:flex;gap:18px;width:max-content;will-change:transform}
+    .carousel-slide{width:280px;flex-shrink:0;background:var(--surface-light);border:2px solid #111216;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:6px 6px 0 var(--blue);transition:transform .24s ease}
+    .carousel-slide:hover{transform:translateY(-4px)}
+    .slide-preview{position:relative;aspect-ratio:16/10;background:linear-gradient(135deg,#1650f0,#2f66f5);padding:15px;display:flex;flex-direction:column;justify-content:space-between}
+    .slide-badge{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:11.5px;font-weight:800;background:#11121655;color:var(--white-soft);white-space:nowrap}
+    .slide-mockup{margin:auto;width:100%;max-width:215px;background:var(--surface-light);color:#111216;border-radius:10px;padding:11px;box-shadow:0 10px 20px #09184235;text-align:left}
+    .slide-mockup-top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e5e7eb;padding-bottom:5px;margin-bottom:6px;font-size:9.5px;font-weight:800;color:var(--blue);white-space:nowrap}
+    .slide-mockup-lines span{display:block;height:5.5px;border-radius:4px;background:#e2e8f0;margin-bottom:5px}
+    .slide-mockup-lines span:nth-child(1){width:85%;background:#cbd5e1}
+    .slide-mockup-lines span:nth-child(2){width:95%}
+    .slide-mockup-lines span:nth-child(3){width:70%}
+    .slide-mockup-tags{display:flex;gap:4px;margin-top:7px;flex-wrap:nowrap;overflow:hidden}
+    .slide-mockup-tags em{font-style:normal;font-size:9px;font-weight:700;padding:2px 6px;border-radius:5px;background:#e9efff;color:var(--blue);white-space:nowrap}
+    .slide-body{padding:18px;flex:1;display:flex;flex-direction:column}
+    .slide-body h3{margin:0 0 7px;font-size:18px;color:#090a0c;line-height:1.22}
+    .slide-body p{margin:0 0 14px;font-size:14px;color:#4c515b;line-height:1.5}
+    .slide-specs{margin-top:auto;padding-top:11px;border-top:1px solid #e5e8ef;display:flex;flex-wrap:nowrap;gap:6px;overflow:hidden}
+    .slide-spec-tag{font-size:11px;font-weight:700;color:#1642c1;background:#e9efff;padding:4px 8px;border-radius:7px;display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+    .slide-spec-tag i{color:#16a34a;width:12px;height:12px;flex-shrink:0}
+    .carousel-controls{display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:12px}
+    .carousel-hint-text{font-size:13px;font-weight:600;color:#525866}
+    .carousel-arrows{display:flex;gap:8px}
+    .carousel-btn{width:40px;height:40px;border-radius:11px;border:2px solid #111216;background:var(--surface-light);color:#111216;display:grid;place-items:center;cursor:pointer;box-shadow:3px 3px 0 #111216;transition:transform .15s,background .15s,color .15s}
+    .carousel-btn:hover{background:var(--blue);color:var(--white-soft);border-color:var(--blue)}
+
+    /* Seção 3: Tudo que compõe o pacote (Cards Coloridos) */
+    .feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .feature-card{position:relative;display:flex;min-height:175px;flex-direction:column;align-items:flex-start;overflow:hidden;border-radius:20px;padding:24px;color:var(--white-soft);transition:transform .24s ease}
+    .feature-card:hover{transform:translateY(-5px)}
+    .feature-card:after{content:"";position:absolute;right:-30px;bottom:-55px;width:155px;height:155px;border:22px solid #f5f5f722;border-radius:50%}
+    .feature-card h3{position:relative;z-index:1;margin:16px 0 6px;font-size:21px;line-height:1.18}
+    .feature-card p{position:relative;z-index:1;margin:0;font-size:15.5px}
+    .feature-card:nth-child(1){background:linear-gradient(135deg,#7044e8,#4e28bb)}
+    .feature-card:nth-child(2){background:linear-gradient(135deg,#de8206,#f7ae18)}
+    .feature-card:nth-child(3){background:linear-gradient(135deg,#e62a94,#c71776)}
+    .feature-card:nth-child(4){background:linear-gradient(135deg,#12a4dc,#0879bf)}
+    .feature-card:nth-child(5){background:linear-gradient(135deg,#1650f0,#3a6df5)}
+    .feature-card:nth-child(6){background:linear-gradient(135deg,#1b965e,#137347)}
+    .feature-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:#0002;color:var(--white-soft)}
+
+    /* Seção 4: Grade Curricular 6º ao 9º ano (CARDS MELHORADOS E MAIS ROBUSTOS) */
+    .curriculum-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .topic-card{background:var(--surface-light);border:2px solid #111216;border-radius:18px;padding:20px 22px;box-shadow:5px 5px 0 var(--blue);transition:transform .22s ease,box-shadow .22s ease;display:flex;flex-direction:column;gap:8px}
+    .topic-card:hover{transform:translateY(-4px);box-shadow:7px 7px 0 #0d329f}
+    .topic-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .topic-header{display:flex;align-items:center;gap:12px}
+    .topic-num{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--blue);color:var(--white-soft);font-size:15px;font-weight:800;flex-shrink:0}
+    .topic-card h3{margin:0;font-size:18.5px;font-weight:800;line-height:1.2;color:#090a0c}
+    .topic-pill{font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;background:#e9efff;color:var(--blue);white-space:nowrap}
+    .topic-card p{margin:0;font-size:14.5px;color:#454a53;line-height:1.52;padding-left:48px}
+
+    /* Seção 5: Como Funciona (Títulos dos passos bem grossos/destacados) */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .step{border:2px solid #dfe1e5;border-radius:17px;background:var(--surface-light);padding:24px;box-shadow:6px 6px 0 #e1e1e1}
+    .step-index{display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:var(--blue);color:var(--white-soft);font-family:"Poppins",Arial,sans-serif;font-weight:800;font-size:17px}
+    .step h3{margin:18px 0 8px;font-size:21px;font-weight:800;letter-spacing:-.035em;line-height:1.2;color:#090a0c}
+    .step p{margin:0;color:#454a53;font-size:15.5px;line-height:1.55}
+
+    /* Faixa de Números COMPACTA E FINA (Imagem 1 reduzida) */
+    .number-band{background:var(--blue);color:var(--white-soft);padding:22px 0;border-top:2px solid #090a0c;border-bottom:2px solid #090a0c}
+    .number-band-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center;align-items:center}
+    .stat-box{padding:2px 4px}
+    .stat-box strong{display:block;font-size:clamp(1.45rem,3.8vw,2.4rem);font-weight:800;line-height:1.05;color:var(--white-soft);white-space:nowrap}
+    .stat-box span{display:block;margin-top:3px;font-size:clamp(11.5px,2.2vw,14px);font-weight:500;color:#e4e4e7;line-height:1.3}
+
+    /* Seção 6: BÔNUS EXCLUSIVOS */
+    .bonus-section{background:#111216;color:var(--white-soft)}
+    .bonus-section .eyebrow{color:#ffd166}
+    .bonus-section .section-heading h2{color:var(--white-soft)}
+    .bonus-section .section-heading p{color:var(--white-muted)}
+    .bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .bonus-card{background:var(--surface-light);color:#111216;border-radius:20px;overflow:hidden;border:2px solid #ffd166;display:flex;flex-direction:column;box-shadow:8px 8px 0 #ffd16635}
+    .bonus-banner{background:#ffd166;color:#111216;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;font-size:12.5px;font-weight:900;letter-spacing:.03em;text-transform:uppercase}
+    .bonus-free-pill{background:#111216;color:#ffd166;padding:3px 9px;border-radius:6px;font-size:11px;font-weight:800}
+    .bonus-body{padding:22px;flex:1;display:flex;flex-direction:column}
+    .bonus-icon-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .bonus-icon{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#e9efff;color:var(--blue);flex-shrink:0}
+    .bonus-body h3{margin:0;font-size:19.5px;font-weight:800;color:#090a0c;line-height:1.2}
+    .bonus-body p{margin:0 0 18px;font-size:14.5px;color:#454a53;line-height:1.55}
+    .bonus-price-box{margin-top:auto;padding-top:12px;border-top:1px dashed #cbd5e1;display:flex;align-items:center;justify-content:space-between;font-size:13px}
+    .bonus-price-box s{color:#6b7280;font-weight:600}
+    .bonus-price-box strong{color:#15803d;font-weight:800;font-size:15px}
+    .bonus-total-bar{margin-top:26px;background:#1a1d26;border:1px dashed #ffd166;border-radius:14px;padding:14px 20px;text-align:center;color:var(--white-soft);font-size:15px}
+    .bonus-total-bar strong{color:#ffd166;font-weight:800}
+
+    /* Provas Sociais */
+    .proof-section{background:#f0f2f5}
+    .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .proof-slot{position:relative;display:flex;min-height:220px;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;border:2px dashed #9da7bb;border-radius:20px;background:var(--surface-light);padding:24px;text-align:center;color:#20232a}
+    .proof-slot:nth-child(1){box-shadow:inset 0 7px 0 #1650f0}
+    .proof-slot:nth-child(2){box-shadow:inset 0 7px 0 #7650e8}
+    .proof-slot:nth-child(3){box-shadow:inset 0 7px 0 #f2a11b}
+    .proof-slot .upload-icon{display:grid;place-items:center;width:48px;height:48px;margin-bottom:13px;border-radius:15px;background:#e9efff;color:var(--blue)}
+    .proof-slot strong{font-size:16.5px;font-weight:800}
+    .proof-slot span{max-width:250px;margin-top:6px;color:#545963;font-size:14.5px}
+    .proof-note{margin:18px auto 0;text-align:center;color:#4c515b;font-size:14px}
+
+    /* Oferta */
+    .offer-section{background:#111216;color:var(--white-soft)}
+    .offer-card{display:grid;grid-template-columns:1.22fr .78fr;max-width:880px;margin:auto;overflow:hidden;border:2px solid #090a0c;border-radius:24px;background:var(--surface-light);color:#111216;box-shadow:12px 12px 0 var(--blue)}
+    .offer-copy{padding:32px}
+    .offer-copy h2{margin:0;font-size:clamp(1.85rem,3.6vw,2.6rem);font-weight:800;letter-spacing:-.035em;line-height:1.1;color:#090a0c}
+    .offer-copy p{color:#434750;font-size:16px}
+    .year-pills{display:flex;flex-wrap:nowrap;gap:6px;margin:16px 0;overflow-x:auto}
+    .year-pill{font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;background:#e9efff;color:var(--blue);white-space:nowrap}
+    .offer-copy ul{margin:18px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+    .offer-copy li{display:flex;align-items:center;gap:8px;color:#1f232b;font-size:14.5px;font-weight:600}
+    .offer-price{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:#e8eaee;padding:28px;border-left:1px solid #d5d8df}
+    .offer-price-label{font-size:13px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
+    .offer-price .price-now{margin:6px 0 8px;font-size:42px;font-weight:800}
+    .offer-price-sub{font-size:14px;color:#4c515b;margin:0 0 18px;line-height:1.48}
+    .offer-price .cta{width:100%;padding-inline:15px}
+    .offer-guarantee{display:flex;align-items:center;gap:7px;margin-top:13px;font-size:13px;font-weight:700;color:#4c515b;white-space:nowrap}
+
+    /* FAQ */
+    .faq-list{max-width:780px;margin:auto;border-top:1px solid #d8dbe1}
+    .faq-item{border-bottom:1px solid #d8dbe1}
+    .faq-item summary{position:relative;cursor:pointer;list-style:none;padding:19px 40px 19px 0;font-size:17px;font-weight:500;color:#383d47;line-height:1.42}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary:after{content:"+";position:absolute;right:5px;top:14px;color:var(--blue);font-size:25px;font-weight:500}
+    .faq-item[open] summary:after{content:"−"}
+    .faq-item p{margin:0;padding:0 26px 19px 0;color:#4c515b;font-size:15.5px;font-weight:400;line-height:1.62}
+
+    /* Fechamento */
+    .closing{background:#e8eaee;text-align:center}
+    .closing h2{max-width:700px;margin:0 auto;font-size:clamp(1.9rem,4.5vw,3.1rem);line-height:1.1}
+    .closing p{max-width:620px;margin:13px auto 0;color:#41464f;font-size:17px}
+    .sticky-buy{position:fixed;z-index:40;right:0;bottom:0;left:0;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #d5d8df;background:var(--surface-light);padding:10px 18px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px #11121618;transform:translateY(110%);transition:transform .22s ease}
+    .sticky-buy.visible{transform:translateY(0)}
+
+    /* Botão Flutuante de WhatsApp */
+    .whatsapp-float{position:fixed;z-index:50;right:20px;bottom:22px;display:inline-flex;align-items:center;gap:9px;background:#25d366;color:#090a0c;border:2px solid #090a0c;border-radius:999px;padding:12px 18px;font-size:14.5px;font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #090a0c,0 10px 25px #00000030;transition:transform .2s ease,bottom .22s ease}
+    .whatsapp-float:hover{transform:translateY(-3px);background:#20bd5a}
+    .whatsapp-float svg{width:22px;height:22px;fill:#090a0c;flex-shrink:0}
+
+    /* Animação de Revelação Progressiva dos Cards ao Rolar a Página */
+    .reveal-card{opacity:0;transform:translateY(32px) scale(.97);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+    .reveal-card.is-visible{opacity:1;transform:translateY(0) scale(1)}
+
+    /* Tipografia Poppins consistente */
+    body, p, li, label, input, textarea, select, button, small,
+    .text, .card p, .card span, .faq p {
+      font-family:"Poppins",Arial,sans-serif;
+      font-weight:400;
+    }
+    h1, h2, h3, .display-title, .hero-title, .section-title,
+    .section-heading h2, .offer-copy h2, .step h3, .bonus-body h3, .topic-card h3 {
+      font-family:"Poppins",Arial,sans-serif;
+      font-weight:800;
+      letter-spacing:-.035em;
+    }
+    button, .btn, .cta, .button {
+      font-family:"Poppins",Arial,sans-serif;
+      font-weight:700;
+    }
+
+    .color-card h3,
+    .feature-card h3 {
+      color: var(--white-soft);
+      font-family:"Poppins",Arial,sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.18;
+    }
+    .color-card p,
+    .feature-card p {
+      color: #e4e4e7;
+      font-family:"Poppins",Arial,sans-serif;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    @media(max-width:960px){
+      .container{width:calc(100% - 64px)}
+      .bonus-grid{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media(max-width:760px){
+      .container{width:calc(100% - 44px)}
+      .hero{padding:20px 0 48px}
+      .hero-kicker{font-size:11.5px;padding:6px 12px}
+      .hero h1{margin:15px auto 20px;font-size:clamp(1.75rem,7.8vw,2.5rem);line-height:1.1}
+      .video-frame{border-radius:16px;box-shadow:6px 6px 0 var(--blue),0 16px 30px #101c3825}
+      .video-play{width:56px;height:56px}
+      .video-label{font-size:14px}
+      .hero-sub{margin-top:24px;font-size:15.5px}
+      .hero-offer{gap:12px}
+      .hero-offer .cta{width:100%}
+      .section{padding:56px 0}
+      .section-heading{margin-bottom:28px}
+      .pain-grid,.feature-grid,.curriculum-grid,.proof-grid,.bonus-grid,.steps{grid-template-columns:1fr}
+      .topic-card{padding:18px}
+      .topic-card p{padding-left:0;margin-top:4px}
+      .carousel-slide{width:265px}
+      .offer-card{grid-template-columns:1fr;box-shadow:7px 7px 0 var(--blue)}
+      .offer-copy{padding:24px}
+      .offer-copy ul{grid-template-columns:1fr}
+      .offer-price{padding:24px;border-left:none;border-top:1px solid #d5d8df}
+      .sticky-buy .cta{min-height:46px;padding-inline:16px;font-size:15px}
+      .whatsapp-float{right:14px;bottom:16px;padding:11px 14px;font-size:13px}
+      .whatsapp-float.lifted{bottom:78px}
+    }
+  </style>
+</head>
+<body>
+  <header class="container flex h-[68px] items-center justify-between" id="topo">
+    <a href="#topo" class="inline-flex items-center gap-2.5 rounded-lg no-underline" aria-label="Biblioteca do Professor, início">
+      <span class="brand-icon" aria-hidden="true"><i data-lucide="book-open-check" class="h-5 w-5"></i></span>
+      <span class="text-sm font-extrabold tracking-tight text-[#111216] sm:text-base whitespace-nowrap">Biblioteca do Professor</span>
+    </a>
+    <span class="rounded-full bg-[#e9efff] px-3 py-1.5 text-[11.5px] sm:text-xs font-bold text-[#1642c1] whitespace-nowrap">Português • 6º ao 9º</span>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <span class="hero-kicker"><i data-lucide="library-big" class="h-4 w-4"></i> Língua Portuguesa • 6º ao 9º Ano • BNCC</span>
+        <h1><em>250 páginas</em> e mais de <em>1.000 questões</em> organizadas para facilitar seu planejamento</h1>
+
+        <!-- Vídeo de demonstração -->
+        <div class="video-frame" id="video-demo" role="img" aria-label="Espaço reservado para um vídeo curto demonstrando o aplicativo por dentro">
+          <div class="video-placeholder">
+            <div>
+              <span class="video-play" aria-hidden="true"><i data-lucide="play" class="ml-1 h-7 w-7 fill-current"></i></span>
+              <p class="video-label">Veja o aplicativo e os materiais por dentro</p>
+            </div>
+            <p class="video-hint">Organizado por ano, bimestre e categoria • PDF e Word editável</p>
+          </div>
+        </div>
+
+        <p class="hero-sub">Acesse planejamentos bimestrais, textos, atividades por tema, slides por assunto, mapas mentais e avaliações com gabarito dentro de um app organizado — prontos para imprimir em PDF ou editar no Word.</p>
+        <div class="hero-offer">
+          <div class="flex items-baseline gap-2"><span class="price-old">De R$ 67,90</span><strong class="price-now">R$ 47,90</strong></div>
+          <a href="#checkout" class="cta">Quero acessar a Biblioteca <i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+        </div>
+        <p class="microcopy">Acesso imediato ao app • Arquivos em PDF e Editáveis em Word.</p>
+      </div>
+    </section>
+
+    <!-- Faixa de Benefícios Rápidos com Carrossel Automático Contínuo (Desktop e Mobile) -->
+    <div class="trust-strip" aria-label="Principais benefícios">
+      <div class="trust-marquee">
+        <div class="trust-group">
+          <span class="trust-item"><i data-lucide="check-circle-2" class="h-4 w-4"></i> Editável em Word</span>
+          <span class="trust-item"><i data-lucide="check-circle-2" class="h-4 w-4"></i> PDF pronto para imprimir</span>
+          <span class="trust-item"><i data-lucide="check-circle-2" class="h-4 w-4"></i> +1.000 Questões com Gabarito</span>
+          <span class="trust-item"><i data-lucide="check-circle-2" class="h-4 w-4"></i> Slides e Mapas Mentais</span>
+          <span class="trust-item"><i data-lucide="check-circle-2" class="h-4 w-4"></i> De acordo com a BNCC</span>
+        </div>
+        <div class="trust-group" aria-hidden="true">
+          <span class="trust-item"><i data-lucide="check-circle-2" class="h-4 w-4"></i> Editável em Word</span>
+          <span class="trust-item"><i data-lucide="check-circle-2" class="h-4 w-4"></i> PDF pronto para imprimir</span>
+          <span class="trust-item"><i data-lucide="check-circle-2" class="h-4 w-4"></i> +1.000 Questões com Gabarito</span>
+          <span class="trust-item"><i data-lucide="check-circle-2" class="h-4 w-4"></i> Slides e Mapas Mentais</span>
+          <span class="trust-item"><i data-lucide="check-circle-2" class="h-4 w-4"></i> De acordo com a BNCC</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção 1: Dor (Fundo Escuro #111216) -->
+    <section class="pain-section section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">A rotina que você conhece</p>
+          <h2>Preparar aula não deveria tomar o seu fim de semana.</h2>
+          <p>Quando o material está espalhado em pastas soltas ou sites desconexos, você perde horas procurando e formatando antes mesmo de entrar em sala.</p>
+        </div>
+        <div class="pain-grid">
+          <article class="color-card color-blue"><span class="icon"><i data-lucide="search" class="h-5 w-5"></i></span><h3>Garimpar em dezenas de sites</h3><p>Abrir várias abas para achar textos adequados, montar questões do zero e conferir se batem com a BNCC.</p></article>
+          <article class="color-card color-purple"><span class="icon"><i data-lucide="file-warning" class="h-5 w-5"></i></span><h3>Arquivos travados sem edição</h3><p>Encontrar atividades boas, mas presas em imagens ou PDFs difíceis de adaptar ao nível da sua turma.</p></article>
+          <article class="color-card color-orange"><span class="icon"><i data-lucide="clock" class="h-5 w-5"></i></span><h3>Falta de apoio visual em aula</h3><p>Não ter slides organizados nem mapas mentais prontos para explicar os conteúdos de gramática e interpretação.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção 2: Carrossel Automático Contínuo do Produto por Dentro -->
+    <section class="carousel-section section" id="por-dentro">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Conheça o conteúdo por dentro</p>
+          <h2>Veja tudo o que está organizado dentro da Biblioteca.</h2>
+          <p>Explore cada tipo de material separado por ano escolar (6º ao 9º ano), bimestre e tema.</p>
+        </div>
+
+        <div class="carousel-viewport" id="carousel-viewport">
+          <div class="carousel-track" id="product-carousel">
+            <!-- Slide 1 -->
+            <article class="carousel-slide">
+              <div class="slide-preview">
+                <span class="slide-badge"><i data-lucide="calendar-range" class="h-3.5 w-3.5"></i> Módulo 01</span>
+                <div class="slide-mockup">
+                  <div class="slide-mockup-top"><span>PLANEJAMENTO • 1º AO 4º BIM</span><span>BNCC</span></div>
+                  <div class="slide-mockup-lines"><span></span><span></span><span></span></div>
+                  <div class="slide-mockup-tags"><em>Sumário</em><em>Metodologias</em><em>Word + PDF</em></div>
+                </div>
+              </div>
+              <div class="slide-body">
+                <h3>Planejamentos Bimestrais & Sumário</h3>
+                <p>Cronograma completo com sumário estruturado e metodologias sugeridas para guiar suas aulas do 1º ao 4º bimestre.</p>
+                <div class="slide-specs">
+                  <span class="slide-spec-tag"><i data-lucide="check"></i> 6º ao 9º Ano</span>
+                  <span class="slide-spec-tag"><i data-lucide="check"></i> Habilidades BNCC</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 2 -->
+            <article class="carousel-slide">
+              <div class="slide-preview">
+                <span class="slide-badge"><i data-lucide="file-text" class="h-3.5 w-3.5"></i> Módulo 02</span>
+                <div class="slide-mockup">
+                  <div class="slide-mockup-top"><span>250 PÁGINAS • TEXTOS & TEMAS</span><span>6º–9º</span></div>
+                  <div class="slide-mockup-lines"><span></span><span></span><span></span></div>
+                  <div class="slide-mockup-tags"><em>Textos</em><em>Interpretação</em><em>Gramática</em></div>
+                </div>
+              </div>
+              <div class="slide-body">
+                <h3>250 Páginas de Atividades por Tema</h3>
+                <p>Seleção rica de textos variados e atividades divididas por assunto para aplicar em sala, dever de casa ou reforço.</p>
+                <div class="slide-specs">
+                  <span class="slide-spec-tag"><i data-lucide="check"></i> PDF + Word</span>
+                  <span class="slide-spec-tag"><i data-lucide="check"></i> Imprimir</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 3 -->
+            <article class="carousel-slide">
+              <div class="slide-preview">
+                <span class="slide-badge"><i data-lucide="clipboard-check" class="h-3.5 w-3.5"></i> Módulo 03</span>
+                <div class="slide-mockup">
+                  <div class="slide-mockup-top"><span>BANCO DE QUESTÕES • GABARITO</span><span>+1.000</span></div>
+                  <div class="slide-mockup-lines"><span></span><span></span><span></span></div>
+                  <div class="slide-mockup-tags"><em>1.000 Questões</em><em>Gabarito Completo</em></div>
+                </div>
+              </div>
+              <div class="slide-body">
+                <h3>+1.000 Questões & Avaliações</h3>
+                <p>Banco extenso de questões objetivas e discursivas com gabarito completo para montar provas e simulados em minutos.</p>
+                <div class="slide-specs">
+                  <span class="slide-spec-tag"><i data-lucide="check"></i> Gabarito Incluso</span>
+                  <span class="slide-spec-tag"><i data-lucide="check"></i> Editável</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 4 -->
+            <article class="carousel-slide">
+              <div class="slide-preview">
+                <span class="slide-badge"><i data-lucide="presentation" class="h-3.5 w-3.5"></i> Módulo 04</span>
+                <div class="slide-mockup">
+                  <div class="slide-mockup-top"><span>SLIDES POR ASSUNTO</span><span>VISUAL</span></div>
+                  <div class="slide-mockup-lines"><span></span><span></span><span></span></div>
+                  <div class="slide-mockup-tags"><em>Explicação Clara</em><em>Exemplos</em></div>
+                </div>
+              </div>
+              <div class="slide-body">
+                <h3>Slides Prontos por Assunto</h3>
+                <p>Apresentações didáticas organizadas por tema de Língua Portuguesa para projetar na aula e facilitar a explicação.</p>
+                <div class="slide-specs">
+                  <span class="slide-spec-tag"><i data-lucide="check"></i> Didático</span>
+                  <span class="slide-spec-tag"><i data-lucide="check"></i> Por Tema</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 5 -->
+            <article class="carousel-slide">
+              <div class="slide-preview">
+                <span class="slide-badge"><i data-lucide="network" class="h-3.5 w-3.5"></i> Módulo 05</span>
+                <div class="slide-mockup">
+                  <div class="slide-mockup-top"><span>MAPAS MENTAIS DE REVISÃO</span><span>RESUMO</span></div>
+                  <div class="slide-mockup-lines"><span></span><span></span><span></span></div>
+                  <div class="slide-mockup-tags"><em>Síntese Visual</em><em>Fixação</em></div>
+                </div>
+              </div>
+              <div class="slide-body">
+                <h3>Mapas Mentais Esquemáticos</h3>
+                <p>Resumos visuais que conectam regras gramaticais e conceitos de forma direta, ideais para revisão antes das provas.</p>
+                <div class="slide-specs">
+                  <span class="slide-spec-tag"><i data-lucide="check"></i> Alta Retenção</span>
+                  <span class="slide-spec-tag"><i data-lucide="check"></i> Projetar</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 6 -->
+            <article class="carousel-slide">
+              <div class="slide-preview">
+                <span class="slide-badge"><i data-lucide="smartphone" class="h-3.5 w-3.5"></i> Módulo 06</span>
+                <div class="slide-mockup">
+                  <div class="slide-mockup-top"><span>APP ORGANIZADO • ACESSO RÁPIDO</span><span>24H</span></div>
+                  <div class="slide-mockup-lines"><span></span><span></span><span></span></div>
+                  <div class="slide-mockup-tags"><em>Celular ou PC</em><em>Download Direto</em></div>
+                </div>
+              </div>
+              <div class="slide-body">
+                <h3>App Organizado por Ano e Bimestre</h3>
+                <p>Em vez de pastas bagunçadas, você acessa tudo pelo celular ou computador e baixa o arquivo exato que precisa.</p>
+                <div class="slide-specs">
+                  <span class="slide-spec-tag"><i data-lucide="check"></i> Busca Rápida</span>
+                  <span class="slide-spec-tag"><i data-lucide="check"></i> Imediato</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <span class="carousel-hint-text">Rolagem automática ativa • Passe o mouse ou toque para pausar</span>
+          <div class="carousel-arrows">
+            <button type="button" class="carousel-btn" id="carousel-prev" aria-label="Slide anterior"><i data-lucide="chevron-left" class="h-5 w-5"></i></button>
+            <button type="button" class="carousel-btn" id="carousel-next" aria-label="Próximo slide"><i data-lucide="chevron-right" class="h-5 w-5"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção 3: Tudo que compõe o pacote (Cards Coloridos) -->
+    <section class="section bg-[#fafbfc]">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Acervo completo de Língua Portuguesa</p>
+          <h2>Do planejamento anual à avaliação bimestral, tudo em um só lugar.</h2>
+          <p>Materiais estruturados para você economizar tempo na preparação e adaptar livremente à realidade de cada turma.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card"><span class="feature-icon"><i data-lucide="book-open" class="h-5 w-5"></i></span><h3>250 Páginas de Conteúdo</h3><p>Textos selecionados e atividades organizadas por tema para trabalhar leitura, interpretação e gramática.</p></article>
+          <article class="feature-card"><span class="feature-icon"><i data-lucide="help-circle" class="h-5 w-5"></i></span><h3>+1.000 Questões com Gabarito</h3><p>Questões prontas e gabaritadas para montar listas de exercícios, simulados e avaliações com agilidade.</p></article>
+          <article class="feature-card"><span class="feature-icon"><i data-lucide="file-edit" class="h-5 w-5"></i></span><h3>PDF e Editáveis em Word</h3><p>Baixe o PDF pronto para imprimir na hora ou abra no Word para editar cabeçalho, questões e formatação.</p></article>
+          <article class="feature-card"><span class="feature-icon"><i data-lucide="calendar-days" class="h-5 w-5"></i></span><h3>Planejamentos & Metodologias</h3><p>Sumário completo, metodologias de aplicação e planejamentos bimestrais alinhados às habilidades da BNCC.</p></article>
+          <article class="feature-card"><span class="feature-icon"><i data-lucide="presentation" class="h-5 w-5"></i></span><h3>Slides por Assunto</h3><p>Apoio visual organizado por tópico para dinamizar suas explicações em sala de aula.</p></article>
+          <article class="feature-card"><span class="feature-icon"><i data-lucide="git-fork" class="h-5 w-5"></i></span><h3>Mapas Mentais</h3><p>Esquemas visuais objetivos para facilitar a fixação dos conteúdos e revisões pré-prova.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção 4: Grade Curricular 6º ao 9º ano (CARDS MELHORADOS) -->
+    <section class="section bg-[#f3f5f8]">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Grade curricular • 6º ao 9º ano</p>
+          <h2>Tudo o que você trabalha no Ensino Fundamental II.</h2>
+          <p>Os materiais cobrem os principais eixos de Língua Portuguesa exigidos pela BNCC do 6º ao 9º ano.</p>
+        </div>
+        <div class="curriculum-grid">
+          <article class="topic-card">
+            <div class="topic-top">
+              <div class="topic-header"><span class="topic-num">01</span><h3>Gêneros Textuais</h3></div>
+              <span class="topic-pill">Leitura</span>
+            </div>
+            <p>Contos, crônicas, notícias, artigos de opinião, tirinhas e interpretação crítica de textos.</p>
+          </article>
+          <article class="topic-card">
+            <div class="topic-top">
+              <div class="topic-header"><span class="topic-num">02</span><h3>Classes de Palavras</h3></div>
+              <span class="topic-pill">Morfologia</span>
+            </div>
+            <p>Substantivo, adjetivo, verbo, advérbio, pronome, preposição, conjunção e interjeição.</p>
+          </article>
+          <article class="topic-card">
+            <div class="topic-top">
+              <div class="topic-header"><span class="topic-num">03</span><h3>Sujeito e Predicado</h3></div>
+              <span class="topic-pill">Sintaxe</span>
+            </div>
+            <p>Tipos de sujeito, predicado verbal e nominal, transitividade verbal e complementos.</p>
+          </article>
+          <article class="topic-card">
+            <div class="topic-top">
+              <div class="topic-header"><span class="topic-num">04</span><h3>Concordância</h3></div>
+              <span class="topic-pill">Norma Culta</span>
+            </div>
+            <p>Concordância verbal e nominal com os casos principais e mais cobrados em avaliações.</p>
+          </article>
+          <article class="topic-card">
+            <div class="topic-top">
+              <div class="topic-header"><span class="topic-num">05</span><h3>Regência e Crase</h3></div>
+              <span class="topic-pill">Gramática</span>
+            </div>
+            <p>Regência verbal e nominal, emprego obrigatório e proibido da crase com exercícios.</p>
+          </article>
+          <article class="topic-card">
+            <div class="topic-top">
+              <div class="topic-header"><span class="topic-num">06</span><h3>Pontuação e Ortografia</h3></div>
+              <span class="topic-pill">Escrita</span>
+            </div>
+            <p>Uso da vírgula, dois-pontos, acentuação gráfica e principais dificuldades ortográficas.</p>
+          </article>
+          <article class="topic-card">
+            <div class="topic-top">
+              <div class="topic-header"><span class="topic-num">07</span><h3>Orações e Períodos</h3></div>
+              <span class="topic-pill">Período Composto</span>
+            </div>
+            <p>Período simples e composto, orações coordenadas e subordinadas passo a passo.</p>
+          </article>
+          <article class="topic-card">
+            <div class="topic-top">
+              <div class="topic-header"><span class="topic-num">08</span><h3>Semântica e Figuras</h3></div>
+              <span class="topic-pill">Estilística</span>
+            </div>
+            <p>Denotação, conotação, coesão, coerência textual e figuras de linguagem.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção 5: Como Funciona -->
+    <section class="section bg-[#fafbfc]">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Como funciona</p>
+          <h2>Três passos para preparar sua aula em minutos.</h2>
+        </div>
+        <div class="steps">
+          <article class="step"><span class="step-index">1</span><h3>Escolha o ano</h3><p>Selecione entre o 6º, 7º, 8º ou 9º ano e filtre pelo bimestre ou tema da aula.</p></article>
+          <article class="step"><span class="step-index">2</span><h3>Baixe em PDF ou Word</h3><p>Escolha o formato ideal: PDF pronto para impressão ou arquivo Word editável para personalizar.</p></article>
+          <article class="step"><span class="step-index">3</span><h3>Aplique com sua turma</h3><p>Utilize os textos, slides, mapas mentais e questões com gabarito já prontos.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faixa de Números COMPACTA E REDUZIDA (Imagem 1 corrigida) -->
+    <section class="number-band">
+      <div class="container number-band-inner">
+        <div class="stat-box"><strong>250</strong><span>páginas organizadas</span></div>
+        <div class="stat-box"><strong>+1.000</strong><span>questões c/ gabarito</span></div>
+        <div class="stat-box"><strong>6º ao 9º</strong><span>anos (BNCC)</span></div>
+      </div>
+    </section>
+
+    <!-- Seção 6: BÔNUS EXCLUSIVOS -->
+    <section class="bonus-section section" id="bonus">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Presentes liberados hoje</p>
+          <h2>Garanta 3 Bônus Exclusivos sem pagar nada a mais.</h2>
+          <p>Ao acessar a Biblioteca do Professor hoje, você recebe gratuitamente esses 3 materiais complementares dentro do seu painel:</p>
+        </div>
+        <div class="bonus-grid">
+          <article class="bonus-card">
+            <div class="bonus-banner">
+              <span>Bônus 01</span>
+              <span class="bonus-free-pill">Grátis Hoje</span>
+            </div>
+            <div class="bonus-body">
+              <div class="bonus-icon-row">
+                <span class="bonus-icon"><i data-lucide="presentation" class="h-5 w-5"></i></span>
+                <h3>Pacote de Slides por Assunto</h3>
+              </div>
+              <p>Apresentações visuais prontas para projetar em sala de aula e explicar os conteúdos de gramática e interpretação com clareza.</p>
+              <div class="bonus-price-box">
+                <span>Vendido separadamente: <s>R$ 29,90</s></span>
+                <strong>R$ 0,00</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="bonus-card">
+            <div class="bonus-banner">
+              <span>Bônus 02</span>
+              <span class="bonus-free-pill">Grátis Hoje</span>
+            </div>
+            <div class="bonus-body">
+              <div class="bonus-icon-row">
+                <span class="bonus-icon"><i data-lucide="network" class="h-5 w-5"></i></span>
+                <h3>Coleção de Mapas Mentais</h3>
+              </div>
+              <p>Resumos esquemáticos prontos para imprimir e entregar aos alunos na revisão antes das avaliações bimestrais.</p>
+              <div class="bonus-price-box">
+                <span>Vendido separadamente: <s>R$ 24,90</s></span>
+                <strong>R$ 0,00</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="bonus-card">
+            <div class="bonus-banner">
+              <span>Bônus 03</span>
+              <span class="bonus-free-pill">Grátis Hoje</span>
+            </div>
+            <div class="bonus-body">
+              <div class="bonus-icon-row">
+                <span class="bonus-icon"><i data-lucide="clipboard-list" class="h-5 w-5"></i></span>
+                <h3>Planejamentos + Metodologias BNCC</h3>
+              </div>
+              <p>Cronogramas bimestrais prontos com sumário e metodologias alinhadas à BNCC para agilizar sua documentação escolar.</p>
+              <div class="bonus-price-box">
+                <span>Vendido separadamente: <s>R$ 27,90</s></span>
+                <strong>R$ 0,00</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="bonus-total-bar">
+          Total em bônus: <s>R$ 82,70</s> — <strong>Todos liberados gratuitamente</strong> na inscrição de hoje.
+        </div>
+      </div>
+    </section>
+
+    <!-- Provas Sociais -->
+    <section class="proof-section section" id="provas-sociais">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Experiências reais</p>
+          <h2>O que professores dizem sobre a Biblioteca.</h2>
+          <p>Depoimentos reais de docentes que utilizam os materiais no planejamento de Língua Portuguesa.</p>
+        </div>
+        <div class="proof-grid">
+          <div class="proof-slot" role="img" aria-label="Espaço reservado para a primeira prova social">
+            <span class="upload-icon"><i data-lucide="image-plus" class="h-6 w-6"></i></span>
+            <strong>Adicione aqui uma mensagem real</strong>
+            <span>Captura de depoimento de professor(a), com autorização para publicação.</span>
+          </div>
+          <div class="proof-slot" role="img" aria-label="Espaço reservado para a segunda prova social">
+            <span class="upload-icon"><i data-lucide="message-square-quote" class="h-6 w-6"></i></span>
+            <strong>Adicione outro relato verdadeiro</strong>
+            <span>Substitua este espaço pela imagem da mensagem ou avaliação.</span>
+          </div>
+          <div class="proof-slot" role="img" aria-label="Espaço reservado para a terceira prova social">
+            <span class="upload-icon"><i data-lucide="image-plus" class="h-6 w-6"></i></span>
+            <strong>Inclua uma terceira prova social</strong>
+            <span>Use apenas um relato real e autorizado pelo professor.</span>
+          </div>
+        </div>
+        <p class="proof-note">Os espaços acima são marcadores de edição. Substitua-os pelos prints reais antes de publicar.</p>
+      </div>
+    </section>
+
+    <!-- Oferta Completa -->
+    <section class="offer-section section" id="checkout">
+      <div class="container">
+        <div class="offer-card">
+          <div class="offer-copy">
+            <p class="eyebrow !mx-0">Acesso completo ao app</p>
+            <h2>Biblioteca de Língua Portuguesa (6º ao 9º Ano)</h2>
+            <p>Tudo organizado dentro de um app para você consultar e baixar em PDF ou Word editável sempre que precisar.</p>
+            <div class="year-pills">
+              <span class="year-pill">6º Ano</span>
+              <span class="year-pill">7º Ano</span>
+              <span class="year-pill">8º Ano</span>
+              <span class="year-pill">9º Ano</span>
+              <span class="year-pill">BNCC</span>
+            </div>
+            <ul>
+              <li><i data-lucide="check" class="h-4 w-4 flex-none text-[#1650f0]"></i><span>250 páginas de conteúdo</span></li>
+              <li><i data-lucide="check" class="h-4 w-4 flex-none text-[#1650f0]"></i><span>+1.000 questões c/ gabarito</span></li>
+              <li><i data-lucide="check" class="h-4 w-4 flex-none text-[#1650f0]"></i><span>Planejamentos bimestrais</span></li>
+              <li><i data-lucide="check" class="h-4 w-4 flex-none text-[#1650f0]"></i><span>Sumário e metodologias</span></li>
+              <li><i data-lucide="check" class="h-4 w-4 flex-none text-[#1650f0]"></i><span>Textos e atividades p/ tema</span></li>
+              <li><i data-lucide="check" class="h-4 w-4 flex-none text-[#1650f0]"></i><span>Slides por assunto (Bônus)</span></li>
+              <li><i data-lucide="check" class="h-4 w-4 flex-none text-[#1650f0]"></i><span>Mapas mentais (Bônus)</span></li>
+              <li><i data-lucide="check" class="h-4 w-4 flex-none text-[#1650f0]"></i><span>Arquivos em PDF e Word</span></li>
+            </ul>
+          </div>
+          <div class="offer-price">
+            <span class="offer-price-label">Pagamento Único</span>
+            <span class="price-old mt-2">De R$ 67,90 por</span>
+            <strong class="price-now">R$ 47,90</strong>
+            <p class="offer-price-sub">Acesso imediato ao app + 3 Bônus gratuitos e downloads em PDF e Word.</p>
+            <a href="#checkout" class="cta">Quero acessar agora <i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+            <span class="offer-guarantee"><i data-lucide="shield-check" class="h-4 w-4 text-[#1650f0]"></i> 7 dias de garantia</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section bg-[#fafbfc]">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Dúvidas frequentes</p>
+          <h2>Antes de acessar a Biblioteca</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item"><summary>O que exatamente eu recebo ao entrar na Biblioteca?</summary><p>Você recebe acesso ao aplicativo com todo o acervo de Língua Portuguesa do 6º ao 9º ano: 250 páginas de conteúdo, planejamentos bimestrais, sumário, metodologias, textos, atividades por tema, mais de 1.000 questões com gabarito, além dos 3 bônus (slides por assunto, mapas mentais e planejamentos).</p></details>
+          <details class="faq-item"><summary>Os arquivos vêm em PDF e também editáveis em Word?</summary><p>Sim. Dentro do app você encontra os materiais organizados por ano, bimestre e categoria, podendo baixar tanto a versão em PDF (pronta para imprimir) quanto a versão editável em Word para adaptar o cabeçalho, as questões ou o layout.</p></details>
+          <details class="faq-item"><summary>O material está alinhado à BNCC?</summary><p>Sim. Os planejamentos bimestrais, textos, atividades e avaliações seguem as diretrizes e habilidades da BNCC para Língua Portuguesa do 6º ao 9º ano do Ensino Fundamental.</p></details>
+          <details class="faq-item"><summary>Como funciona o acesso após a confirmação do pagamento?</summary><p>Assim que o pagamento é confirmado, você recebe imediatamente os dados de acesso no seu e-mail para entrar no aplicativo pelo celular, tablet ou computador e baixar os materiais sempre que precisar.</p></details>
+          <details class="faq-item"><summary>O pagamento é único ou tem mensalidade?</summary><p>O pagamento é único (R$ 47,90), sem cobranças recorrentes ou mensalidades ocultas.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fechamento -->
+    <section class="closing section">
+      <div class="container">
+        <h2>Mais organização e tempo livre para o seu planejamento.</h2>
+        <p>250 páginas, +1.000 questões com gabarito, planejamentos, slides e mapas mentais de Língua Portuguesa (6º ao 9º ano) em PDF e Word dentro de um app.</p>
+        <a href="#checkout" class="cta mt-6">Acessar por R$ 47,90 <i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#dedfe1] bg-[#fafbfc] py-7 pb-24 text-center text-sm text-[#4c515b] md:pb-7">
+    <div class="container">
+      <strong class="text-[#111216]">Biblioteca do Professor • Língua Portuguesa (6º ao 9º Ano)</strong>
+      <p class="mx-auto mb-0 mt-2">Materiais alinhados à BNCC em PDF e Word editável.</p>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante de WhatsApp -->
+  <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20Biblioteca%20do%20Professor." target="_blank" rel="noopener noreferrer" class="whatsapp-float" id="whatsapp-float" aria-label="Tirar dúvidas pelo WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.01 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.46 1.71 6.4L3.1 29.1l6.87-1.8a12.74 12.74 0 0 0 6.04 1.54h.01c7.07 0 12.8-5.73 12.8-12.8 0-3.42-1.33-6.63-3.75-9.05A12.72 12.72 0 0 0 16.01 3.2zm0 23.48h-.01a10.6 10.6 0 0 1-5.41-1.48l-.39-.23-4.08 1.07 1.09-3.98-.25-.41a10.62 10.62 0 0 1-1.63-5.65c0-5.88 4.79-10.67 10.68-10.67 2.85 0 5.53 1.11 7.55 3.13a10.6 10.6 0 0 1 3.12 7.55c0 5.88-4.79 10.67-10.67 10.67zm5.86-7.99c-.32-.16-1.9-.94-2.19-1.04-.29-.11-.51-.16-.72.16-.21.32-.83 1.04-1.02 1.26-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.58-1.59-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.74-.99-2.38-.26-.62-.53-.54-.72-.55h-.62c-.21 0-.56.08-.85.4-.29.32-1.12 1.1-1.12 2.67s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.47 4.84.76.33 1.36.53 1.82.67.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/></svg>
+    <span>Dúvidas no WhatsApp</span>
+  </a>
+
+  <div class="sticky-buy md:hidden" id="sticky-buy" aria-hidden="true">
+    <div><span class="block text-[11px] font-semibold text-[#4c515b] whitespace-nowrap">6º ao 9º Ano • PDF + Word</span><strong class="text-lg font-extrabold text-[#111216] whitespace-nowrap">R$ 47,90</strong></div>
+    <a href="#checkout" class="cta !min-h-[44px] !px-4 !text-sm">Acessar <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+  </div>
+
+  <script>
+    if (window.lucide) window.lucide.createIcons();
+
+    // Carrossel automático contínuo via GPU (translate3d) + botões de controle
+    (function(){
+      var viewport = document.getElementById('carousel-viewport');
+      var track = document.getElementById('product-carousel');
+      var prevBtn = document.getElementById('carousel-prev');
+      var nextBtn = document.getElementById('carousel-next');
+      if (!track || !viewport) return;
+
+      var originalSlides = Array.from(track.children);
+      originalSlides.forEach(function(slide){
+        var clone = slide.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      });
+
+      var isPaused = false;
+      var pos = 0;
+      var speed = 0.65;
+
+      function getHalfWidth(){
+        return track.scrollWidth / 2;
+      }
+
+      function animateCarousel(){
+        if (!isPaused) {
+          pos -= speed;
+          var half = getHalfWidth();
+          if (Math.abs(pos) >= half) {
+            pos = 0;
+          }
+          track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
+        }
+        requestAnimationFrame(animateCarousel);
+      }
+
+      viewport.addEventListener('mouseenter', function(){ isPaused = true; });
+      viewport.addEventListener('mouseleave', function(){ isPaused = false; });
+      viewport.addEventListener('touchstart', function(){ isPaused = true; }, { passive: true });
+      viewport.addEventListener('touchend', function(){
+        setTimeout(function(){ isPaused = false; }, 1200);
+      }, { passive: true });
+
+      prevBtn.addEventListener('click', function(){
+        var step = originalSlides[0].offsetWidth + 18;
+        var half = getHalfWidth();
+        pos += step;
+        if (pos > 0) pos = -half + step;
+        track.style.transition = 'transform 0.35s ease';
+        track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
+        setTimeout(function(){ track.style.transition = 'none'; }, 360);
+      });
+
+      nextBtn.addEventListener('click', function(){
+        var step = originalSlides[0].offsetWidth + 18;
+        var half = getHalfWidth();
+        pos -= step;
+        if (Math.abs(pos) >= half) pos = 0;
+        track.style.transition = 'transform 0.35s ease';
+        track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
+        setTimeout(function(){ track.style.transition = 'none'; }, 360);
+      });
+
+      requestAnimationFrame(animateCarousel);
+    })();
+
+    // Barra fixa mobile + ajuste de altura do botão do WhatsApp
+    (function(){
+      var bar = document.getElementById('sticky-buy');
+      var wa = document.getElementById('whatsapp-float');
+      var update = function(){
+        var visible = window.scrollY > Math.max(420, window.innerHeight * .72);
+        bar.classList.toggle('visible', visible);
+        bar.setAttribute('aria-hidden', String(!visible));
+        if (wa) wa.classList.toggle('lifted', visible);
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
+
+    // Animação de revelação progressiva dos cards ao rolar a página
+    (function(){
+      var items = document.querySelectorAll('.color-card,.feature-card,.topic-card,.step,.bonus-card,.proof-slot,.offer-card');
+      if (!('IntersectionObserver' in window)) return;
+
+      items.forEach(function(item, index){
+        item.classList.add('reveal-card');
+        item.style.transitionDelay = (index % 3) * 90 + 'ms';
+      });
+
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -25px 0px' });
+
+      items.forEach(function(item){
+        observer.observe(item);
+      });
+    })();
+  </script>
+</body>
+</html>
