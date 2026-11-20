@@ -1,804 +1,1884 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#1650f0">
-  <meta name="description" content="Biblioteca do Professor: Língua Portuguesa do 6º ao 9º ano com 250 páginas, +1.000 questões com gabarito, planejamentos bimestrais, slides e mapas mentais em PDF e Word editável dentro de um app.">
-  <title>Biblioteca do Professor | Língua Portuguesa 6º ao 9º Ano</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-
+  <meta name="theme-color" content="#02358f">
+  <title>Biblioteca do Professor | Língua Portuguesa</title>
+  <meta name="description" content="Prepare suas aulas de Língua Portuguesa em 1 minuto com materiais 100% prontos, alinhados à BNCC, com gabarito e editáveis em Word.">
+  <link rel="preconnect" href="https://ar-no-preco-certo.vercel.app" crossorigin>
+  <link rel="preload" href="https://ar-no-preco-certo.vercel.app/fonts/poppins-800.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="https://ar-no-preco-certo.vercel.app/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="https://ar-no-preco-certo.vercel.app/fonts/poppins-500.woff2" as="font" type="font/woff2" crossorigin="">
   <style>
-    :root{
-      --blue:#1650f0;
-      --blue-deep:#0b1f52;
-      --ink:#111216;
-      --muted:#4c515b;
-      --white-soft:#f5f5f7;
-      --white-muted:#d4d4d8;
-      --surface-light:#fafbfc;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:24px;overflow-x:hidden;background:#f3f5f9}
-    body{margin:0;background:#f3f5f9;color:var(--ink);font-family:"Poppins",Arial,sans-serif;font-size:15.5px;line-height:1.58;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-    h1,h2,h3,h4{font-family:"Poppins",Arial,sans-serif;font-weight:800;letter-spacing:-.035em;margin:0}
-    p{margin:0}
 
-    /* COLUNA CENTRAL ESTREITA (Exatamente como a página de exemplo - 460px centralizado) */
-    .page-shell{
-      width:100%;
-      max-width:460px;
-      margin-inline:auto;
-      background:var(--surface-light);
-      box-shadow:0 0 40px rgba(15,23,42,0.08);
-      min-height:100vh;
-      overflow-x:hidden;
-    }
-    .inner-box{
-      padding-inline:18px;
-    }
 
-    /* Botão CTA */
-    .cta{display:inline-flex;min-height:52px;align-items:center;justify-content:center;gap:9px;border:2px solid var(--blue);border-radius:13px;background:var(--blue);padding:0 20px;color:var(--white-soft);text-decoration:none;font-size:15px;font-weight:700;box-shadow:0 4px 0 #0d329f;transition:transform .18s,background .18s;width:100%;text-align:center}
-    .cta:hover{transform:translateY(-2px);background:#103ab5}
-    .cta-green{background:#16a34a;border-color:#15803d;box-shadow:0 4px 0 #14532d;color:#fff}
-    .cta-green:hover{background:#15803d}
+@font-face { font-family: "Poppins"; font-weight: 500; font-display: swap; src: url("https://ar-no-preco-certo.vercel.app/fonts/poppins-500.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 600; font-display: swap; src: url("https://ar-no-preco-certo.vercel.app/fonts/poppins-600.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 700; font-display: swap; src: url("https://ar-no-preco-certo.vercel.app/fonts/poppins-700.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 800; font-display: swap; src: url("https://ar-no-preco-certo.vercel.app/fonts/poppins-800.woff2") format("woff2"); }
 
-    /* Header */
-    .top-bar{display:flex;align-items:center;justify-content:space-between;height:60px;padding-inline:18px;background:#fff;border-bottom:1px solid #e5e9f2}
+:root {
+  --bg: #eef4ff;
+  --card: #ffffff;
+  --ink: #0b1b3a;
+  --muted: #56688a;
+  --line: #dbe5f6;
+  --blue: #02358f;
+  --blue-dk: #01266a;
+  --blue-50: #e4ebf7;
+  --sky: #01c6ce;
+  --sky-50: #dcf7f8;
+  --green: #16a34a;
+  --green-50: #dcfce7;
+  --cta: #22c55e;
+  --cta-dk: #0f8a3c;
+  --orange: #f59e0b;
+  --orange-50: #fff3d6;
+  --purple: #7c3aed;
+  --purple-50: #efe8ff;
+  --red: #ef4444;
+  --red-50: #feeaea;
+  --shadow: 0 10px 30px -12px rgba(2, 53, 143, .28), 0 2px 6px rgba(11, 27, 58, .06);
+  --r: 20px;
+}
 
-    /* Hero */
-    .hero{padding:24px 0 42px;background:linear-gradient(180deg,#eaf1ff 0%,var(--surface-light) 92%);text-align:center}
-    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:#e0eaff;border:1px solid #c2d5ff;color:#1642c1;padding:5px 12px;border-radius:999px;font-size:11.5px;font-weight:800}
-    .hero h1{margin:14px auto 12px;font-size:1.72rem;line-height:1.12;color:#090a0c}
-    .hero h1 span{color:var(--blue)}
-    .hero-lead{color:#3f444e;font-size:14.5px;margin-bottom:14px}
-    .hero-delivery{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#15803d;background:#ecfdf5;border:1px solid #bbf7d0;padding:5px 12px;border-radius:999px;margin-bottom:18px}
 
-    /* Foto / Demonstração do App no Hero */
-    .hero-media{position:relative;border:2px solid #111216;border-radius:18px;overflow:hidden;box-shadow:6px 6px 0 var(--blue);background:#0b1f52}
-    .hero-media img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;opacity:.92}
-    .hero-media-caption{background:#0b1f52;color:var(--white-soft);padding:10px 14px;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:7px}
+.c-blue   { --c: var(--blue);   --c50: var(--blue-50); --c2: #01c6ce; }
+.c-sky    { --c: var(--sky);    --c50: var(--sky-50); }
+.c-green  { --c: var(--green);  --c50: var(--green-50); --c2: #4ade80; }
+.c-orange { --c: var(--orange); --c50: var(--orange-50); }
+.c-purple { --c: var(--purple); --c50: var(--purple-50); --c2: #c084fc; }
+.c-red    { --c: var(--red);    --c50: var(--red-50); }
 
-    /* Faixa de Benefícios Rápidos com Carrossel Automático */
-    .trust-strip{background:var(--blue);color:var(--white-soft);padding:11px 0;border-top:2px solid #090a0c;border-bottom:2px solid #090a0c;overflow:hidden}
-    .trust-marquee{display:flex;width:max-content;animation:marqueeScroll 22s linear infinite}
-    .trust-group{display:flex;align-items:center;gap:26px;padding-right:26px}
-    .trust-item{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;white-space:nowrap}
-    .trust-item i{color:#ffd166}
-    @keyframes marqueeScroll{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-50%,0,0)}}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
+body {
+  font-family: "Poppins", system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  color: var(--ink);
+  background:
+    radial-gradient(120% 60% at 50% -10%, #d5e6f5 0%, rgba(214, 229, 255, 0) 60%),
+    var(--bg);
+  min-height: 100vh;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+img { display: block; max-width: 100%; height: auto; }
+b, strong { font-weight: 700; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+.ic { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 
-    /* Seções padrão */
-    .section{padding:44px 0}
-    .section-head{text-align:center;margin-bottom:22px}
-    .eyebrow{font-size:11.5px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}
-    .section-head h2{font-size:1.52rem;line-height:1.16;color:#090a0c}
-    .section-head p{margin-top:7px;color:#4c515b;font-size:14px}
 
-    /* Bloco 2: Card Branco + Card Azul Marinho + Lista 2 Colunas */
-    .info-card{background:#fff;border:2px solid #e2e8f0;border-radius:16px;padding:20px;box-shadow:0 6px 18px #0f172a08;margin-bottom:16px}
-    .info-card-title{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-    .info-icon{width:34px;height:34px;border-radius:9px;background:#e9efff;color:var(--blue);display:grid;place-items:center;flex-shrink:0}
-    .info-card h3{font-size:16.5px;color:#090a0c}
-    .info-card p{color:#454a53;font-size:14px;margin-top:7px}
+.app { max-width: 480px; margin: 0 auto; padding: max(8px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) calc(48px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); }
 
-    .navy-highlight-card{background:linear-gradient(135deg,#091942 0%,#102c75 100%);color:var(--white-soft);border-radius:16px;padding:20px;border:2px solid #1e40af;box-shadow:5px 5px 0 var(--blue);margin-bottom:18px}
-    .navy-highlight-card .navy-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-    .navy-highlight-card .navy-icon{width:34px;height:34px;border-radius:9px;background:#ffffff1a;color:#ffd166;display:grid;place-items:center;flex-shrink:0}
-    .navy-highlight-card h3{font-size:16.5px;color:var(--white-soft)}
-    .navy-highlight-card p{color:#e4e4e7;font-size:14px;margin-top:7px}
 
-    /* Grade organizada em 2 colunas simétricas */
-    .topics-box{background:#fff;border:2px solid #e2e8f0;border-radius:16px;padding:18px}
-    .topics-box h3{font-size:16px;margin-bottom:14px;color:#090a0c;text-align:center}
-    .topics-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    .topic-pill{display:flex;align-items:center;gap:6px;background:#f1f5ff;border:1px solid #d6e2ff;color:#1642c1;font-size:11.5px;font-weight:700;padding:7px 9px;border-radius:9px;line-height:1.2}
-    .topic-pill i{width:13px;height:13px;flex-shrink:0;color:var(--blue)}
-    .topic-pill.highlight{background:#fef3c7;border-color:#fde68a;color:#92400e}
-    .topic-pill.highlight i{color:#d97706}
+.reveal { animation: up .55s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes up { from { opacity: 0; transform: translateY(14px); } }
+@media (prefers-reduced-motion: reduce) { .reveal { animation: none; } }
 
-    /* Bloco 3: Vitrine do App em 3 Mini-Telas lado a lado (igual à imagem de exemplo) */
-    .app-showcase{background:linear-gradient(180deg,#0e2c7a 0%,#1650f0 100%);color:var(--white-soft);padding:44px 0;border-top:2px solid #090a0c;border-bottom:2px solid #090a0c}
-    .app-showcase .eyebrow{color:#ffd166}
-    .app-showcase .section-head h2{color:var(--white-soft)}
-    .app-showcase .section-head p{color:#e4e4e7}
-    .phones-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-    .phone-mock{background:#fff;color:#111216;border:2px solid #090a0c;border-radius:14px;padding:8px 7px;box-shadow:3px 3px 0 #090a0c;display:flex;flex-direction:column}
-    .phone-notch{width:32px;height:4px;background:#cbd5e1;border-radius:99px;margin:0 auto 7px}
-    .phone-step-badge{display:inline-block;background:#e9efff;color:var(--blue);font-size:8.5px;font-weight:800;padding:2px 6px;border-radius:999px;margin-bottom:4px;white-space:nowrap}
-    .phone-mock h3{font-size:11.5px;margin-bottom:6px;color:#090a0c;line-height:1.15}
-    .phone-ui-list{display:flex;flex-direction:column;gap:4px;margin-top:auto}
-    .phone-ui-row{display:flex;align-items:center;justify-content:space-between;background:#f4f6fb;border:1px solid #e2e8f0;padding:4px 5px;border-radius:6px;font-size:9px;font-weight:700;color:#1e293b;line-height:1.15}
-    .phone-ui-row.active{background:var(--blue);color:#fff;border-color:var(--blue)}
-    .showcase-bar{margin-top:18px;text-align:center;font-size:11.5px;font-weight:800;letter-spacing:.03em;color:#ffd166;text-transform:uppercase}
 
-    /* Bloco 4: Comparativo Visual ANTES vs AGORA lado a lado (igual imagem de exemplo) */
-    .compare-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
-    .compare-box{border-radius:16px;padding:13px 11px;border:2px solid #111216;background:#fff;display:flex;flex-direction:column}
-    .compare-box.before{box-shadow:4px 4px 0 #dc2626}
-    .compare-box.after{box-shadow:4px 4px 0 #16a34a}
-    .compare-pill{display:inline-flex;align-items:center;justify-content:center;gap:4px;font-size:10px;font-weight:800;padding:4px 8px;border-radius:999px;margin-bottom:10px;text-transform:uppercase}
-    .compare-box.before .compare-pill{background:#fee2e2;color:#b91c1c}
-    .compare-box.after .compare-pill{background:#dcfce7;color:#15803d}
-    .sim-bubble{padding:7px 8px;border-radius:8px;font-size:11px;line-height:1.35;margin-bottom:6px}
-    .compare-box.before .sim-bubble{background:#fef2f2;border-left:3px solid #dc2626;color:#7f1d1d}
-    .compare-box.after .sim-bubble{background:#f0fdf4;border-left:3px solid #16a34a;color:#14532d}
-    .compare-caption{margin-top:auto;padding-top:6px;font-size:11px;font-weight:800;text-align:center}
-    .compare-box.before .compare-caption{color:#b91c1c}
-    .compare-box.after .compare-caption{color:#15803d}
+h1, h2, h3 { font-weight: 800; letter-spacing: -.02em; line-height: 1.16; }
+.hl { color: var(--blue); background: linear-gradient(transparent 62%, #bfeef1 62%); padding: 0 .08em; }
+.warn { color: var(--red); background: linear-gradient(transparent 62%, #ffd5d5 62%); padding: 0 .08em; }
 
-    /* Rotina SEM vs COM (com fotos reais) */
-    .contrast-stack{display:flex;flex-direction:column;gap:18px}
-    .contrast-panel{border-radius:18px;padding:20px;border:2px solid}
-    .contrast-panel.bad{background:#fff5f5;border-color:#fecaca}
-    .contrast-panel.good{background:#f0fdf4;border-color:#bbf7d0}
-    .contrast-panel h3{font-size:1.2rem;margin-bottom:12px;text-transform:uppercase}
-    .contrast-panel.bad h3{color:#b91c1c}
-    .contrast-panel.good h3{color:#15803d}
-    .contrast-list{list-style:none;padding:0;margin:0 0 16px;display:flex;flex-direction:column;gap:8px}
-    .contrast-list li{display:flex;align-items:flex-start;gap:7px;font-size:13.5px;font-weight:600;color:#1f2937;line-height:1.4}
-    .contrast-panel.bad .contrast-list i{color:#dc2626;flex-shrink:0;margin-top:2px}
-    .contrast-panel.good .contrast-list i{color:#16a34a;flex-shrink:0;margin-top:2px}
-    .panel-photo{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;border:2px solid #111216}
 
-    /* Bloco 5: Apresentação Oficial do App + Foto */
-    .app-intro-card{background:#fff;border:2px solid #111216;border-radius:20px;padding:22px;box-shadow:6px 6px 0 var(--blue);text-align:center}
-    .app-logo-pill{display:inline-flex;align-items:center;gap:8px;background:#eef3ff;border:2px solid var(--blue);padding:7px 16px;border-radius:12px;margin:6px 0 12px}
-    .app-logo-pill span{font-size:16.5px;font-weight:900;color:var(--blue)}
-    .app-steps-mini{display:flex;flex-direction:column;gap:8px;margin:16px 0;text-align:left}
-    .app-step-item{background:#f4f7ff;border:1px solid #d6e2ff;border-radius:11px;padding:10px 12px;display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:#0f172a}
-    .app-step-num{width:24px;height:24px;border-radius:6px;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:11.5px;font-weight:800;flex-shrink:0}
+.btn {
+  display: block; width: 100%; text-align: center; text-decoration: none;
+  margin-top: 22px; padding: 18px 16px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #2fd56c, var(--green));
+  color: #fff; font-weight: 800; font-size: 17px; letter-spacing: .02em; text-transform: uppercase;
+  box-shadow: 0 6px 0 var(--cta-dk), 0 14px 28px -8px rgba(22, 163, 74, .55);
+  transition: transform .12s, box-shadow .12s;
+}
+.btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--cta-dk), 0 8px 18px -8px rgba(22, 163, 74, .55); }
+.btn--pulse { animation: pulse 1.8s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+@media (prefers-reduced-motion: reduce) { .btn--pulse { animation: none; } }
 
-    /* Carrossel Automático */
-    .carousel-section{background:#f1f4f9;border-top:1px solid #dfe4ee;border-bottom:1px solid #dfe4ee;overflow:hidden}
-    .carousel-viewport{overflow:hidden;padding:4px 0 10px;width:100%}
-    .carousel-track{display:flex;gap:12px;width:max-content;will-change:transform}
-    .carousel-slide{width:225px;flex-shrink:0;background:#fff;border:2px solid #111216;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:4px 4px 0 var(--blue)}
-    .slide-top{background:linear-gradient(135deg,#1650f0,#2f66f5);padding:11px 12px;color:var(--white-soft)}
-    .slide-badge{display:inline-block;font-size:10px;font-weight:800;background:#090a0c45;padding:2px 7px;border-radius:999px;margin-bottom:5px}
-    .slide-top h4{font-size:14px}
-    .slide-body{padding:12px;flex:1;display:flex;flex-direction:column}
-    .slide-body p{font-size:12.5px;color:#4c515b;margin-bottom:9px}
-    .slide-tag{margin-top:auto;font-size:10.5px;font-weight:800;color:var(--blue);background:#eef3ff;padding:3px 7px;border-radius:5px;align-self:flex-start}
 
-    /* Faixa de Números Compacta */
-    .number-band{background:var(--blue);color:var(--white-soft);padding:16px 0;border-top:2px solid #090a0c;border-bottom:2px solid #090a0c}
-    .number-band-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;text-align:center}
-    .stat-box strong{display:block;font-size:1.35rem;font-weight:800;line-height:1.05}
-    .stat-box span{display:block;margin-top:2px;font-size:11px;color:#e4e4e7}
+.cover { text-align: center; padding-top: 20px; }
+.cover h1 { font-size: 27px; text-wrap: balance; }
+.cover .lede { text-wrap: balance; }
+.cover .lede .u { white-space: nowrap; }
+.lede { margin: 14px auto 18px; font-size: 15.5px; color: var(--muted); max-width: 400px; }
+.lede strong { color: var(--ink); }
+.lede .u { text-decoration: underline; text-decoration-color: var(--blue); text-decoration-thickness: 3px; text-underline-offset: 3px; }
 
-    /* Bônus */
-    .bonus-section{background:#111216;color:var(--white-soft)}
-    .bonus-section .eyebrow{color:#ffd166}
-    .bonus-section .section-head h2{color:var(--white-soft)}
-    .bonus-section .section-head p{color:var(--white-muted)}
-    .bonus-stack{display:flex;flex-direction:column;gap:12px}
-    .bonus-card{background:#fff;color:#111216;border-radius:14px;overflow:hidden;border:2px solid #ffd166}
-    .bonus-banner{background:#ffd166;color:#111216;padding:6px 14px;display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:900;text-transform:uppercase}
-    .bonus-free{background:#111216;color:#ffd166;padding:2px 7px;border-radius:4px;font-size:9.5px}
-    .bonus-body{padding:16px}
-    .bonus-body h3{font-size:16px;margin-bottom:5px}
-    .bonus-body p{font-size:13px;color:#454a53;margin-bottom:9px}
-    .bonus-price{padding-top:7px;border-top:1px dashed #cbd5e1;display:flex;justify-content:space-between;font-size:12px}
-    .bonus-price strong{color:#15803d;font-weight:800}
 
-    /* Oferta Final */
-    .offer-section{background:#111216;color:var(--white-soft)}
-    .offer-card{background:#fff;color:#111216;border:2px solid #090a0c;border-radius:20px;overflow:hidden;box-shadow:6px 6px 0 var(--blue)}
-    .offer-copy{padding:22px}
-    .offer-copy h2{font-size:1.5rem;line-height:1.15;margin-bottom:7px}
-    .offer-copy ul{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:7px}
-    .offer-copy li{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600}
-    .offer-price{background:#e8eaee;padding:20px 22px;border-top:1px solid #d5d8df;text-align:center}
-    .price-old{color:#626773;text-decoration:line-through;font-size:14px;display:block}
-    .price-now{font-size:36px;font-weight:800;line-height:1.05;margin:3px 0 7px;color:#090a0c;display:block}
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 18px 0 4px; }
+.ba__item { position: relative; border-radius: 18px; overflow: hidden; border: 3px solid; background: #fff; box-shadow: var(--shadow); }
+.ba__item img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.ba__item--before { border-color: var(--red); }
+.ba__item--after { border-color: var(--green); }
+.ba__item figcaption {
+  position: absolute; top: 8px; left: 8px;
+  font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #fff;
+  padding: 3px 9px; border-radius: 99px;
+}
+.ba__item--before figcaption { background: var(--red); }
+.ba__item--after figcaption { background: var(--green); }
+.ba__card {
+  position: absolute; left: 7px; right: 7px; bottom: 7px;
+  display: flex; align-items: center; gap: 7px; text-align: left;
+  background: rgba(255, 255, 255, .96); border-radius: 12px; padding: 6px 8px;
+  box-shadow: 0 6px 16px -6px rgba(11, 27, 58, .35);
+  animation: pop .5s .8s cubic-bezier(.2, 1.4, .4, 1) both;
+}
+.ba__mic { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--blue); color: #fff; font-size: 14px; flex: none; }
+.ba__card small { display: block; font-size: 9.5px; color: var(--muted); line-height: 1.1; }
+.ba__card b { display: block; font-size: 14px; color: var(--green); line-height: 1.15; }
+@keyframes pop { from { opacity: 0; transform: translateY(8px) scale(.9); } }
 
-    /* FAQ */
-    .faq-list{border-top:1px solid #d8dbe1}
-    .faq-item{border-bottom:1px solid #d8dbe1}
-    .faq-item summary{position:relative;cursor:pointer;list-style:none;padding:14px 28px 14px 0;font-size:14.5px;font-weight:600;color:#272b33}
-    .faq-item summary::-webkit-details-marker{display:none}
-    .faq-item summary:after{content:"+";position:absolute;right:4px;top:10px;color:var(--blue);font-size:20px}
-    .faq-item[open] summary:after{content:"−"}
-    .faq-item p{padding:0 12px 14px 0;color:#4c515b;font-size:13.5px}
 
-    /* Botão Flutuante SOMENTE LOGOMARCA DO WHATSAPP (Verde e Branco) */
-    .whatsapp-float{
-      position:fixed;
-      z-index:50;
-      right:20px;
-      bottom:20px;
-      width:54px;
-      height:54px;
-      border-radius:50%;
-      background:#25D366;
-      color:#ffffff;
-      display:grid;
-      place-items:center;
-      text-decoration:none;
-      box-shadow:0 8px 22px rgba(37,211,102,0.45);
-      transition:transform .2s ease,box-shadow .2s ease;
-    }
-    .whatsapp-float:hover{transform:scale(1.08);box-shadow:0 12px 26px rgba(37,211,102,0.6)}
-    .whatsapp-float svg{width:28px;height:28px;fill:#ffffff}
 
-    /* Animação ao rolar */
-    .reveal-card{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease}
-    .reveal-card.is-visible{opacity:1;transform:translateY(0)}
-  
+.q__top { display: flex; align-items: center; min-height: 24px; margin-bottom: 34px; }
+.q__back {
+  width: 40px; height: 40px; margin: -8px 0 -8px -12px; border-radius: 50%; display: grid; place-items: center; flex: none;
+  background: transparent; border: 0; color: #8a98b3; opacity: .85;
+}
+.q__back:active { background: rgba(2, 53, 143, .06); }
+.q__back svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.q__progress { flex: 1; height: 10px; border-radius: 99px; background: #dbe5f6; overflow: hidden; }
+.q__progress span {
+  display: block; height: 100%; border-radius: inherit;
+  background: linear-gradient(90deg, var(--blue), var(--sky));
+  transition: width .5s cubic-bezier(.2, .8, .2, 1);
+}
+.q__title { font-size: 23px; text-align: center; margin-bottom: 30px; }
+.q__sub { text-align: center; color: var(--muted); margin: -8px 0 18px; }
 
-    /* =========================================================
-       SISTEMA TIPOGRÁFICO GLOBAL — PADRONIZAÇÃO POPPINS
-       Mantém estrutura, cores, dimensões e layout existentes.
-       ========================================================= */
-    body,
-    p,
-    span,
-    li,
-    small,
-    label,
-    input,
-    textarea,
-    select {
-      font-family: "Poppins", Arial, sans-serif;
-      font-weight: 400;
-    }
+.q__options { list-style: none; display: grid; gap: 11px; }
+.opt {
+  width: 100%; display: flex; align-items: center; gap: 12px; text-align: left;
+  background: #fff; border: 2px solid var(--line); border-radius: 18px; padding: 13px 14px;
+  box-shadow: 0 3px 0 #d3def2;
+  transition: border-color .15s, background .15s, transform .12s;
+}
+.opt:active { transform: scale(.985); }
+.opt__emoji {
+  width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; flex: none;
+  background: var(--c50); font-size: 21px;
+}
+.opt__text { flex: 1; font-size: 15.5px; line-height: 1.3; }
+.opt__text b { font-weight: 600; }
+.opt__check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #c6d3ea; flex: none; position: relative; }
+.opt.is-picked { border-color: var(--c); background: var(--c50); box-shadow: 0 3px 0 var(--c); }
+.opt.is-picked .opt__check { border-color: var(--c); background: var(--c); }
+.opt.is-picked .opt__check::after {
+  content: ""; position: absolute; left: 6px; top: 2.5px; width: 5px; height: 10px;
+  border: solid #fff; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg);
+}
+@media (hover: hover) { .opt:hover { border-color: var(--c); } }
 
-    button,
-    .btn,
-    .cta,
-    .button {
-      font-family: "Poppins", Arial, sans-serif;
-      font-weight: 700;
-    }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    .section-title,
-    .hero-title,
-    .display-title,
-    .card-title {
-      font-family: "Poppins", Arial, sans-serif;
-      font-weight: 800;
-      letter-spacing: -0.035em;
-    }
+.info .q__title { margin-bottom: 24px; }
+[data-checks], [data-punch] { opacity: 0; transform: translateY(16px); transition: opacity .5s, transform .5s cubic-bezier(.2, .8, .2, 1); }
+[data-checks].is-in, [data-punch].is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { [data-checks], [data-punch] { opacity: 1; transform: none; } }
 
-    /* Texto corrido: leitura confortável e consistente */
-    p,
-    .hero-lead,
-    .section-head p,
-    .info-card p,
-    .navy-highlight-card p,
-    .slide-body p,
-    .bonus-body p,
-    .faq-item p {
-      font-family: "Poppins", Arial, sans-serif;
-      font-weight: 400;
-      line-height: 1.6;
-    }
+.checks, .finds {
+  background: #fff; border-radius: var(--r); padding: 16px; margin-top: 16px; box-shadow: var(--shadow);
+}
+.checks__title { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+.checks ul { list-style: none; display: grid; gap: 12px; }
+.checks li { display: flex; gap: 12px; align-items: flex-start; }
+.checks li b { display: block; font-size: 15px; line-height: 1.3; }
+.checks li small { display: block; font-size: 13px; color: var(--muted); margin-top: 2px; }
+.checks--tight ul { gap: 9px; }
+.ok {
+  width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; flex: none;
+  background: var(--green); box-shadow: 0 4px 10px -4px rgba(22, 163, 74, .7);
+}
+.ok svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.ok--bad { background: var(--red); box-shadow: 0 4px 10px -4px rgba(239, 68, 68, .7); }
+.is-in .ok svg { animation: draw .45s ease-out forwards; }
+.is-in li:nth-child(2) .ok svg { animation-delay: .12s; }
+.is-in li:nth-child(3) .ok svg { animation-delay: .24s; }
+.is-in li:nth-child(4) .ok svg { animation-delay: .36s; }
+.is-in li:nth-child(5) .ok svg { animation-delay: .48s; }
+.is-in li:nth-child(6) .ok svg { animation-delay: .6s; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .ok svg { stroke-dashoffset: 0; } }
 
-    /* Textos de apoio e informações secundárias */
-    .hero-delivery,
-    .hero-media-caption,
-    .trust-item,
-    .topic-pill,
-    .phone-ui-row,
-    .compare-caption,
-    .contrast-list li,
-    .app-step-item,
-    .showcase-bar,
-    .slide-tag,
-    .stat-box span,
-    .bonus-price,
-    .faq-item summary {
-      font-family: "Poppins", Arial, sans-serif;
-      font-weight: 500;
-    }
+.punch { text-align: center; font-size: 22px; font-weight: 800; line-height: 1.25; margin: 22px 0 4px; letter-spacing: -.02em; }
+.punch__hl {
+  display: inline-block; margin-top: 6px; color: #fff; background: var(--blue);
+  padding: 2px 12px; border-radius: 10px; transform: rotate(-1.5deg);
+  box-shadow: 0 6px 16px -6px rgba(2, 53, 143, .7);
+}
+.punch--static { margin-top: 18px; }
 
-    /* Títulos de cards e módulos */
-    .info-card h3,
-    .navy-highlight-card h3,
-    .topics-box h3,
-    .phone-mock h3,
-    .contrast-panel h3,
-    .bonus-body h3,
-    .slide-top h4,
-    .offer-copy h2 {
-      font-family: "Poppins", Arial, sans-serif;
-      font-weight: 800;
-      letter-spacing: -0.035em;
-    }
+.note { border-radius: 16px; padding: 14px 16px; margin-top: 16px; border-left: 5px solid; }
+.note b { display: block; font-size: 15.5px; margin-bottom: 3px; }
+.note p { font-size: 14.5px; color: #33456a; }
+.note--alert { background: var(--red-50); border-color: var(--red); }
+.note--alert b { color: var(--red); }
+.note--good { background: var(--green-50); border-color: var(--green); }
+.note--good b { color: var(--green); }
 
-    /* Títulos de seção */
-    .section-head h2 {
-      font-family: "Poppins", Arial, sans-serif;
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      line-height: 1.16;
-    }
+.photo { margin-top: 16px; border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow); border: 4px solid #fff; }
+.photo img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; } 
 
-    /* Hero: maior contraste e presença sem alterar tamanho ou posição */
-    .hero h1 {
-      font-family: "Poppins", Arial, sans-serif;
-      font-weight: 800;
-      letter-spacing: -0.045em;
-      line-height: 1.12;
-    }
-    .hero h1 span {
-      font-family: "Poppins", Arial, sans-serif;
-      font-weight: 900;
-      letter-spacing: -0.045em;
-    }
+.proofs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; align-items: start; }
+.proofs__item { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
+.proofs__item figcaption { font-size: 12.5px; font-weight: 700; padding: 7px 10px; }
 
-    /* Selos, badges e etiquetas */
-    .hero-badge,
-    .eyebrow,
-    .phone-step-badge,
-    .compare-pill,
-    .slide-badge,
-    .bonus-banner,
-    .bonus-free,
-    .app-logo-pill span,
-    .app-step-num,
-    .stat-box strong,
-    .price-now,
-    .top-bar .font-extrabold {
-      font-family: "Poppins", Arial, sans-serif;
-      font-weight: 800;
-    }
 
-    /* Ênfases semibold/bold preservadas em informações comerciais */
-    strong,
-    b,
-    .price-now,
-    .stat-box strong,
-    .bonus-price strong {
-      font-family: "Poppins", Arial, sans-serif;
-      font-weight: 800;
-    }
+.shot-wrap { padding: 8px 0 6px; background: radial-gradient(50% 50% at 50% 50%, #bfeef1 0%, rgba(207, 224, 255, 0) 70%); }
+.shot {
+  position: relative; width: min(300px, 84%, max(150px, calc((100vh - 252px) * .439))); width: min(300px, 84%, max(150px, calc((100svh - 252px) * .439))); margin: 0 auto; aspect-ratio: 390 / 888;
+  border: 9px solid #0b1b3a; border-radius: 38px; background: #f4f7ff; overflow: hidden;
+  container-type: inline-size; box-shadow: 0 30px 50px -24px rgba(11, 27, 58, .55);
+}
+.shot::before { content: ""; position: absolute; z-index: 5; top: 5px; left: 50%; width: 28%; height: 13px; transform: translateX(-50%); background: #0b1b3a; border-radius: 99px; }
+.shot--sm { grid-column: 1 / -1; width: min(270px, 84%, max(190px, calc((100vh - 140px) * .439))); width: min(270px, 84%, max(190px, calc((100svh - 140px) * .439))); margin: 16px auto 0; }
+.demo { position: absolute; inset: 0; }
 
-    /* CTA com peso consistente em todos os estados */
-    .cta,
-    .cta:hover,
-    .cta:focus-visible {
-      font-family: "Poppins", Arial, sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.015em;
-    }
+.demo__app { position: absolute; top: 0; left: 0; width: 390px; height: 844px; border: 0; transform-origin: 0 0; pointer-events: none; background: #f4f7ff; }
 
-    /* Ajustes de legibilidade responsiva, sem alterar o layout */
-    @media (max-width: 360px) {
-      body { line-height: 1.58; }
-      .hero-lead,
-      .section-head p,
-      .info-card p,
-      .navy-highlight-card p,
-      .slide-body p,
-      .bonus-body p,
-      .faq-item p { line-height: 1.58; }
-    }
+
+.how { display: grid; gap: 14px; }
+.how__step { display: grid; grid-template-columns: 34px 1fr; column-gap: 12px; background: #fff; border-radius: var(--r); padding: 16px 14px; box-shadow: var(--shadow); border-top: 5px solid var(--c); }
+.how__n { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; flex: none; background: var(--c); color: #fff; font-weight: 800; box-shadow: 0 6px 14px -6px var(--c); }
+.how__body { flex: 1; min-width: 0; }
+.how__eyebrow { font-size: 11.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--c); }
+.how__body h3 { font-size: 19px; margin: 2px 0 4px; }
+.how__body p { font-size: 14px; color: var(--muted); }
+
+
+.diag { text-align: center; padding-top: 8px; }
+.ring { position: relative; width: 132px; height: 132px; margin: 6px auto 16px; }
+.ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring circle { fill: none; stroke: #dbe5f6; stroke-width: 10; }
+.ring .ring__bar { stroke: url(#g) var(--blue); stroke: var(--blue); stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: calc(100 - var(--p)); }
+.ring__n { position: absolute; inset: 0; display: grid; place-items: center; font-size: 30px; font-weight: 800; color: var(--blue); }
+.diag__steps { list-style: none; display: grid; gap: 9px; text-align: left; margin-top: 4px; }
+.diag__steps li {
+  display: flex; gap: 12px; align-items: flex-start; background: #fff; border: 2px solid var(--line); border-radius: 16px; padding: 11px 12px;
+  opacity: .45; transition: opacity .3s, border-color .3s;
+}
+.diag__steps li.is-active { opacity: 1; border-color: var(--blue); }
+.diag__steps li.is-done { opacity: 1; }
+.diag__steps b { display: block; font-size: 14.5px; line-height: 1.3; }
+.diag__steps small { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.diag__ic { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; flex: none; margin-top: 1px; background: var(--blue-50); }
+.diag__ic .spin { width: 16px; height: 16px; border-color: #bcd1fb; border-top-color: var(--blue); display: none; }
+.diag__ic svg { width: 14px; height: 14px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; display: none; }
+li.is-active .diag__ic .spin { display: block; }
+li.is-done .diag__ic { background: var(--green); }
+li.is-done .diag__ic svg { display: block; }
+li.is-done .diag__ic .spin { display: none; }
+
+.diag__res { opacity: 0; transform: translateY(14px); transition: opacity .5s, transform .5s; }
+.diag__res.is-in { opacity: 1; transform: none; }
+.diag__tag {
+  display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--blue); background: #fff; border: 1.5px solid #bfeef1; padding: 5px 12px; border-radius: 99px; margin-bottom: 10px;
+}
+.risk { background: #fff; border-radius: var(--r); padding: 16px; text-align: left; box-shadow: var(--shadow); }
+.risk__top { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-weight: 700; font-size: 14.5px; }
+.risk__lvl { color: #fff; font-size: 13px; font-weight: 800; text-transform: uppercase; padding: 4px 12px; border-radius: 10px; }
+.risk__lvl--alto { background: var(--red); }
+.risk__lvl--médio { background: var(--orange); }
+.risk__lvl--moderado { background: #eab308; }
+.risk__bar { height: 14px; border-radius: 99px; background: #edf1f8; margin: 12px 0 8px; overflow: hidden; }
+.risk__bar i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--green), #eab308 50%, var(--red)); background-size: calc(100% / (var(--w) / 100%)) 100%; }
+.is-in .risk__bar i { animation: fill 1.1s .3s cubic-bezier(.2, .8, .2, 1) forwards; }
+@keyframes fill { to { width: var(--w); } }
+.risk__time { font-size: 13.5px; color: var(--muted); font-weight: 600; }
+.finds { text-align: left; }
+.finds ul { list-style: none; display: grid; gap: 10px; }
+.finds li { display: flex; gap: 10px; font-size: 14.5px; line-height: 1.4; }
+.finds__ic { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; flex: none; background: var(--orange-50); color: var(--orange); font-size: 16px; }
+.diag .note { text-align: left; }
+
+
+.offer__stack em { font-style: normal; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--green); background: var(--green-50); padding: 3px 8px; border-radius: 99px; }
+
+.offer { position: relative; margin-top: 26px; text-align: center; background: #fff; border-radius: 24px; padding: 26px 18px 20px; border: 3px solid var(--blue); box-shadow: 0 24px 48px -20px rgba(2, 53, 143, .55); scroll-margin-top: 30px; }
+.offer__off { position: absolute; top: -14px; right: 14px; background: var(--red); color: #fff; font-weight: 800; font-size: 15px; padding: 5px 12px; border-radius: 12px; transform: rotate(4deg); box-shadow: 0 6px 14px -6px rgba(239, 68, 68, .8); }
+.offer__k { font-size: 15px; font-weight: 700; color: var(--muted); }
+.offer__k s { text-decoration-color: var(--red); text-decoration-thickness: 2.5px; }
+.offer__price { font-size: clamp(46px, 15vw, 58px); font-weight: 800; color: var(--blue); line-height: 1.05; letter-spacing: -.04em; margin: 4px 0; }
+.offer__once { font-size: 13px; color: var(--muted); font-weight: 600; }
+.offer__stack { list-style: none; display: grid; gap: 7px; margin: 16px 0 12px; text-align: left; }
+.offer__stack li { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--bg); border-radius: 12px; padding: 9px 12px; font-size: 14px; font-weight: 700; }
+.offer__sum { font-size: 15px; font-weight: 600; }
+.offer__sum b { color: var(--green); }
+.offer .btn { margin-top: 14px; }
+.offer__safe { font-size: 12.5px; color: var(--muted); margin-top: 12px; font-weight: 600; }
+
+
+body.pv-body { background: #fff; }
+body.pv-body .app { padding-top: 0; padding-bottom: 0; }
+.pv {
+  --raio: 20px;
+  --sombra: 0 1px 2px rgba(2, 53, 143, .06), 0 8px 24px rgba(2, 53, 143, .08);
+  --borda: 1px solid rgba(2, 53, 143, .09);
+  --ciano-txt: #00838a;  
+  --escuro: #01245f;
+  --amb: #ffd34d;
+  --verde-txt: #15803d;
+  --verm-txt: #b91c1c;
+}
+.pv p { text-wrap: pretty; }
+
+
+.sec { position: relative; margin-inline: -16px; padding: 40px 20px; display: flex; flex-direction: column; gap: 20px; text-align: center; }
+.sec + .sec { box-shadow: 0 -12px 24px -12px rgba(2, 53, 143, .2); }
+.sec + .sec--escuro, .sec--escuro + .sec { box-shadow: 0 -14px 28px -10px rgba(1, 20, 60, .45); }
+.sec > * { margin: 0; }
+.sec:first-child { padding-top: max(8px, env(safe-area-inset-top)); }
+.sec:last-child { padding-bottom: calc(48px + env(safe-area-inset-bottom)); }
+.sec--claro { background: linear-gradient(180deg, #e4f7fa 0%, #f5fcfd 55%, #fff 100%); }
+.sec--branco { background: #fff; }
+.sec--escuro { background: linear-gradient(180deg, #02358f 0%, var(--escuro) 100%); color: #fff; }
+.sec--sem { background: linear-gradient(180deg, #fff5f8 0%, #fde6ee 100%); }  
+
+.sec--dor { background: linear-gradient(180deg, #fff6f2 0%, #ffe3da 100%); }
+.sec--com { background: linear-gradient(180deg, #f1fdf5 0%, #dbf7e5 100%); }
+
+
+.tit { font-size: clamp(22px, 6.4vw, 26px); line-height: 1.2; font-weight: 800; letter-spacing: -.02em; text-wrap: balance; }
+.apoio { font-size: 17px; line-height: 1.35; font-weight: 600; color: #4a5d80; text-wrap: balance; }
+.sec--escuro .apoio { color: #b8cdf2; }
+.apoio + .tit { margin-top: -12px; }
+
+.sec > .lista + .tit, .sec > .lista + .apoio, .sec > .card + .tit { margin-top: 24px; }
+.sec > .rot + .lista { margin-top: -10px; }
+
+.sec > .lista--solta, .sec > .rot--solta { padding-inline: 12px; }
+.sec > .aviso + .tit { margin-top: 24px; }
+.rot { text-align: left; font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ciano-txt); }
+.sec--escuro .rot { color: var(--sky); }
+.sec--sem .tit { color: var(--verm-txt); text-align: left; }
+.sec--com .tit { color: var(--verde-txt); text-align: left; }
+.txt, .card p, .fecho { font-size: 16px; line-height: 1.5; }
+.card p { color: #33456a; }
+.sec--escuro .txt { color: #e3ecfb; }
+.fecho { max-width: 34em; margin-inline: auto; }
+.sec--garantia .txt { text-align: left; }
+
+
+.mt { background: #c9f3f5; color: inherit; padding: 0 .16em; border-radius: 6px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.sec--escuro .mt { background: var(--sky); color: var(--escuro); }
+.amb { background: var(--amb); color: var(--blue); padding: 0 .14em; border-radius: 6px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.pv-azul { color: var(--blue); }
+
+
+.pv__bar { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; }
+.pv__logo { width: 92px; height: auto; margin: 0 auto; }
+.pv__h1 { font-size: clamp(23px, 6.5vw, 28px); line-height: 1.22; text-align: center; text-wrap: balance; }
+
+.topo { position: relative; container-type: inline-size; overflow: hidden; border-radius: var(--raio); background: #dce7f3; box-shadow: var(--sombra); }
+.topo__img { width: 100%; height: 100%; object-fit: cover; }
+.topo picture, .foto picture { display: contents; }
+.orc {
+  position: absolute; right: 2.5%; top: 50%; transform: translateY(-50%); width: 34%; overflow: hidden;
+  border: .3cqw solid #fff; border-radius: 1.8cqw; background: #fff; color: var(--ink); text-align: left;
+  box-shadow: 0 .5cqw 1.4cqw rgba(1, 36, 95, .22), 0 3cqw 6cqw -1cqw rgba(1, 36, 95, .5);
+}
+.orc__top { display: flex; align-items: center; justify-content: space-between; gap: 1cqw; padding: 1.6cqw 2cqw; background: linear-gradient(135deg, #02358f, var(--escuro)); }
+.orc__top b { color: #fff; font-size: 2.5cqw; font-weight: 800; line-height: 1.08; letter-spacing: -.01em; }
+.orc__top b span { color: var(--sky); white-space: nowrap; }
+.orc__top img { width: 4.2cqw; height: 4.2cqw; flex: none; border-radius: 1cqw; }
+.orc__corpo { padding: 1.6cqw 2cqw 2cqw; }
+.orc__quem b { display: block; font-size: 1.95cqw; font-weight: 800; line-height: 1.25; }
+.orc__quem span { display: block; font-size: 1.6cqw; line-height: 1.35; color: #56688a; }
+.orc__linhas { list-style: none; margin-top: 1cqw; }
+.orc__linhas li { display: flex; justify-content: space-between; gap: 1cqw; padding: .9cqw 0; border-top: .14cqw solid #e3eaf4; font-size: 1.6cqw; line-height: 1.25; white-space: nowrap; }
+.orc__linhas b { color: var(--blue); font-weight: 700; }
+.orc__total { display: flex; align-items: center; justify-content: space-between; gap: 1cqw; margin-top: 1.2cqw; font-size: 2cqw; font-weight: 800; }
+.orc__total b { padding: .3cqw 1.2cqw; border-radius: 1cqw; background: #ffc800; color: var(--blue); font-size: 2.8cqw; line-height: 1.2; white-space: nowrap; letter-spacing: -.02em; }
+.orc__wa { display: flex; align-items: center; justify-content: center; gap: .8cqw; margin-top: 1.4cqw; padding: 1.2cqw; border-radius: 1cqw; background: #25d366; color: #fff; font-size: 1.85cqw; font-weight: 800; white-space: nowrap; }
+.orc__wa svg { width: 2.4cqw; height: 2.4cqw; flex: none; }
+
+
+.zap-selo {
+  align-self: center; display: inline-flex; align-items: center; gap: 8px; max-width: 100%;
+  padding: 5px 12px 5px 5px; border-radius: 99px; border: 1px solid rgba(2, 53, 143, .12); background: #fff;
+  box-shadow: 0 1px 2px rgba(2, 53, 143, .06), 0 4px 12px rgba(2, 53, 143, .08);
+  color: var(--blue); font-size: 13px; font-weight: 600; line-height: 1.25; text-align: left; text-wrap: balance;
+}
+.zap-selo__ic { width: 26px; height: 26px; flex: none; display: grid; place-items: center; border-radius: 50%; background: #25d366; color: #fff; }
+.zap-selo__ic svg { width: 17px; height: 17px; }
+.verde { color: var(--verde-txt); }
+
+
+.card { display: flex; flex-direction: column; gap: 12px; padding: 24px 20px; border-radius: var(--raio); border: var(--borda); background: #fff; box-shadow: var(--sombra); text-align: left; }
+.card > * { margin: 0; }
+.card__head { display: flex; align-items: center; gap: 12px; }
+.card h3 { font-size: 19px; line-height: 1.25; font-weight: 800; letter-spacing: -.01em; text-wrap: balance; }
+.card--escuro { background: linear-gradient(160deg, #02358f, var(--escuro)); border-color: transparent; color: #fff; }
+.card--escuro p { color: #dbe6fa; }
+.card--ciano { background: linear-gradient(180deg, #e9f9fb, #fff); }
+
+.card .card__head { margin-bottom: 12px; }
+.card .card__marca { margin-bottom: 8px; }   
+.card .rot, .card .foto { margin-top: 12px; }
+.card .apoio + .tit { margin-top: -6px; }
+.card .tit + .rot { margin-top: 6px; }       
+.card .rot + .lista, .card .rot + .passos { margin-top: -2px; }  
+.card .passos + .card__ok { margin-top: 8px; }
+.card > :first-child { margin-top: 0; }
+
+.aviso { position: relative; isolation: isolate; margin-top: 16px; padding: 32px 20px 20px; text-align: center; color: #0a1f5c; }
+.aviso::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: var(--raio); border: 2px solid #0a1f5c;
+  background: linear-gradient(160deg, #ffd34d, #ffb800); box-shadow: 0 10px 30px rgba(255, 184, 0, .35); transform: rotate(-1.5deg);
+}
+.aviso__tag { position: absolute; z-index: 1; top: -15px; left: 50%; transform: translateX(-50%); padding: 6px 14px; border-radius: 99px; background: #0a1f5c; color: #fff; font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.aviso__sem { display: inline-block; padding: 6px 14px; border-radius: 99px; background: rgba(255, 255, 255, .55); color: #0a1f5c; font-size: clamp(17px, 5.2vw, 19px); font-weight: 800; letter-spacing: .08em; line-height: 1.35; }
+.aviso__sem span { display: block; white-space: nowrap; }
+.aviso__sem s { text-decoration-color: rgba(220, 38, 38, .85); text-decoration-thickness: 3px; }
+.aviso__tit { margin-top: 8px; font-size: clamp(22px, 6.6vw, 26px); line-height: 1.2; font-weight: 800; letter-spacing: -.02em; text-wrap: balance; }
+.aviso__tit mark { padding: 0 .16em; border-radius: 6px; background: #fff; color: #0a1f5c; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.aviso__zap { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 16px; padding-top: 16px; border-top: 2px dashed rgba(10, 31, 92, .55); font-size: 15px; font-weight: 700; line-height: 1.3; text-align: left; text-wrap: balance; }
+.aviso__zap .zap-selo__ic { width: 32px; height: 32px; }
+.aviso__zap .zap-selo__ic svg { width: 19px; height: 19px; }
+.card__marca { width: min(200px, 62%); height: auto; margin-top: -4px; }
+
+.card .card__centro { text-align: center; margin-inline: auto; }
+.card__ok { font-weight: 600; color: var(--verde-txt) !important; }
+
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li { padding: 6px 12px; border-radius: 99px; background: #dcf6f8; color: var(--blue); font-size: 14px; font-weight: 600; line-height: 1.25; }
+.chips .chips__mais { background: var(--amb); font-weight: 800; }
+.tile { width: 44px; height: 44px; flex: none; display: grid; place-items: center; border-radius: 12px; background: var(--t-bg); color: var(--t); font-size: 22px; }
+.tile .ic { stroke-width: 2.1; }
+.tile--azul { --t: var(--blue); --t-bg: #e3ebf8; }
+.tile--verde { --t: var(--verde-txt); --t-bg: #dcf7e6; }
+.tile--ciano { --t: var(--ciano-txt); --t-bg: #d4f6f8; }
+.card--escuro .tile { --t: #6ee7a0; --t-bg: rgba(255, 255, 255, .12); }
+
+
+.passos { list-style: none; display: grid; gap: 10px; text-align: left; }
+.passos li { display: grid; grid-template-columns: 36px 1fr; align-items: center; column-gap: 12px; font-size: 16px; line-height: 1.4; font-weight: 700; }
+.passos b { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 10px; font-size: 20px; font-weight: 800; color: #fff; background: var(--blue); }
+.passos li:nth-child(2) b { background: var(--ciano-txt); }
+.passos li:nth-child(3) b { background: var(--amb); color: var(--blue); }
+
+
+.foto { position: relative; overflow: hidden; border-radius: var(--raio); background: #dce7f3; box-shadow: var(--sombra); }
+.foto img { width: 100%; height: auto; }
+.foto__selo {
+  position: absolute; left: 12px; bottom: 12px; max-width: calc(100% - 24px);
+  padding: 6px 12px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, .7);
+  background: rgba(255, 255, 255, .72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  color: var(--blue); font-size: 13px; font-weight: 700; line-height: 1.3;
+}
+
+
+.lista { list-style: none; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+.lista li { display: grid; grid-template-columns: 24px 1fr; column-gap: 12px; align-items: start; font-size: 16px; line-height: 1.35; }
+.lista li::before {
+  content: ""; width: 24px; height: 24px; margin-top: calc((1.35em - 24px) / 2);
+  border-radius: 7px; background: var(--li-bg) var(--li-ic) center / 14px no-repeat;
+}
+.lista--x li::before, .lista--xq li::before { --li-bg: #fde3e3; --li-ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3.5 3.5l7 7M10.5 3.5l-7 7' fill='none' stroke='%23c81e1e' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.lista--ok li::before { --li-bg: #d8f5e2; --li-ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2.5 7.5l3 3 6-7' fill='none' stroke='%2315803d' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.lista--seta li::before { --li-bg: #e3ebf8; --li-ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2 7h9.5M7.5 3l4 4-4 4' fill='none' stroke='%2302358f' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.lista--dupla li::before { --li-bg: #d4f6f8; background-size: 16px; --li-ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 14'%3E%3Cpath d='M1.5 7.5l3 3 5.5-6.5M8 10l.6.5 7-8' fill='none' stroke='%2300838a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.lista--seta2 li::before { --li-bg: #fff0c2; --li-ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M5 3l4 4-4 4' fill='none' stroke='%2392400e' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.sec--dor .tit { color: #3b0a0a; }
+.sec--dor .apoio { color: #9f4a4a; }
+.sec--dor .rot { color: var(--verm-txt); }
+.sec--dor .mt { background: #fecaca; color: #3b0a0a; }
+.sec--dor .lista--xq li::before, .sec--dor .lista--seta li::before { --li-bg: #fee2e2; }
+.sec--dor .lista--xq li::before { --li-ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3.5 3.5l7 7M10.5 3.5l-7 7' fill='none' stroke='%23dc2626' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.sec--dor .lista--seta li::before { --li-ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2 7h9.5M7.5 3l4 4-4 4' fill='none' stroke='%23b91c1c' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.sec--escuro .lista--xq li::before { --li-bg: rgba(255, 255, 255, .12); --li-ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3.5 3.5l7 7M10.5 3.5l-7 7' fill='none' stroke='%23ff9b9b' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"); }
+
+
+.sec--telas { padding-top: 48px; }
+.telas { padding-top: 6px; }
+.telas__fones { --g: clamp(16px, 6vw, 26px); position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--g); align-items: end; }
+.telas__item { position: relative; }
+.pv-fone {
+  position: relative; display: block; aspect-ratio: 360 / 780; overflow: hidden;
+  border: 3px solid #0b1b3a; border-radius: 12px; padding-top: 8%; background: #f4f7ff;
+  box-shadow: 0 16px 22px -10px rgba(0, 0, 0, .8), 0 0 0 1px rgba(255, 255, 255, .12);
+}
+.pv-fone::before { content: ""; position: absolute; z-index: 1; top: 2.2%; left: 50%; width: 30%; height: 3%; transform: translateX(-50%); background: #0b1b3a; border-radius: 99px; }
+.pv-fone img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+.telas__pronto { position: absolute; bottom: 100%; left: -10px; right: -10px; margin-bottom: 6px; text-align: center; white-space: nowrap; color: var(--sky); font-size: clamp(13px, 3.8vw, 16px); font-weight: 800; }
+.telas__seta { position: absolute; z-index: 2; top: 26%; width: clamp(44px, 13vw, 56px); transform: translateX(-50%); color: var(--sky); text-align: center; filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .45)); }
+.telas__seta--1 { left: calc((100% - 2 * var(--g)) / 3 + var(--g) / 2); }
+.telas__seta--2 { left: calc(2 * (100% - 2 * var(--g)) / 3 + 1.5 * var(--g)); }
+.telas__seta b { display: inline-block; white-space: nowrap; margin-bottom: 2px; padding: 1px 7px; border-radius: 7px; background: rgba(1, 26, 69, .92); font-size: 12px; font-weight: 800; }
+.telas__seta svg { display: block; width: 100%; height: auto; }
+.telas__leg { margin-top: 16px; text-align: center; color: #fff; font-weight: 700; font-size: clamp(13px, 3.7vw, 16px); line-height: 1.3; text-wrap: balance; }
+.telas__leg i { font-style: normal; color: var(--sky); }
+
+
+.ad { display: flex; flex-direction: column; gap: 12px; }
+.ad__rotulos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; justify-items: center; align-items: start; }
+.ad__palco { width: 100%; }
+.ad__par { width: 620px; display: grid; grid-template-columns: 300px 300px; gap: 20px; align-items: stretch; transform-origin: 0 0; }
+.ad__selo { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 12px; color: #fff; font-size: clamp(15px, 4.4vw, 18px); font-weight: 800; line-height: 1.2; box-shadow: 0 8px 16px -8px rgba(0, 0, 0, .45); }
+.ad__selo span { width: 1.2em; height: 1.2em; display: grid; place-items: center; border-radius: 50%; background: #fff; font-size: max(12px, .78em); }
+.ad__selo--antes { background: var(--verm-txt); transform: rotate(-2deg); }
+.ad__selo--antes span { color: var(--verm-txt); }
+.ad__selo--depois { background: var(--verde-txt); transform: rotate(2deg); }
+.ad__selo--depois span { color: var(--verde-txt); }
+.ad__leg { font-size: clamp(13px, 3.9vw, 17px); font-weight: 800; line-height: 1.3; text-align: center; text-wrap: balance; }
+.ad__leg--antes { color: var(--verm-txt); }
+.ad__leg--depois { color: var(--verde-txt); }
+.ad__faixa { margin-top: 8px; padding: 16px 20px; border-radius: var(--raio); background: linear-gradient(135deg, #02358f, var(--escuro)); color: #fff; text-align: center; text-transform: uppercase; font-size: 16px; font-weight: 800; line-height: 1.3; letter-spacing: .02em; text-wrap: balance; }
+.ad__faixa span { color: var(--sky); }
+
+
+.wa {
+  width: 300px; display: flex; flex-direction: column; padding: 8px; border-radius: 50px; background: #1c1c1e;
+  box-shadow: inset 0 0 0 2px #3a3a3c, 0 30px 50px -26px rgba(1, 36, 95, .6);
+  font-family: -apple-system, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased; color: #111b21; letter-spacing: 0;
+}
+.wa__tela { flex: 1; position: relative; display: flex; flex-direction: column; overflow: hidden; border-radius: 42px; background: #efeae2; }
+.wa__status { position: relative; height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 6px 24px 0 34px; background: #f6f6f6; color: #000; }
+.wa__status b { font-size: 15px; font-weight: 600; }
+.wa__ilha { position: absolute; left: 50%; top: 11px; width: 34%; height: 28px; transform: translateX(-50%); border-radius: 20px; background: #000; }
+.wa__sis { display: flex; align-items: center; gap: 5px; }
+.wa__sis svg { height: 11px; width: auto; fill: currentColor; }
+.wa__top { display: flex; align-items: center; gap: 7px; padding: 4px 12px 8px 8px; text-align: left; background: #f6f6f6; border-bottom: .5px solid rgba(0, 0, 0, .2); }
+.wa__volta { display: flex; align-items: center; gap: 3px; color: #007aff; font-size: 17px; line-height: 1; }
+.wa__ic-volta { width: 11px; height: 19px; }
+.wa__av { width: 34px; height: 34px; flex: none; }
+.wa__av svg { width: 100%; height: 100%; display: block; }
+.wa__quem { flex: 1; min-width: 0; line-height: 1.2; }
+.wa__quem b { display: block; font-size: 16px; font-weight: 600; color: #000; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wa__quem small { display: block; font-size: 12px; line-height: 1.2; color: #667781; }
+.wa__acoes { display: flex; gap: 14px; color: #007aff; }
+.wa__acoes svg { width: 23px; height: 23px; }
+.wa__chat {
+  flex: 1; text-align: left; display: flex; flex-direction: column; padding: 8px 12px 16px; background-color: #efeae2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23000' stroke-opacity='.06' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 18h22a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H24l-6 5v-5h-4a5 5 0 0 1-5-5V23a5 5 0 0 1 5-5z'/%3E%3Cpath d='M98 22c3-5 11-4 11 2 0 5-7 9-11 12-4-3-11-7-11-12 0-6 8-7 11-2z'/%3E%3Cpath d='M64 66l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z'/%3E%3Ccircle cx='132' cy='76' r='8'/%3E%3Ccircle cx='132' cy='76' r='2.5'/%3E%3Cpath d='M20 98c0-4 3-7 7-7s7 3 7 7v10H20zM18 108h18'/%3E%3Cpath d='M88 112h22v16H88zM92 112v-4h14v4'/%3E%3Cpath d='M136 122l8 8M144 122l-8 8'/%3E%3Cpath d='M38 142q5-8 10 0t10 0'/%3E%3Cpath d='M118 40l4 4 8-8'/%3E%3Ccircle cx='52' cy='46' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 160px;
+}
+.wa__dia { align-self: center; margin: 6px 0 2px; padding: 4px 10px; border-radius: 7px; background: rgba(255, 255, 255, .85); color: #54656f; font-size: 12px; font-weight: 500; box-shadow: 0 1px .5px rgba(0, 0, 0, .1); }
+.wa__m {
+  position: relative; max-width: 80%; margin-top: 2px; padding: 6px 8px 7px 9px; border-radius: 7.5px;
+  font-size: 15px; line-height: 1.3; overflow-wrap: anywhere; filter: drop-shadow(0 1px .5px rgba(0, 0, 0, .13));
+}
+.wa__m--eu { align-self: flex-end; background: #d9fdd3; transform-origin: 100% 100%; }
+.wa__m--ela { align-self: flex-start; background: #fff; transform-origin: 0 100%; }
+.wa__m--rabo { margin-top: 8px; }
+.wa__m--rabo.wa__m--eu { border-top-right-radius: 0; }
+.wa__m--rabo.wa__m--ela { border-top-left-radius: 0; }
+.wa__m--rabo::before { content: ""; position: absolute; top: 0; width: 8px; height: 13px; background-repeat: no-repeat; }
+.wa__m--rabo.wa__m--eu::before { right: -8px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 13'%3E%3Cpath d='M5.188 0H0v11.193l6.467-8.625C7.526 1.156 6.958 0 5.188 0z' fill='%23d9fdd3'/%3E%3C/svg%3E"); }
+.wa__m--rabo.wa__m--ela::before, .wa__dig::before { left: -8px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 13'%3E%3Cpath d='M1.533 2.568 8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z' fill='%23fff'/%3E%3C/svg%3E"); }
+.wa__esp { display: inline-block; width: 66px; height: 1px; }
+.wa__esp--ela { width: 42px; }
+.wa__meta { position: absolute; right: 7px; bottom: 5px; display: flex; align-items: center; gap: 3px; font-size: 12px; line-height: 1; color: #667781; }
+.wa__lido { width: 16px; height: 11px; color: #53bdeb; }
+
+.wa__m--pdf { width: 80%; padding: 3px; }
+.wa__prev { display: block; overflow: hidden; border-radius: 5px 5px 0 0; background: #fff; }
+.wa__prev img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; object-position: 50% 0; }
+.wa__doc { display: flex; align-items: center; gap: 8px; padding: 8px 8px 24px; border-radius: 0 0 5px 5px; background: rgba(11, 20, 26, .045); }
+.wa__pdfic { width: 26px; height: 32px; flex: none; }
+.wa__doc-t { min-width: 0; line-height: 1.25; }
+.wa__doc-t b { display: block; font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wa__doc-t small { display: block; font-size: 12px; color: #667781; }
+
+.wa__barra { position: relative; display: flex; align-items: center; gap: 12px; padding: 8px 12px 28px; background: #f6f6f6; border-top: .5px solid rgba(0, 0, 0, .16); color: #007aff; }
+.wa__barra > svg { width: 24px; height: 24px; flex: none; }
+.wa__barra::after { content: ""; position: absolute; left: 50%; bottom: 8px; width: 36%; height: 5px; transform: translateX(-50%); border-radius: 99px; background: #000; }
+.wa__campo { flex: 1; height: 32px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; border-radius: 18px; border: 1px solid #d6d6db; background: #fff; color: #8e8e93; }
+.wa__campo svg { width: 20px; height: 20px; }
+
+.wa__dig { position: absolute; left: 0; top: 0; display: none; align-items: center; gap: 4px; padding: 12px 13px; border-radius: 0 7.5px 7.5px 7.5px; background: #fff; visibility: visible; }
+.wa__dig::before { content: ""; position: absolute; top: 0; width: 8px; height: 13px; background-repeat: no-repeat; }
+.wa__dig i { width: 7px; height: 7px; border-radius: 50%; background: #8696a0; animation: wa-pula 1.2s infinite ease-in-out; }
+.wa__dig i:nth-child(2) { animation-delay: .15s; }
+.wa__dig i:nth-child(3) { animation-delay: .3s; }
+@keyframes wa-pula { 0%, 60%, 100% { transform: none; opacity: .5; } 30% { transform: translateY(-3px); opacity: 1; } }
+.wa--anim [data-wa-item] { visibility: hidden; }
+.wa--anim [data-wa-item].is-on { visibility: visible; animation: wa-entra .32s cubic-bezier(.2, .8, .2, 1); }
+.wa--anim .is-dig .wa__dig { display: flex; }
+@keyframes wa-entra { from { opacity: 0; transform: translateY(8px) scale(.97); } }
+
+
+.pv-carrossel { position: relative; width: 100%; max-width: 340px; margin-inline: auto; }
+
+.pv-carrossel__trilho { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-top: 14px; }
+.pv-carrossel__trilho::-webkit-scrollbar { display: none; }
+.pv-carrossel__slide { position: relative; flex: 0 0 100%; scroll-snap-align: start; }
+
+.pv-carrossel__img { display: block; aspect-ratio: 600 / 1186; padding-top: 18px; overflow: hidden; border-radius: var(--raio); background: #111; box-shadow: var(--sombra); }
+.pv-carrossel__img picture { display: contents; }
+.pv-carrossel__img img { width: 100%; height: 100%; object-fit: contain; object-position: 50% 0; }
+.pv-carrossel__tag { position: absolute; z-index: 2; top: 0; left: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 4px; padding: 5px 12px; border-radius: 99px; border: 2px solid #fff; background: #ffd200; color: #0a1f5c; font-size: 13px; font-weight: 800; line-height: 1.25; letter-spacing: .01em; white-space: nowrap; box-shadow: 0 2px 8px rgba(0, 0, 0, .35); pointer-events: none; }
+.pv-carrossel__seta { position: absolute; z-index: 3; top: 48%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .92); color: #111; font-size: 28px; line-height: 1; box-shadow: 0 2px 8px rgba(0, 0, 0, .3); }
+.pv-carrossel__seta--ant { left: 8px; }
+.pv-carrossel__seta--prox { right: 8px; }
+.pv-carrossel__pontos { display: flex; justify-content: center; gap: 6px; padding: 12px 0 0; }
+.pv-carrossel__pontos i { width: 8px; height: 8px; border-radius: 50%; background: #d5d7dc; }
+.pv-carrossel__pontos i.on { background: #6b6f78; }
+.pv-carrossel__nota { margin-top: -4px !important; font-size: 13px; line-height: 1.4; color: #56688a; text-align: center; }
+.pv-carrossel + .pv-carrossel__nota + .aviso { margin-top: 32px; }
+
+
+.pv-selo { width: min(320px, 90%); margin: 0 auto; }
+.pv-selo svg { display: block; width: 100%; height: auto; transform: rotate(-4deg); filter: drop-shadow(0 14px 22px rgba(0, 0, 0, .35)); }
+.pv-selo text { font-family: "Poppins", system-ui, sans-serif; text-anchor: middle; fill: #fff; font-weight: 800; }
+.pv-selo .pv-selo__arco { fill: #011d52; font-size: 25px; letter-spacing: 2px; }
+.pv-selo__7 { font-size: 72px; }
+.pv-selo .pv-selo__dias { fill: #01c6ce; font-size: 21px; letter-spacing: 1px; }
+.pv-selo__gar { font-size: 27px; }
+.pv-selo .pv-selo__inc { fill: #01c6ce; font-size: 14.5px; letter-spacing: 1px; }
+.pv-selo .pv-selo__txt { font-size: 14.5px; font-weight: 600; }
+
+
+.faq { text-align: left; overflow: hidden; border-radius: var(--raio); border: var(--borda); background: #fff; box-shadow: var(--sombra); }
+.pv-faq__item + .pv-faq__item { border-top: 1px solid #e6ecf5; }
+.pv-faq__item summary { position: relative; list-style: none; cursor: pointer; padding: 16px 48px 16px 20px; font-size: 16px; font-weight: 700; line-height: 1.35; }
+.pv-faq__item summary::-webkit-details-marker { display: none; }
+.pv-faq__item summary::after { content: ""; position: absolute; right: 22px; top: 50%; width: 8px; height: 8px; border: solid var(--blue); border-width: 0 2px 2px 0; transform: translateY(-70%) rotate(45deg); transition: transform .2s; }
+.pv-faq__item[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+.pv-faq__item p { padding: 0 20px 16px; font-size: 16px; line-height: 1.5; color: #33456a; }
+.fecho { text-align: center; text-wrap: balance; }
+.fecho + .fecho { margin-top: -8px; }
+
+.todo { background: #fde047; color: var(--ink); padding: 0 6px; border-radius: 6px; }
+
+@media (min-width: 400px) {
+  .cover h1 { font-size: 29px; }
+}
+
+
+.spin { width: 1.1em; height: 1.1em; border-radius: 50%; border: .18em solid rgba(255, 255, 255, .35); border-top-color: #fff; animation: spin .8s linear infinite; display: inline-block; flex: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes blink { 50% { opacity: .2; } }
+@keyframes wave { from { transform: scaleY(.3); } to { transform: scaleY(1); } }
+@keyframes ring { from { transform: scale(1); opacity: .35; } to { transform: scale(1.6); opacity: 0; } }
+
+
+
+@media (max-height: 720px) {
+  .cover { padding-top: 8px; }
+  .cover h1 { font-size: 24px; }
+  .lede { font-size: 14.5px; margin: 10px auto 12px; }
+  .ba { margin-top: 12px; }
+  .ba__item img { aspect-ratio: 1 / 1; object-position: 50% 30%; }
+  .cover .btn { margin-top: 14px; }
+}
+
+
+@media (max-height: 640px) {
+  .info .q__title { font-size: 20px; margin-bottom: 12px; }
+  .info .q__top { margin-bottom: 18px; }
+}
+
+
+.seq [data-checks], .seq [data-punch] { opacity: 1; transform: none; }
+.seq .reveal { animation: none; }
+.seq .sq { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s cubic-bezier(.2, .8, .2, 1); transition-delay: var(--d, 0ms); }
+.seq li.sq, .seq .faq__item.sq { transform: translateY(10px); transition-duration: .45s; }
+.seq .sq.on { opacity: 1; transform: none; }
+.seq .sq.on .ok svg { animation: draw .45s ease-out forwards; animation-delay: calc(var(--d, 0ms) + .25s); }
+@media (prefers-reduced-motion: reduce) { .seq .sq { opacity: 1; transform: none; transition: none; } }
+
+
+.q__top { margin-bottom: clamp(18px, 4.2svh, 34px); }
+.q__title { font-size: clamp(19px, 5.6vw, 23px); margin-bottom: clamp(16px, 3.8svh, 30px); }
+.q__title--long { font-size: clamp(17px, 4.9vw, 21px); }
+.q__options { gap: clamp(8px, 1.4svh, 11px); }
+.opt { padding: clamp(9px, 1.6svh, 13px) 13px; }
+.opt__emoji { width: clamp(34px, 6svh, 42px); height: clamp(34px, 6svh, 42px); font-size: clamp(18px, 3svh, 21px); }
+.opt__text { font-size: clamp(14.5px, 4.2vw, 15.5px); line-height: 1.28; }
+.info .q__title { margin-bottom: clamp(12px, 3svh, 24px); }
+@media (max-height: 600px) {
+  .q__top { margin-bottom: 12px; }
+  .q__title { margin-bottom: 12px; line-height: 1.12; }
+  .opt__text { font-size: 14px; line-height: 1.2; }
+}
+
+
+/* Correção do número 3 nos passos: garante texto branco em todos os números */
+.passos b,
+.passos li:nth-child(1) b,
+.passos li:nth-child(2) b,
+.passos li:nth-child(3) b {
+  color: #ffffff !important;
+}
+.passos li:nth-child(1) b { background: #1650f0 !important; }
+.passos li:nth-child(2) b { background: #0891b2 !important; }
+.passos li:nth-child(3) b { background: #16a34a !important; }
+
+/* Botões de chamada rápida extras */
+.btn--bonus {
+  background: linear-gradient(180deg, #1650f0, #0c3ab8) !important;
+  box-shadow: 0 6px 0 #072370, 0 14px 28px -8px rgba(22, 80, 240, .45) !important;
+  color: #ffffff !important;
+}
+.btn--bonus:hover {
+  filter: brightness(1.08);
+}
+.btn--outline {
+  background: transparent !important;
+  border: 2px solid #1650f0 !important;
+  color: #1650f0 !important;
+  box-shadow: none !important;
+  font-weight: 800;
+  padding: 14px 16px;
+  border-radius: 16px;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  font-size: 15px;
+  transition: all .2s;
+  margin-top: 10px;
+}
+.btn--outline:hover {
+  background: #eef3ff !important;
+}
+
+/* Novo Showcase Desktop/Mobile do App real */
+.app-hero-showcase {
+  background: linear-gradient(135deg, #09173d 0%, #0d286d 100%);
+  width: 100%;
+  height: 100%;
+  padding: 3.5cqw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3cqw;
+  box-sizing: border-box;
+}
+
+.app-window {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 1.8cqw;
+  box-shadow: 0 1cqw 3cqw rgba(0,0,0,0.4);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app-window-head {
+  background: #f1f5f9;
+  padding: 1.2cqw 1.8cqw;
+  display: flex;
+  align-items: center;
+  gap: 1.2cqw;
+  border-bottom: 1px solid #e2e8f0;
+}
+.app-dot { width: 1cqw; height: 1cqw; border-radius: 50%; display: inline-block; }
+.app-dot--red { background: #ef4444; }
+.app-dot--yellow { background: #f59e0b; }
+.app-dot--green { background: #10b981; }
+.app-window-url {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 0.6cqw;
+  padding: 0.4cqw 1.2cqw;
+  font-size: 1.1cqw;
+  color: #475569;
+  font-weight: 600;
+  border: 1px solid #cbd5e1;
+}
+
+.app-window-body {
+  padding: 2cqw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4cqw;
+  flex: 1;
+  background: #f8fafc;
+}
+
+.app-banner-inner {
+  background: linear-gradient(135deg, #0b1f52 0%, #1e3a8a 100%);
+  color: #ffffff;
+  padding: 1.8cqw;
+  border-radius: 1.2cqw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app-banner-inner b { font-size: 1.8cqw; line-height: 1.2; font-weight: 800; }
+.app-banner-inner span { font-size: 1.1cqw; color: #93c5fd; }
+
+.app-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1cqw;
+}
+.app-year-card {
+  padding: 1.4cqw;
+  border-radius: 1cqw;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0.4cqw 1cqw rgba(0,0,0,0.15);
+}
+.app-year-card span { font-size: 0.8cqw; text-transform: uppercase; opacity: 0.8; font-weight: 700; }
+.app-year-card b { font-size: 1.6cqw; font-weight: 900; line-height: 1.1; margin: 0.4cqw 0; }
+.app-year-card small { font-size: 0.9cqw; opacity: 0.9; }
+
+.card-6ano { background: #2563eb; }
+.card-7ano { background: #10b981; }
+.card-8ano { background: #8b5cf6; }
+.card-9ano { background: #f59e0b; }
+
+.app-recent-row {
+  background: #ffffff;
+  border-radius: 0.8cqw;
+  padding: 1.2cqw 1.5cqw;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app-recent-title { font-size: 1.2cqw; font-weight: 800; color: #0b1f52; }
+.app-recent-tag { background: #e0f2fe; color: #0369a1; padding: 0.4cqw 0.8cqw; border-radius: 0.5cqw; font-size: 1cqw; font-weight: 700; }
+
+/* Phone Mockups no Por Dentro do App */
+.fone-mockup {
+  background: #ffffff;
+  color: #111;
+  border-radius: 8px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 6px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.fone-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eef2f6;
+  padding-bottom: 5px;
+  margin-bottom: 6px;
+}
+.fone-pill {
+  font-size: 8px;
+  font-weight: 800;
+  background: #eef3ff;
+  color: #1650f0;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+.fone-title {
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #0b1f52;
+  margin-bottom: 6px;
+  line-height: 1.15;
+}
+.fone-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+.fone-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f4f7fc;
+  border: 1px solid #e2e8f0;
+  padding: 5px 6px;
+  border-radius: 5px;
+  font-size: 8px;
+  font-weight: 700;
+  color: #1e293b;
+}
+.fone-item.active {
+  background: #1650f0;
+  color: #ffffff;
+  border-color: #1650f0;
+}
+.fone-item.green {
+  background: #10b981;
+  color: #ffffff;
+  border-color: #10b981;
+}
+.fone-btn {
+  margin-top: 4px;
+  background: #16a34a;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 7.5px;
+  font-weight: 800;
+  text-align: center;
+  padding: 4px;
+}
+
+/* Depoimentos reais de professores */
+.depo-card {
+  background: #ffffff;
+  padding: 24px 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.depo-stars {
+  color: #f59e0b;
+  font-size: 16px;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+.depo-text {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #1f2937;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+.depo-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 14px;
+}
+.depo-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #e0e7ff;
+  color: #3730a3;
+  font-weight: 800;
+  font-size: 15px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.depo-meta b {
+  display: block;
+  font-size: 14px;
+  color: #0b1f52;
+  font-weight: 800;
+}
+.depo-meta span {
+  display: block;
+  font-size: 11.5px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Cards de bônus estilizados */
+.bonus-card-styled {
+  background: #fff;
+  border: 2px solid #d0e1fd;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(2, 53, 143, 0.08);
+  margin-bottom: 12px;
+}
+.bonus-head {
+  background: linear-gradient(135deg, #02358f, #0b1f52);
+  color: #fff;
+  padding: 8px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.bonus-tag-free {
+  background: #25d366;
+  color: #064e24;
+  padding: 2px 7px;
+  border-radius: 99px;
+  font-size: 9.5px;
+  font-weight: 900;
+}
+.bonus-body {
+  padding: 14px;
+  text-align: left;
+}
+.bonus-body h4 {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0b1f52;
+  margin-bottom: 4px;
+}
+.bonus-body p {
+  font-size: 12px;
+  color: #4c515b;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+.bonus-price {
+  border-top: 1px dashed #cbd5e1;
+  padding-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+.bonus-price strong {
+  color: #15803d;
+  font-weight: 800;
+}
 
   </style>
 </head>
-<body>
-  <div class="page-shell">
-    <header class="top-bar" id="topo">
-      <a href="#topo" class="inline-flex items-center gap-2 no-underline">
-        <span class="grid h-8 w-8 place-items-center rounded-lg bg-[#1650f0] text-white"><i data-lucide="book-open-check" class="h-4 w-4"></i></span>
-        <span class="text-sm font-extrabold text-[#111216]">Biblioteca do Professor</span>
-      </a>
-      <span class="rounded-full bg-[#e9efff] px-2.5 py-1 text-[10.5px] font-extrabold text-[#1642c1]">6º ao 9º Ano</span>
-    </header>
+<body class="pv-body">
+  <main id="app" class="app" aria-live="polite" data-step="oferta">
+    <section class="pv seq">
 
-    <main>
-      <!-- 1. HERO -->
-      <section class="hero">
-        <div class="inner-box">
-          <span class="hero-badge"><i data-lucide="sparkles" class="h-3.5 w-3.5"></i> Língua Portuguesa • 6º ao 9º Ano • BNCC</span>
-          <h1>Prepare suas aulas de Português em <span>2 minutos</span>, sem perder o fim de semana</h1>
-          <p class="hero-lead">Acesse <strong>250 páginas</strong>, <strong>+1.000 questões com gabarito</strong>, planejamentos bimestrais, slides e mapas mentais organizados dentro de um aplicativo — prontos em PDF ou Word editável.</p>
-          <div class="hero-delivery"><i data-lucide="zap" class="h-3.5 w-3.5"></i> Acesso imediato no celular e computador • R$ 47,90</div>
-
-          <div class="hero-media">
-            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Professora preparando aula de Língua Portuguesa com material organizado">
-            <div class="hero-media-caption"><i data-lucide="play-circle" class="h-4 w-4 text-[#ffd166]"></i> Tudo organizado por ano, bimestre e tema no app</div>
-          </div>
-
-          <div class="mt-5">
-            <a href="#checkout" class="cta">Quero acessar a Biblioteca agora <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
-            <p class="text-[11.5px] font-semibold text-[#525866] mt-2">De <s>R$ 67,90</s> por <strong>R$ 47,90</strong> (pagamento único) • Garantia de 7 dias</p>
+      <!-- TOPO / HEADER LIMPO & HERO -->
+      <div class="sec sec--claro">
+        <div class="pv__bar" style="justify-content: center; position: relative;">
+          <div class="app-brand" style="justify-content: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              <path d="m9 9.5 2 2 4-4"></path>
+            </svg>
+          
           </div>
         </div>
-      </section>
 
-      <!-- Faixa contínua de benefícios -->
-      <div class="trust-strip">
-        <div class="trust-marquee">
-          <div class="trust-group">
-            <span class="trust-item"><i data-lucide="check-circle-2" class="h-3.5 w-3.5"></i> Editável em Word</span>
-            <span class="trust-item"><i data-lucide="check-circle-2" class="h-3.5 w-3.5"></i> PDF pronto para imprimir</span>
-            <span class="trust-item"><i data-lucide="check-circle-2" class="h-3.5 w-3.5"></i> +1.000 Questões com Gabarito</span>
-            <span class="trust-item"><i data-lucide="check-circle-2" class="h-3.5 w-3.5"></i> Slides e Mapas Mentais</span>
-            <span class="trust-item"><i data-lucide="check-circle-2" class="h-3.5 w-3.5"></i> De acordo com a BNCC</span>
+        <!-- TÍTULO OTIMIZADO: CURTO, DIRETO E DE ALTO IMPACTO -->
+        <h1 class="pv__h1 sq on">Prepare suas aulas de <span class="pv-azul">Português</span> em <mark class="amb">1&nbsp;minuto</mark> e não leve mais trabalho para casa</h1>
+        
+        <p class="zap-selo sq on">
+          <span class="zap-selo__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.8 7.6c.3-.6.6-.6 1-.6h.6c.2 0 .5 0 .7.5l.9 2.1c.1.3 0 .5-.1.7l-.6.7c-.1.2-.2.4 0 .6.6 1 1.4 1.9 2.5 2.5.2.1.4.1.6-.1l.8-.9c.2-.2.4-.3.7-.2l2 1c.3.1.4.3.4.5 0 .5-.2 1.4-1 1.9-.6.4-1.7.6-3.4-.1-2-.8-3.6-2.5-4.6-4.2-.8-1.5-.6-2.8-.5-3.2z" fill="currentColor"></path></svg>
+          </span>
+          Acesso na hora · direto no seu WhatsApp e e-mail
+        </p>
+
+        <!-- PREVIEW REAL DO APP (JANELA DO APP COM CORES REAIS DO CÓDIGO) + CARD FLUTUANTE DE RESUMO -->
+        <div class="topo sq on" role="img" aria-label="Visualização do aplicativo Biblioteca do Professor com os anos e bimestres organizados" style="aspect-ratio:1920 / 1080">
+          <div class="app-hero-showcase">
+            <div class="app-window">
+              <div class="app-window-head">
+                <span class="app-dot app-dot--red"></span>
+                <span class="app-dot app-dot--yellow"></span>
+                <span class="app-dot app-dot--green"></span>
+                <div class="app-window-url">app.bibliotecadoprofessor.com.br/painel</div>
+              </div>
+              <div class="app-window-body">
+                <div class="app-banner-inner">
+                  <div>
+                    <b>Ensinar também é transformar!</b><br>
+                    <span>Menos tempo preparando aulas • Mais tempo com a família</span>
+                  </div>
+                  <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                </div>
+
+                <div class="app-cards-grid">
+                  <div class="app-year-card card-6ano">
+                    <span>Anos Finais</span>
+                    <b>6º Ano</b>
+                    <small>4 Bimestres • BNCC</small>
+                  </div>
+                  <div class="app-year-card card-7ano">
+                    <span>Anos Finais</span>
+                    <b>7º Ano</b>
+                    <small>4 Bimestres • BNCC</small>
+                  </div>
+                  <div class="app-year-card card-8ano">
+                    <span>Anos Finais</span>
+                    <b>8º Ano</b>
+                    <small>4 Bimestres • BNCC</small>
+                  </div>
+                  <div class="app-year-card card-9ano">
+                    <span>Anos Finais</span>
+                    <b>9º Ano</b>
+                    <small>4 Bimestres • BNCC</small>
+                  </div>
+                </div>
+
+                <div class="app-recent-row">
+                  <span class="app-recent-title">📄 Atividades em PDF + 📝 Arquivos Editáveis em Word + 🎯 Gabarito</span>
+                  <span class="app-recent-tag">Download Instantâneo</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="trust-group" aria-hidden="true">
-            <span class="trust-item"><i data-lucide="check-circle-2" class="h-3.5 w-3.5"></i> Editável em Word</span>
-            <span class="trust-item"><i data-lucide="check-circle-2" class="h-3.5 w-3.5"></i> PDF pronto para imprimir</span>
-            <span class="trust-item"><i data-lucide="check-circle-2" class="h-3.5 w-3.5"></i> +1.000 Questões com Gabarito</span>
-            <span class="trust-item"><i data-lucide="check-circle-2" class="h-3.5 w-3.5"></i> Slides e Mapas Mentais</span>
-            <span class="trust-item"><i data-lucide="check-circle-2" class="h-3.5 w-3.5"></i> De acordo com a BNCC</span>
+          
+          <div class="orc no-sq" aria-hidden="true">
+            <div class="orc__top">
+              <b>Biblioteca <span>do Professor</span></b>
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#6ee7a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <div class="orc__corpo">
+              <p class="orc__quem">
+                <b>Língua Portuguesa · BNCC</b>
+                <span>6º ao 9º Ano</span>
+                <span>4 Bimestres Completos</span>
+              </p>
+              <ul class="orc__linhas">
+                <li><span>250 Páginas de Atividades</span><b>PDF + Word</b></li>
+                <li><span>+1.000 Questões c/ Gabarito</span><b>Incluso</b></li>
+                <li><span>Planejamentos Bimestrais</span><b>Prontos</b></li>
+                <li><span>Slides & Mapas Mentais</span><b>Bônus</b></li>
+              </ul>
+              <p class="orc__total"><span>Acesso</span><b>Vitalício</b></p>
+              <span class="orc__wa">
+                <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.8 7.6c.3-.6.6-.6 1-.6h.6c.2 0 .5 0 .7.5l.9 2.1c.1.3 0 .5-.1.7l-.6.7c-.1.2-.2.4 0 .6.6 1 1.4 1.9 2.5 2.5.2.1.4.1.6-.1l.8-.9c.2-.2.4-.3.7-.2l2 1c.3.1.4.3.4.5 0 .5-.2 1.4-1 1.9-.6.4-1.7.6-3.4-.1-2-.8-3.6-2.5-4.6-4.2-.8-1.5-.6-2.8-.5-3.2z" fill="currentColor"></path></svg>
+                Baixar no Celular ou PC
+              </span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 2. QUEBRA DE OBJEÇÃO + DESTAQUE AZUL MARINHO + GRADE ALINHADA -->
-      <section class="section">
-        <div class="inner-box">
-          <div class="info-card">
-            <div class="info-card-title">
-              <span class="info-icon"><i data-lucide="folder-search" class="h-4 w-4"></i></span>
-              <h3>Preparar aula não precisa ser cansativo</h3>
-            </div>
-            <p>Você não precisa passar horas abrindo dezenas de sites, copiando textos desformatados ou montando questões do zero toda semana.</p>
-            <p>A <strong>Biblioteca do Professor</strong> entrega todo o conteúdo de Língua Portuguesa já estruturado por ano escolar e bimestre, com gabarito e alinhado à BNCC.</p>
+      <!-- CARDS DE BENEFÍCIOS + BOTÃO DE ATALHO RÁPIDO PARA A SEÇÃO DE BÔNUS NA 2ª DOBRA -->
+      <div class="sec sec--branco">
+        <div class="card sq on">
+          <div class="card__head">
+            <span class="tile tile--azul" aria-hidden="true">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            </span>
+            <h3>Preparar aula não precisa ser cansativo</h3>
           </div>
-
-          <div class="navy-highlight-card">
-            <div class="navy-top">
-              <span class="navy-icon"><i data-lucide="file-check-2" class="h-4 w-4"></i></span>
-              <h3>Baixe em PDF ou edite no Word</h3>
-            </div>
-            <p>Com apenas alguns cliques dentro do app, você baixa a atividade em <strong>PDF pronto para imprimir</strong> ou abre o arquivo <strong>editável em Word</strong> para colocar o cabeçalho da sua escola e adaptar à sua turma.</p>
-            <p>Funciona direto no celular, tablet ou computador — sem pastas bagunçadas.</p>
-          </div>
-
-          <div class="topics-box">
-            <h3>Todos os conteúdos de Língua Portuguesa em um só lugar:</h3>
-            <div class="topics-grid">
-              <div class="topic-pill"><i data-lucide="check"></i><span>6º ao 9º Ano (BNCC)</span></div>
-              <div class="topic-pill"><i data-lucide="check"></i><span>Planejamentos</span></div>
-              <div class="topic-pill"><i data-lucide="check"></i><span>Gêneros Textuais</span></div>
-              <div class="topic-pill"><i data-lucide="check"></i><span>Classes de Palavras</span></div>
-              <div class="topic-pill"><i data-lucide="check"></i><span>Sujeito e Predicado</span></div>
-              <div class="topic-pill"><i data-lucide="check"></i><span>Concordância</span></div>
-              <div class="topic-pill"><i data-lucide="check"></i><span>Regência e Crase</span></div>
-              <div class="topic-pill"><i data-lucide="check"></i><span>Pontuação</span></div>
-              <div class="topic-pill"><i data-lucide="check"></i><span>Orações e Períodos</span></div>
-              <div class="topic-pill"><i data-lucide="check"></i><span>Slides por Assunto</span></div>
-              <div class="topic-pill"><i data-lucide="check"></i><span>Mapas Mentais</span></div>
-              <div class="topic-pill highlight"><i data-lucide="star"></i><span>+1.000 Questões</span></div>
-            </div>
-          </div>
+          <p>Você não precisa passar horas abrindo dezenas de sites, copiando textos desformatados ou montando questões do zero toda semana.</p>
+          <p>A <strong>Biblioteca do Professor</strong> entrega todo o conteúdo de Língua Portuguesa já estruturado por ano escolar e bimestre, com gabarito completo e alinhado à BNCC.</p>
         </div>
-      </section>
 
-      <!-- 3. VITRINE VISUAL DO APP EM 3 PASSOS -->
-      <section class="app-showcase">
-        <div class="inner-box">
-          <div class="section-head">
-            <p class="eyebrow">Por dentro do aplicativo</p>
-            <h2>Veja como é simples encontrar e baixar qualquer material</h2>
-            <p>Interface limpa e intuitiva dividida em 3 etapas rápidas.</p>
+        <div class="card card--escuro sq on">
+          <div class="card__head">
+            <span class="tile tile--verde" aria-hidden="true">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </span>
+            <h3>Baixe em PDF ou edite no Word</h3>
           </div>
+          <p>Com um clique você baixa a atividade em <strong>PDF pronto para imprimir</strong> ou abre o arquivo <strong>editável em Word</strong> para personalizar o cabeçalho com o nome da sua escola e turma.</p>
+          <p>Funciona direto no celular, tablet ou computador — sem pastas perdidas ou links quebrados.</p>
+        </div>
 
-          <div class="phones-grid">
-            <div class="phone-mock">
-              <div class="phone-notch"></div>
-              <span class="phone-step-badge">1. Escolha o Ano</span>
-              <h3>Selecione a turma</h3>
-              <div class="phone-ui-list">
-                <div class="phone-ui-row active"><span>6º Ano</span><span>›</span></div>
-                <div class="phone-ui-row"><span>7º Ano</span><span>›</span></div>
-                <div class="phone-ui-row"><span>8º Ano</span><span>›</span></div>
-                <div class="phone-ui-row"><span>9º Ano</span><span>›</span></div>
+        <div class="card sq on">
+          <div class="card__head">
+            <span class="tile tile--ciano" aria-hidden="true">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            </span>
+            <h3>Todos os conteúdos de Português em um só lugar</h3>
+          </div>
+          <ul class="chips no-sq" role="list">
+            <li>Interpretação Textual</li>
+            <li>Gêneros Textuais</li>
+            <li>Classes de Palavras</li>
+            <li>Sujeito e Predicado</li>
+            <li>Concordância Verbal e Nominal</li>
+            <li>Regência e Crase</li>
+            <li>Pontuação</li>
+            <li>Orações e Períodos</li>
+            <li>Figuras de Linguagem</li>
+            <li>Análise Linguística</li>
+            <li>Slides por Assunto</li>
+            <li class="chips__mais">+1.000 questões com gabarito</li>
+          </ul>
+          <p>Tudo o que você precisa do 6º ao 9º ano organizado para os 4 bimestres letivos.</p>
+        </div>
+
+        <!-- BOTÕES DE ATALHO RÁPIDO NA 2ª DOBRA -->
+        <div style="margin-top: 14px; text-align: center;">
+          <a href="#bonus" class="btn btn--bonus">🎁 VER OS 3 BÔNUS EXCLUSIVOS INCLUSOS</a>
+          <a href="#oferta" class="btn--outline">QUERO IR DIRETO PARA O VALOR DA OFERTA</a>
+        </div>
+      </div>
+
+      <!-- POR DENTRO DO APP (FIEL ÀS TELAS DO APP REACT) -->
+      <div class="sec sec--escuro sec--telas">
+        <h2 class="tit sq on" style="color:#fff; margin-bottom:8px">Por dentro do aplicativo</h2>
+        <p class="apoio sq on" style="color:#b8cdf2; text-align:center">Veja como é simples encontrar e baixar qualquer material em 3 passos</p>
+        
+        <div class="telas sq on" role="img" aria-label="Como funciona o aplicativo: 1 selecione o ano escolar, 2 filtre o bimestre e tema, 3 baixe em PDF ou Word editável">
+          <div class="telas__fones">
+            
+            <!-- FONE 1 -->
+            <div class="telas__item">
+              <span class="pv-fone" aria-hidden="true">
+                <div class="fone-mockup">
+                  <div class="fone-topbar">
+                    <span class="fone-pill">1. ANO ESCOLAR</span>
+                    <span style="font-size:7px; color:#64748b">LP • BNCC</span>
+                  </div>
+                  <div class="fone-title">Selecione a turma</div>
+                  <div class="fone-list">
+                    <div class="fone-item active"><span>6º Ano</span><span>›</span></div>
+                    <div class="fone-item"><span>7º Ano</span><span>›</span></div>
+                    <div class="fone-item"><span>8º Ano</span><span>›</span></div>
+                    <div class="fone-item"><span>9º Ano</span><span>›</span></div>
+                  </div>
+                </div>
+              </span>
+            </div>
+
+            <!-- FONE 2 -->
+            <div class="telas__item">
+              <span class="pv-fone" aria-hidden="true">
+                <div class="fone-mockup">
+                  <div class="fone-topbar">
+                    <span class="fone-pill">2. BIMESTRE</span>
+                    <span style="font-size:7px; color:#64748b">6º ANO</span>
+                  </div>
+                  <div class="fone-title">Escolha o conteúdo</div>
+                  <div class="fone-list">
+                    <div class="fone-item active"><span>1º Bimestre</span><span>✓</span></div>
+                    <div class="fone-item"><span>2º Bimestre</span><span>›</span></div>
+                    <div class="fone-item"><span>3º Bimestre</span><span>›</span></div>
+                    <div class="fone-item"><span>4º Bimestre</span><span>›</span></div>
+                  </div>
+                </div>
+              </span>
+            </div>
+
+            <!-- FONE 3 -->
+            <div class="telas__item">
+              <b class="telas__pronto">Pronto para a aula! ✓</b>
+              <span class="pv-fone" aria-hidden="true">
+                <div class="fone-mockup">
+                  <div class="fone-topbar">
+                    <span class="fone-pill">3. BAIXAR</span>
+                    <span style="font-size:7px; color:#15803d">GABARITO ✓</span>
+                  </div>
+                  <div class="fone-title">Formato desejado</div>
+                  <div class="fone-list">
+                    <div class="fone-item active"><span>📄 PDF p/ Imprimir</span><span>↓</span></div>
+                    <div class="fone-item green"><span>📝 Word Editável</span><span>↓</span></div>
+                    <div class="fone-item"><span>🎯 Gabarito do Prof.</span><span>✓</span></div>
+                    <div class="fone-btn">Baixar Material Agora</div>
+                  </div>
+                </div>
+              </span>
+            </div>
+
+            <span class="telas__seta telas__seta--1">
+              <b>Passo 1</b>
+              <svg viewBox="0 0 60 40" aria-hidden="true"><path d="M5 33C12 15 30 7 49 13" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"></path><path d="M45 2 58 16 41 22z" fill="currentColor"></path></svg>
+            </span>
+            <span class="telas__seta telas__seta--2">
+              <b>Passo 2</b>
+              <svg viewBox="0 0 60 40" aria-hidden="true"><path d="M5 33C12 15 30 7 49 13" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"></path><path d="M45 2 58 16 41 22z" fill="currentColor"></path></svg>
+            </span>
+          </div>
+          <p class="telas__leg">Escolha o ano <i>→</i> Selecione o bimestre <i>→</i> Baixe em PDF ou Word</p>
+        </div>
+      </div>
+
+      <!-- ANTES E DEPOIS NO WHATSAPP COM PROFESSORA -->
+      <div class="sec sec--claro">
+        <div class="ad sq on">
+          <div class="ad__rotulos">
+            <p class="ad__selo ad__selo--antes">ANTES <span aria-hidden="true">✕</span></p>
+            <p class="ad__selo ad__selo--depois">DEPOIS <span aria-hidden="true">✓</span></p>
+          </div>
+          <div class="ad__palco" role="img" aria-label="Antes e depois de uma professora preparando aulas. Antes: domingo à noite perdida procurando atividades na internet. Depois: baixou tudo pronto no app em 1 minuto.">
+            <div class="ad__par" style="zoom: 0.709677;">
+              
+              <!-- ZAP ANTES -->
+              <div class="wa" data-wa="">
+                <div class="wa__tela">
+                  <div class="wa__status"><b>22:45</b><span class="wa__ilha"></span><span class="wa__sis"><svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"></rect><rect x="5" y="5.5" width="3" height="6.5" rx="1"></rect><rect x="10" y="3" width="3" height="9" rx="1"></rect><rect x="15" y="0" width="3" height="12" rx="1"></rect></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 2.2c2.4 0 4.6.9 6.3 2.5l1.2-1.3A10.6 10.6 0 0 0 8 .4C5.1.4 2.5 1.5.5 3.4l1.2 1.3A9 9 0 0 1 8 2.2zm0 3.6c1.4 0 2.7.5 3.7 1.4l1.2-1.3A7.2 7.2 0 0 0 8 4c-1.9 0-3.6.7-4.9 1.9l1.2 1.3c1-.9 2.3-1.4 3.7-1.4zm0 3.5c-.6 0-1.2.2-1.6.6L8 11.6l1.6-1.7c-.4-.4-1-.6-1.6-.6z"></path></svg><svg viewBox="0 0 27 12" aria-hidden="true"><rect x=".5" y=".5" width="23" height="11" rx="3.2" fill="none" stroke="currentColor" opacity=".4"></rect><rect x="2" y="2" width="17" height="8" rx="2"></rect><path d="M25 4v4c.8-.3 1.3-1.1 1.3-2S25.8 4.3 25 4z" opacity=".4"></path></svg></span></div>
+                  <div class="wa__top">
+                    <span class="wa__volta"><svg class="wa__ic-volta" viewBox="0 0 12 20" aria-hidden="true"><path d="M10 2 2 10l8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>4</span></span>
+                    <span class="wa__av"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#dfe5e7"></circle><circle cx="20" cy="15.5" r="7.2" fill="#fff"></circle><path d="M6.6 34.8c2.3-5.9 7.4-9.1 13.4-9.1s11.1 3.2 13.4 9.1A19.9 19.9 0 0 1 6.6 34.8z" fill="#fff"></path></svg></span>
+                    <span class="wa__quem"><b>Professora Juliana</b><small data-wa-st="visto por último hoje às 22:50">visto por último hoje às 22:50</small></span>
+                    <span class="wa__acoes"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="13.5" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"></rect><path d="m15.5 10.6 5-3.1v9l-5-3.1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg></span>
+                  </div>
+                  <div class="wa__chat">
+                    <span class="wa__dia" data-wa-item="">Domingo à Noite</span>
+                    <div class="wa__m wa__m--ela wa__m--rabo" data-wa-item="" data-wa-ela="">Amiga, você tem atividade de orações subordinadas pro 9º ano?<span class="wa__esp wa__esp--ela" aria-hidden="true"></span><span class="wa__meta">22:46</span></div>
+                    <div class="wa__m wa__m--ela" data-wa-item="" data-wa-ela="">Tô aqui até agora catando texto no Google e formatando no Word 😭<span class="wa__esp wa__esp--ela" aria-hidden="true"></span><span class="wa__meta">22:47</span></div>
+                    <div class="wa__m wa__m--eu wa__m--rabo" data-wa-item="">Nossa Ju, eu também sofria com isso todo domingo à noite...<span class="wa__esp" aria-hidden="true"></span><span class="wa__meta">22:48<svg class="wa__lido" viewBox="0 0 16 11" aria-hidden="true"><path d="M11.1.6 4.9 8.3 2.1 5.6 1 6.7l3.9 3.9L12.2 1.6zM15 .6 8.8 8.3l-.7-.7-1.1 1.2 1.8 1.8L16.1 1.6z" fill="currentColor"></path></svg></span></div>
+                    <div class="wa__m wa__m--ela wa__m--rabo" data-wa-item="" data-wa-ela="">Nem me fale, quase 23h e ainda tenho que fazer o gabarito da prova do 7º ano... amanhã cedo tô exausta 😩<span class="wa__esp wa__esp--ela" aria-hidden="true"></span><span class="wa__meta">22:50</span></div>
+                  </div>
+                  <div class="wa__barra"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><span class="wa__campo"></span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"></rect><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></div>
+                </div>
+              </div>
+
+              <!-- ZAP DEPOIS -->
+              <div class="wa" data-wa="" data-wa-digita="1">
+                <div class="wa__tela">
+                  <div class="wa__status"><b>14:15</b><span class="wa__ilha"></span><span class="wa__sis"><svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"></rect><rect x="5" y="5.5" width="3" height="6.5" rx="1"></rect><rect x="10" y="3" width="3" height="9" rx="1"></rect><rect x="15" y="0" width="3" height="12" rx="1"></rect></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 2.2c2.4 0 4.6.9 6.3 2.5l1.2-1.3A10.6 10.6 0 0 0 8 .4C5.1.4 2.5 1.5.5 3.4l1.2 1.3A9 9 0 0 1 8 2.2zm0 3.6c1.4 0 2.7.5 3.7 1.4l1.2-1.3A7.2 7.2 0 0 0 8 4c-1.9 0-3.6.7-4.9 1.9l1.2 1.3c1-.9 2.3-1.4 3.7-1.4zm0 3.5c-.6 0-1.2.2-1.6.6L8 11.6l1.6-1.7c-.4-.4-1-.6-1.6-.6z"></path></svg><svg viewBox="0 0 27 12" aria-hidden="true"><rect x=".5" y=".5" width="23" height="11" rx="3.2" fill="none" stroke="currentColor" opacity=".4"></rect><rect x="2" y="2" width="17" height="8" rx="2"></rect><path d="M25 4v4c.8-.3 1.3-1.1 1.3-2S25.8 4.3 25 4z" opacity=".4"></path></svg></span></div>
+                  <div class="wa__top">
+                    <span class="wa__volta"><svg class="wa__ic-volta" viewBox="0 0 12 20" aria-hidden="true"><path d="M10 2 2 10l8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>1</span></span>
+                    <span class="wa__av"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#dfe5e7"></circle><circle cx="20" cy="15.5" r="7.2" fill="#fff"></circle><path d="M6.6 34.8c2.3-5.9 7.4-9.1 13.4-9.1s11.1 3.2 13.4 9.1A19.9 19.9 0 0 1 6.6 34.8z" fill="#fff"></path></svg></span>
+                    <span class="wa__quem"><b>Professora Juliana</b><small data-wa-st="online">online</small></span>
+                    <span class="wa__acoes"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="13.5" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"></rect><path d="m15.5 10.6 5-3.1v9l-5-3.1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg></span>
+                  </div>
+                  <div class="wa__chat">
+                    <span class="wa__dia" data-wa-item="">Hoje</span>
+                    <div class="wa__m wa__m--eu wa__m--rabo wa__m--pdf" data-wa-item="">
+                      <span class="wa__doc">
+                        <svg class="wa__pdfic" viewBox="0 0 28 34" aria-hidden="true"><path d="M4 0h14l10 10v20a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z" fill="#2563eb"></path><path d="M18 0v6a4 4 0 0 0 4 4h6z" fill="#93c5fd"></path><path d="M7 25h14M7 20.5h14M7 16h8" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg>
+                        <span class="wa__doc-t"><b>Atividade-9ano-BNCC.pdf</b><small>Atividade pronta + Gabarito comentado</small></span>
+                      </span>
+                      <span class="wa__meta">14:16<svg class="wa__lido" viewBox="0 0 16 11" aria-hidden="true"><path d="M11.1.6 4.9 8.3 2.1 5.6 1 6.7l3.9 3.9L12.2 1.6zM15 .6 8.8 8.3l-.7-.7-1.1 1.2 1.8 1.8L16.1 1.6z" fill="currentColor"></path></svg></span>
+                    </div>
+                    <div class="wa__m wa__m--eu" data-wa-item="">Ju, baixa esse aqui! Peguei agora na Biblioteca do Professor. Já vem com gabarito e tem a versão em Word também 😍<span class="wa__esp" aria-hidden="true"></span><span class="wa__meta">14:16<svg class="wa__lido" viewBox="0 0 16 11" aria-hidden="true"><path d="M11.1.6 4.9 8.3 2.1 5.6 1 6.7l3.9 3.9L12.2 1.6zM15 .6 8.8 8.3l-.7-.7-1.1 1.2 1.8 1.8L16.1 1.6z" fill="currentColor"></path></svg></span></div>
+                    <div class="wa__m wa__m--ela wa__m--rabo" data-wa-item="" data-wa-ela="">Mulher, você salvou minha semana! 😱<span class="wa__esp wa__esp--ela" aria-hidden="true"></span><span class="wa__meta">14:17</span></div>
+                    <div class="wa__m wa__m--ela" data-wa-item="" data-wa-ela="">Tudo formatado, perfeito com BNCC e gabarito! Me manda o link desse app agora mesmo!! ✨👏<span class="wa__esp wa__esp--ela" aria-hidden="true"></span><span class="wa__meta">14:18</span></div>
+                  </div>
+                  <div class="wa__barra"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><span class="wa__campo"></span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"></rect><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="ad__rotulos">
+            <p class="ad__leg ad__leg--antes">Fim de semana perdido trabalhando. 😔</p>
+            <p class="ad__leg ad__leg--depois">Aulas prontas em minutos e descanso garantido. ☕</p>
+          </div>
+          <p class="ad__faixa">A diferença entre viver sobrecarregado e <span>ter paz na rotina</span></p>
+        </div>
+      </div>
+
+      <!-- COMPARAÇÃO: SEM O APP vs COM O APP (COM IMAGENS DIDÁTICAS DE PROFESSOR) -->
+      <div class="sec sec--sem">
+        <h2 class="tit sq on">Sua rotina SEM A BIBLIOTECA DO PROFESSOR</h2>
+        <ul class="lista lista--x sq on" role="list">
+          <li class="sq on"><span>Perde horas garimpando em dezenas de sites</span></li>
+          <li class="sq on"><span>Passa o fim de semana preparando aula e prova</span></li>
+          <li class="sq on"><span>Arquivos bagunçados espalhados pelo computador</span></li>
+          <li class="sq on"><span>Textos desformatados e difíceis de editar</span></li>
+          <li class="sq on"><span>Perde tempo resolvendo questões para fazer o gabarito</span></li>
+          <li class="sq on"><span>Dificuldade para planejar os 4 bimestres com a BNCC</span></li>
+          <li class="sq on"><span>Falta de slides e recursos visuais para sala de aula</span></li>
+          <li class="sq on"><span>Sensação constante de sobrecarga e cansaço</span></li>
+        </ul>
+        <figure class="foto sq on">
+          <!-- IMAGEM CONTEXTUALIZADA DE PILHA DE CADERNOS/PLANEJAMENTO CANSATIVO -->
+          <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1280&q=80" alt="Mesa cheia de livros e anotações de planejamento escolar exaustivo" width="1280" height="720" loading="lazy">
+        </figure>
+      </div>
+
+      <div class="sec sec--com">
+        <h2 class="tit sq on">Sua rotina COM A BIBLIOTECA DO PROFESSOR</h2>
+        <ul class="lista lista--ok sq on" role="list">
+          <li class="sq on"><span>Planejamento pronto em poucos minutos</span></li>
+          <li class="sq on"><span>250 páginas organizadas por ano escolar (6º ao 9º)</span></li>
+          <li class="sq on"><span>Mais de 1.000 questões com gabarito completo</span></li>
+          <li class="sq on"><span>Arquivos em PDF prontos para imprimir</span></li>
+          <li class="sq on"><span>Arquivos em Word totalmente editáveis</span></li>
+          <li class="sq on"><span>Slides prontos para projetar e dinamizar a aula</span></li>
+          <li class="sq on"><span>Mapas mentais para revisão dos alunos</span></li>
+          <li class="sq on"><span>Acesso direto pelo celular, tablet ou computador</span></li>
+          <li class="sq on"><span>Mais tempo livre para descansar e cuidar de você</span></li>
+        </ul>
+        <figure class="foto sq on">
+          <!-- IMAGEM CONTEXTUALIZADA DE PROFESSORA ENSINANDO COM ALEGRIA E LEVEZA -->
+          <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1280&q=80" alt="Professora lecionando com tranquilidade e sorriso em sala de aula" width="1280" height="720" loading="lazy">
+        </figure>
+      </div>
+
+      <!-- SEÇÃO DE DORES -->
+      <div class="sec sec--dor">
+        <h2 class="tit sq on">Se você leciona Português, provavelmente já <mark class="mt">passou por isso…</mark></h2>
+        <ul class="lista lista--seta lista--solta sq on" role="list">
+          <li class="sq on"><span>Já passou o domingo à noite no computador caçando texto e atividade</span></li>
+          <li class="sq on"><span>Já baixou atividade da internet e teve que refazer toda a formatação quebrada</span></li>
+          <li class="sq on"><span>Já perdeu horas preciosas montando gabarito de questões do zero</span></li>
+          <li class="sq on"><span>Já sentiu que o planejamento do bimestre consome todo o seu tempo livre</span></li>
+          <li class="sq on"><span>Já teve que improvisar em sala de aula por falta de material adequado</span></li>
+        </ul>
+
+        <p class="apoio sq on">O problema não é a sua dedicação ao ensino…</p>
+        <h2 class="tit sq on">O problema é a falta de um <mark class="mt">acervo organizado e pronto</mark></h2>
+        <p class="rot rot--solta sq on">A rotina tradicional do professor:</p>
+        <ul class="lista lista--xq lista--solta sq on" role="list">
+          <li class="sq on"><span>Centenas de abas abertas no navegador</span></li>
+          <li class="sq on"><span>Arquivos perdidos no WhatsApp e no computador</span></li>
+          <li class="sq on"><span>Falta de padrão visual e didático</span></li>
+          <li class="sq on"><span>Trabalho excessivo fora da sala de aula</span></li>
+        </ul>
+        <h2 class="tit sq on">É por isso que você se sente <mark class="mt">exausto e sobrecarregado</mark></h2>
+        <figure class="foto sq on">
+          <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1280&q=80" alt="Livros didáticos de leitura e escrita escolar" width="1280" height="720" loading="lazy">
+        </figure>
+      </div>
+
+      <!-- CONHEÇA A BIBLIOTECA (COM CORREÇÃO DO NÚMERO 3 EM BRANCO) -->
+      <div class="sec sec--claro">
+        <div class="card sq on">
+          <p class="apoio card__centro">Conheça a</p>
+          <div class="app-brand card__centro" style="font-size:22px; justify-content:center; margin-bottom:10px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:34px;height:34px;color:#1650f0">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              <path d="m9 9.5 2 2 4-4"></path>
+            </svg>
+            <span>Biblioteca do Professor</span>
+          </div>
+          <p>O aplicativo completo com todo o acervo de Língua Portuguesa organizado para os 4 bimestres, pronto para baixar em Word e PDF.</p>
+          <p class="rot">Você só precisa:</p>
+          <ol class="passos" role="list">
+            <li class="sq on"><b>1</b> <span>Acesse pelo celular ou computador</span></li>
+            <li class="sq on"><b>2</b> <span>Escolha o ano escolar e o bimestre</span></li>
+            <li class="sq on"><b>3</b> <span>Baixe em PDF ou Word editável</span></li>
+          </ol>
+          <p class="card__ok"><span aria-hidden="true">✅</span> Simples, rápido e organizado</p>
+          <figure class="foto">
+            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1000&q=80" alt="Professores colaborando e preparando aulas com tecnologia" width="1000" height="600" loading="lazy">
+            <figcaption class="foto__selo">Feito sob medida para professores de Português</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- O QUE TEM DENTRO DO APP -->
+      <div class="sec sec--branco">
+        <h2 class="tit sq on">O que você encontra dentro do aplicativo?</h2>
+        <p class="apoio sq on">Com a <span class="pv-azul">Biblioteca do Professor</span> você tem em mãos…</p>
+        <ul class="lista lista--dupla lista--solta sq on" role="list">
+          <li class="sq on"><span>250 páginas de atividades organizadas</span></li>
+          <li class="sq on"><span>+1.000 questões objetivas e discursivas</span></li>
+          <li class="sq on"><span>Gabarito completo de todas as questões</span></li>
+          <li class="sq on"><span>Planejamentos dos 4 bimestres com BNCC</span></li>
+          <li class="sq on"><span>Arquivos em Word 100% editáveis</span></li>
+          <li class="sq on"><span>Arquivos em PDF prontos para imprimir</span></li>
+          <li class="sq on"><span>Slides por assunto prontos para projetar</span></li>
+          <li class="sq on"><span>Mapas mentais visuais para revisão</span></li>
+          <li class="sq on"><span>Textos selecionados de diversos gêneros</span></li>
+          <li class="sq on"><span>Acesso rápido e vitalício</span></li>
+        </ul>
+
+        <div class="card card--ciano sq on">
+          <p class="apoio card__centro">Esse material não é só para imprimir folha.</p>
+          <h2 class="tit card__centro">Ele é para você <mark class="mt">recuperar seu tempo livre</mark> e ter paz na rotina escolar.</h2>
+          <p class="rot">Com ele você consegue:</p>
+          <ul class="lista lista--seta2" role="list">
+            <li class="sq on"><span>Parar de trabalhar aos fins de semana e feriados</span></li>
+            <li class="sq on"><span>Levar materiais profissionais e diagramados para a sala</span></li>
+            <li class="sq on"><span>Personalizar qualquer prova ou atividade com a sua marca</span></li>
+            <li class="sq on"><span>Facilitar o aprendizado dos alunos com explicações visuais</span></li>
+            <li class="sq on"><span>Economizar dezenas de horas todo mês</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- NOVA SEÇÃO: VEJA COMO OS PROFESSORES USAM O APP (DEPOIMENTOS & CASOS DE USO) -->
+      <div class="sec sec--claro">
+        <h2 class="tit sq on">Veja como os professores <mark class="mt">usam o app</mark> no dia a dia…</h2>
+        
+        <div class="pv-carrossel sq on" data-carrossel="">
+          <div class="pv-carrossel__trilho">
+            
+            <!-- DEPOIMENTO 1 -->
+            <figure class="pv-carrossel__slide">
+              <span class="pv-carrossel__img" style="background:#fff; padding:0; text-align:left;">
+                <div class="depo-card">
+                  <div>
+                    <div class="depo-stars">★★★★★</div>
+                    <p class="depo-text">"Minha rotina mudou completamente. Eu perdia todo o domingo montando provas e caçando texto na internet. Agora eu abro o app pelo celular, escolho o bimestre e baixo no Word com meu cabeçalho em 2 minutos!"</p>
+                  </div>
+                  <div class="depo-author">
+                    <div class="depo-avatar">MC</div>
+                    <div class="depo-meta">
+                      <b>Profª. Maria Clara</b>
+                      <span>Português • 6º e 7º Anos (SP)</span>
+                    </div>
+                  </div>
+                </div>
+              </span>
+              <span class="pv-carrossel__tag"><span aria-hidden="true">💡</span> Como ela usa o app</span>
+            </figure>
+
+            <!-- DEPOIMENTO 2 -->
+            <figure class="pv-carrossel__slide">
+              <span class="pv-carrossel__img" style="background:#fff; padding:0; text-align:left;">
+                <div class="depo-card">
+                  <div>
+                    <div class="depo-stars">★★★★★</div>
+                    <p class="depo-text">"O gabarito pronto com explicação das questões me salvou demais. Antes eu tinha que resolver questão por questão antes de aplicar. O material de orações e concordância é nota 10!"</p>
+                  </div>
+                  <div class="depo-author">
+                    <div class="depo-avatar">RS</div>
+                    <div class="depo-meta">
+                      <b>Prof. Ricardo Santos</b>
+                      <span>Língua Portuguesa • 8º e 9º Anos (MG)</span>
+                    </div>
+                  </div>
+                </div>
+              </span>
+              <span class="pv-carrossel__tag"><span aria-hidden="true">💡</span> Como ele usa o app</span>
+            </figure>
+
+            <!-- DEPOIMENTO 3 -->
+            <figure class="pv-carrossel__slide">
+              <span class="pv-carrossel__img" style="background:#fff; padding:0; text-align:left;">
+                <div class="depo-card">
+                  <div>
+                    <div class="depo-stars">★★★★★</div>
+                    <p class="depo-text">"Os slides para projetar em sala foram o melhor achado. Eu não perco mais tempo copiando tudo no quadro. Os alunos prestam muito mais atenção e sobra tempo para tirar dúvidas."</p>
+                  </div>
+                  <div class="depo-author">
+                    <div class="depo-avatar">AF</div>
+                    <div class="depo-meta">
+                      <b>Profª. Ana Flávia</b>
+                      <span>Ensino Fundamental II (PR)</span>
+                    </div>
+                  </div>
+                </div>
+              </span>
+              <span class="pv-carrossel__tag"><span aria-hidden="true">💡</span> Como ela usa o app</span>
+            </figure>
+
+            <!-- DEPOIMENTO 4 -->
+            <figure class="pv-carrossel__slide">
+              <span class="pv-carrossel__img" style="background:#fff; padding:0; text-align:left;">
+                <div class="depo-card">
+                  <div>
+                    <div class="depo-stars">★★★★★</div>
+                    <p class="depo-text">"O que eu mais gostei foi a organização por bimestre. A coordenadora sempre pedia os planejamentos com os códigos da BNCC e eu ficava louca. No app já veio tudo amarradinho com o sumário."</p>
+                  </div>
+                  <div class="depo-author">
+                    <div class="depo-avatar">LS</div>
+                    <div class="depo-meta">
+                      <b>Profª. Luciana Silva</b>
+                      <span>Docente há 12 anos (RJ)</span>
+                    </div>
+                  </div>
+                </div>
+              </span>
+              <span class="pv-carrossel__tag"><span aria-hidden="true">💡</span> Como ela usa o app</span>
+            </figure>
+
+          </div>
+          
+          <button class="pv-carrossel__seta pv-carrossel__seta--ant" type="button" data-dir="-1" aria-label="Depoimento anterior">‹</button>
+          <button class="pv-carrossel__seta pv-carrossel__seta--prox" type="button" data-dir="1" aria-label="Próximo depoimento">›</button>
+          <div class="pv-carrossel__pontos" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+        </div>
+        <p class="pv-carrossel__nota sq on">Exemplos reais de como a Biblioteca facilita a rotina de quem leciona.</p>
+
+        <!-- SEÇÃO DE BÔNUS EXCLUSIVOS COM ÂNCORA #bonus -->
+        <div id="bonus" style="margin-top:34px; scroll-margin-top: 30px;">
+          <h2 class="tit sq on">Bônus Especiais Inclusos no Acesso</h2>
+          <p class="apoio sq on" style="text-align:center; margin-bottom:18px">Você não paga nada a mais por esses 3 materiais complementares:</p>
+
+          <div class="bonus-card-styled sq on">
+            <div class="bonus-head">
+              <span>Bônus 01</span>
+              <span class="bonus-tag-free">Grátis</span>
+            </div>
+            <div class="bonus-body">
+              <h4>Pacote de Slides por Assunto</h4>
+              <p>Apresentações didáticas prontas para projetar em sala de aula e dinamizar suas explicações sem precisar escrever tudo no quadro.</p>
+              <div class="bonus-price">
+                <span>Valor separado: <s>R$ 29,90</s></span>
+                <strong>R$ 0,00</strong>
               </div>
             </div>
+          </div>
 
-            <div class="phone-mock">
-              <div class="phone-notch"></div>
-              <span class="phone-step-badge">2. Bimestre</span>
-              <h3>Filtre o tema</h3>
-              <div class="phone-ui-list">
-                <div class="phone-ui-row active"><span>1º Bimestre</span><span>✓</span></div>
-                <div class="phone-ui-row"><span>Atividades</span><span>›</span></div>
-                <div class="phone-ui-row"><span>Slides/Mapas</span><span>›</span></div>
-                <div class="phone-ui-row"><span>Provas</span><span>›</span></div>
-              </div>
+          <div class="bonus-card-styled sq on">
+            <div class="bonus-head">
+              <span>Bônus 02</span>
+              <span class="bonus-tag-free">Grátis</span>
             </div>
-
-            <div class="phone-mock">
-              <div class="phone-notch"></div>
-              <span class="phone-step-badge">3. Baixe e Use</span>
-              <h3>Formato ideal</h3>
-              <div class="phone-ui-list">
-                <div class="phone-ui-row active"><span>PDF Imprimir</span><span>↓</span></div>
-                <div class="phone-ui-row"><span>Word Editar</span><span>↓</span></div>
-                <div class="phone-ui-row"><span>Gabarito</span><span>✓</span></div>
-                <div class="phone-ui-row"><span>Slides</span><span>›</span></div>
+            <div class="bonus-body">
+              <h4>Coleção de Mapas Mentais Ilustrados</h4>
+              <p>Resumos visuais prontos para imprimir e entregar aos alunos nas semanas de revisão e fixação antes das avaliações.</p>
+              <div class="bonus-price">
+                <span>Valor separado: <s>R$ 24,90</s></span>
+                <strong>R$ 0,00</strong>
               </div>
             </div>
           </div>
 
-          <p class="showcase-bar">Simples, rápido e 100% organizado para o professor</p>
-        </div>
-      </section>
-
-      <!-- 4. COMPARATIVO VISUAL + ROTINA SEM vs COM (COM FOTOS REAIS) -->
-      <section class="section">
-        <div class="inner-box">
-          <div class="section-head">
-            <p class="eyebrow">A diferença na prática</p>
-            <h2>Compare como fica o seu planejamento</h2>
-          </div>
-
-          <div class="compare-cards">
-            <div class="compare-box before">
-              <span class="compare-pill">✕ Antes</span>
-              <div class="sim-bubble">Domingo procurando textos em vários sites diferentes...</div>
-              <div class="sim-bubble">PDF travado que não dá para editar o cabeçalho.</div>
-              <div class="sim-bubble">Sem slides nem mapas prontos para revisão.</div>
-              <p class="compare-caption">Horas perdidas</p>
+          <div class="bonus-card-styled sq on">
+            <div class="bonus-head">
+              <span>Bônus 03</span>
+              <span class="bonus-tag-free">Grátis</span>
             </div>
-
-            <div class="compare-box after">
-              <span class="compare-pill">✓ Agora</span>
-              <div class="sim-bubble">Abriu o app: 7º Ano → 2º Bimestre → Atividades.</div>
-              <div class="sim-bubble">Baixou em Word, colocou o logo e imprimiu.</div>
-              <div class="sim-bubble">Projetou o slide e entregou o mapa mental.</div>
-              <p class="compare-caption">Pronto em 2 min</p>
-            </div>
-          </div>
-
-          <div class="mb-7">
-            <a href="#checkout" class="cta cta-green">Quero economizar tempo no planejamento <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
-          </div>
-
-          <div class="contrast-stack">
-            <div class="contrast-panel bad">
-              <h3>Sua rotina SEM a Biblioteca</h3>
-              <ul class="contrast-list">
-                <li><i data-lucide="x" class="h-4 w-4"></i><span>Perde horas garimpando na internet</span></li>
-                <li><i data-lucide="x" class="h-4 w-4"></i><span>Arquivos bagunçados em várias pastas</span></li>
-                <li><i data-lucide="x" class="h-4 w-4"></i><span>Atividades sem gabarito pronto</span></li>
-                <li><i data-lucide="x" class="h-4 w-4"></i><span>Dificuldade para editar textos e provas</span></li>
-                <li><i data-lucide="x" class="h-4 w-4"></i><span>Trabalha fora do horário toda semana</span></li>
-              </ul>
-              <img class="panel-photo" src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80" alt="Professor cansado preparando pilhas de papéis e atividades">
-            </div>
-
-            <div class="contrast-panel good">
-              <h3>Sua rotina COM a Biblioteca</h3>
-              <ul class="contrast-list">
-                <li><i data-lucide="check" class="h-4 w-4"></i><span>250 páginas organizadas por ano e tema</span></li>
-                <li><i data-lucide="check" class="h-4 w-4"></i><span>+1.000 questões com gabarito completo</span></li>
-                <li><i data-lucide="check" class="h-4 w-4"></i><span>PDF pronto para imprimir na hora</span></li>
-                <li><i data-lucide="check" class="h-4 w-4"></i><span>Arquivos em Word 100% editáveis</span></li>
-                <li><i data-lucide="check" class="h-4 w-4"></i><span>Slides e mapas mentais para cada assunto</span></li>
-              </ul>
-              <img class="panel-photo" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" alt="Professor dando aula tranquilo com slides e material organizado">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. APRESENTAÇÃO OFICIAL DO APP + FOTO -->
-      <section class="section bg-[#eef3ff]">
-        <div class="inner-box">
-          <div class="app-intro-card">
-            <p class="eyebrow">Apresentando o aplicativo</p>
-            <div class="app-logo-pill">
-              <i data-lucide="book-open-check" class="h-5 w-5 text-[#1650f0]"></i>
-              <span>Biblioteca do Professor</span>
-            </div>
-            <p class="text-xs text-[#3f444e]">Um ambiente digital organizado onde você encontra todo o acervo de Língua Portuguesa do 6º ao 9º ano separado por bimestre, pronto para baixar e aplicar.</p>
-
-            <div class="app-steps-mini">
-              <div class="app-step-item"><span class="app-step-num">1</span><span>Acesse pelo celular ou computador</span></div>
-              <div class="app-step-item"><span class="app-step-num">2</span><span>Escolha o ano escolar e o bimestre</span></div>
-              <div class="app-step-item"><span class="app-step-num">3</span><span>Baixe em PDF ou Word editável</span></div>
-            </div>
-
-            <img class="panel-photo mb-4" src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Docente consultando materiais didáticos no notebook e celular">
-
-            <a href="#checkout" class="cta">Acessar a Biblioteca agora <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
-          </div>
-        </div>
-      </section>
-
-      <!-- 6. CARROSSEL AUTOMÁTICO DO CONTEÚDO -->
-      <section class="carousel-section section">
-        <div class="inner-box">
-          <div class="section-head">
-            <p class="eyebrow">Explore os módulos</p>
-            <h2>O que você encontra dentro do app</h2>
-          </div>
-
-          <div class="carousel-viewport" id="carousel-viewport">
-            <div class="carousel-track" id="product-carousel">
-              <article class="carousel-slide">
-                <div class="slide-top"><span class="slide-badge">Módulo 01</span><h4>Planejamentos Bimestrais</h4></div>
-                <div class="slide-body"><p>Cronogramas completos do 1º ao 4º bimestre com sumário e metodologias BNCC.</p><span class="slide-tag">6º ao 9º Ano</span></div>
-              </article>
-              <article class="carousel-slide">
-                <div class="slide-top"><span class="slide-badge">Módulo 02</span><h4>250 Páginas de Atividades</h4></div>
-                <div class="slide-body"><p>Textos selecionados e atividades por tema para sala de aula ou reforço.</p><span class="slide-tag">PDF + Word</span></div>
-              </article>
-              <article class="carousel-slide">
-                <div class="slide-top"><span class="slide-badge">Módulo 03</span><h4>+1.000 Questões c/ Gabarito</h4></div>
-                <div class="slide-body"><p>Banco de questões objetivas e discursivas com gabarito para montar provas.</p><span class="slide-tag">Gabarito Incluso</span></div>
-              </article>
-              <article class="carousel-slide">
-                <div class="slide-top"><span class="slide-badge">Módulo 04</span><h4>Slides por Assunto</h4></div>
-                <div class="slide-body"><p>Apresentações visuais prontas para projetar e facilitar suas explicações.</p><span class="slide-tag">Apoio em Aula</span></div>
-              </article>
-              <article class="carousel-slide">
-                <div class="slide-top"><span class="slide-badge">Módulo 05</span><h4>Mapas Mentais</h4></div>
-                <div class="slide-body"><p>Resumos esquemáticos objetivos para fixação e revisão pré-prova.</p><span class="slide-tag">Alta Retenção</span></div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Faixa compacta de números -->
-      <section class="number-band">
-        <div class="inner-box number-band-inner">
-          <div class="stat-box"><strong>250</strong><span>páginas organizadas</span></div>
-          <div class="stat-box"><strong>+1.000</strong><span>questões c/ gabarito</span></div>
-          <div class="stat-box"><strong>6º ao 9º</strong><span>anos (BNCC)</span></div>
-        </div>
-      </section>
-
-      <!-- 7. OS 3 BÔNUS GRATUITOS -->
-      <section class="bonus-section section" id="bonus">
-        <div class="inner-box">
-          <div class="section-head">
-            <p class="eyebrow">Presentes liberados hoje</p>
-            <h2>Garanta 3 Bônus Exclusivos sem pagar nada a mais</h2>
-            <p>Todos liberados automaticamente dentro do seu acesso:</p>
-          </div>
-
-          <div class="bonus-stack">
-            <article class="bonus-card">
-              <div class="bonus-banner"><span>Bônus 01</span><span class="bonus-free">Grátis Hoje</span></div>
-              <div class="bonus-body">
-                <h3>Pacote de Slides por Assunto</h3>
-                <p>Apresentações didáticas prontas para projetar em sala de aula e dinamizar sua explicação.</p>
-                <div class="bonus-price"><span>Valor: <s>R$ 29,90</s></span><strong>R$ 0,00</strong></div>
+            <div class="bonus-body">
+              <h4>Planejamentos Bimestrais + Metodologias BNCC</h4>
+              <p>Cronogramas bimestrais com sumário estruturado para agilizar a entrega de documentos pedagógicos à coordenação escolar.</p>
+              <div class="bonus-price">
+                <span>Valor separado: <s>R$ 27,90</s></span>
+                <strong>R$ 0,00</strong>
               </div>
-            </article>
-
-            <article class="bonus-card">
-              <div class="bonus-banner"><span>Bônus 02</span><span class="bonus-free">Grátis Hoje</span></div>
-              <div class="bonus-body">
-                <h3>Coleção de Mapas Mentais</h3>
-                <p>Resumos visuais prontos para imprimir e entregar aos alunos na revisão das avaliações.</p>
-                <div class="bonus-price"><span>Valor: <s>R$ 24,90</s></span><strong>R$ 0,00</strong></div>
-              </div>
-            </article>
-
-            <article class="bonus-card">
-              <div class="bonus-banner"><span>Bônus 03</span><span class="bonus-free">Grátis Hoje</span></div>
-              <div class="bonus-body">
-                <h3>Planejamentos + Metodologias BNCC</h3>
-                <p>Cronogramas bimestrais prontos com sumário para agilizar sua documentação escolar.</p>
-                <div class="bonus-price"><span>Valor: <s>R$ 27,90</s></span><strong>R$ 0,00</strong></div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- 8. OFERTA FINAL -->
-      <section class="offer-section section" id="checkout">
-        <div class="inner-box">
-          <div class="offer-card">
-            <div class="offer-copy">
-              <p class="eyebrow">Acesso completo ao app</p>
-              <h2>Biblioteca de Língua Portuguesa (6º ao 9º Ano)</h2>
-              <p class="text-xs text-[#4c515b]">Consulta ilimitada e downloads em PDF e Word editável.</p>
-              <ul>
-                <li><i data-lucide="check" class="h-4 w-4 text-[#1650f0]"></i><span>250 páginas de conteúdo</span></li>
-                <li><i data-lucide="check" class="h-4 w-4 text-[#1650f0]"></i><span>+1.000 questões c/ gabarito</span></li>
-                <li><i data-lucide="check" class="h-4 w-4 text-[#1650f0]"></i><span>Planejamentos bimestrais + Sumário</span></li>
-                <li><i data-lucide="check" class="h-4 w-4 text-[#1650f0]"></i><span>Slides por assunto (Bônus Grátis)</span></li>
-                <li><i data-lucide="check" class="h-4 w-4 text-[#1650f0]"></i><span>Mapas mentais (Bônus Grátis)</span></li>
-                <li><i data-lucide="check" class="h-4 w-4 text-[#1650f0]"></i><span>Arquivos em PDF e Word editável</span></li>
-              </ul>
-            </div>
-            <div class="offer-price">
-              <span class="text-[11px] font-extrabold uppercase text-[#1650f0]">Pagamento Único</span>
-              <span class="price-old mt-1">De R$ 67,90 por</span>
-              <strong class="price-now">R$ 47,90</strong>
-              <p class="text-xs text-[#4c515b] mb-3">Acesso imediato ao app + 3 Bônus gratuitos.</p>
-              <a href="#checkout" class="cta">Quero acessar agora <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
-              <span class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#4c515b]"><i data-lucide="shield-check" class="h-4 w-4 text-[#1650f0]"></i> 7 dias de garantia</span>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- 9. FAQ -->
-      <section class="section">
-        <div class="inner-box">
-          <div class="section-head">
-            <p class="eyebrow">Dúvidas frequentes</p>
-            <h2>Perguntas mais comuns</h2>
-          </div>
-          <div class="faq-list">
-            <details class="faq-item"><summary>O que exatamente eu recebo ao entrar na Biblioteca?</summary><p>Você recebe acesso ao aplicativo com 250 páginas de conteúdo, planejamentos bimestrais, sumário, metodologias, textos, atividades por tema, +1.000 questões com gabarito e os 3 bônus (slides, mapas mentais e planejamentos).</p></details>
-            <details class="faq-item"><summary>Os arquivos vêm em PDF e também editáveis em Word?</summary><p>Sim. Você pode baixar tanto o PDF pronto para imprimir quanto o arquivo editável em Word para personalizar cabeçalho e questões.</p></details>
-            <details class="faq-item"><summary>O material está alinhado à BNCC?</summary><p>Sim, todo o conteúdo segue as habilidades da BNCC para Língua Portuguesa do 6º ao 9º ano.</p></details>
-            <details class="faq-item"><summary>O pagamento é único ou tem mensalidade?</summary><p>Pagamento único de R$ 47,90, sem mensalidades.</p></details>
-          </div>
+        <!-- AVISO DE PAGAMENTO ÚNICO -->
+        <div class="aviso sq on">
+          <span class="aviso__tag">Pagamento único</span>
+          <p class="aviso__sem"><span>SEM <s>MENSALIDADE</s></span> <span>SEM <s>TAXAS</s></span></p>
+          <h2 class="aviso__tit">Você paga <mark>UMA vez</mark> e o acesso é seu para sempre!</h2>
+          <p class="aviso__zap">
+            <span class="zap-selo__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.8 7.6c.3-.6.6-.6 1-.6h.6c.2 0 .5 0 .7.5l.9 2.1c.1.3 0 .5-.1.7l-.6.7c-.1.2-.2.4 0 .6.6 1 1.4 1.9 2.5 2.5.2.1.4.1.6-.1l.8-.9c.2-.2.4-.3.7-.2l2 1c.3.1.4.3.4.5 0 .5-.2 1.4-1 1.9-.6.4-1.7.6-3.4-.1-2-.8-3.6-2.5-4.6-4.2-.8-1.5-.6-2.8-.5-3.2z" fill="currentColor"></path></svg>
+            </span>
+            Acesso liberado na hora, direto no seu WhatsApp e no seu e-mail
+          </p>
         </div>
-      </section>
-    </main>
 
-    <footer class="border-t border-[#dedfe1] bg-[#fafbfc] py-6 px-4 text-center text-xs text-[#4c515b]">
-      <strong class="text-[#111216]">Biblioteca do Professor • Língua Portuguesa (6º ao 9º Ano)</strong>
-      <p class="mt-1">Materiais alinhados à BNCC em PDF e Word editável.</p>
-    </footer>
-  </div>
+        <!-- STACK DE ENTREGA -->
+        <h2 class="tit sq on">Você vai receber no seu <span class="verde">WhatsApp</span>…</h2>
+        <ul class="lista lista--ok lista--solta sq on" role="list">
+          <li class="sq on"><span>Aplicativo completo da Biblioteca do Professor</span></li>
+          <li class="sq on"><span>250 páginas de atividades organizadas</span></li>
+          <li class="sq on"><span>+1.000 questões com gabarito do professor</span></li>
+          <li class="sq on"><span>Planejamentos dos 4 bimestres de acordo com a BNCC</span></li>
+          <li class="sq on"><span>Arquivos em PDF pronto para imprimir</span></li>
+          <li class="sq on"><span>Arquivos em Word 100% editáveis</span></li>
+          <li class="sq on"><span>Bônus: Slides por assunto prontos para projetar</span></li>
+          <li class="sq on"><span>Bônus: Mapas mentais ilustrados</span></li>
+          <li class="sq on"><span>Suporte para dúvidas e atualizações contínuas</span></li>
+        </ul>
 
-  <!-- Botão Flutuante SOMENTE LOGOMARCA DO WHATSAPP (Verde e Branco) -->
-  <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20Biblioteca%20do%20Professor." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Falar no WhatsApp">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.01 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.46 1.71 6.4L3.1 29.1l6.87-1.8a12.74 12.74 0 0 0 6.04 1.54h.01c7.07 0 12.8-5.73 12.8-12.8 0-3.42-1.33-6.63-3.75-9.05A12.72 12.72 0 0 0 16.01 3.2zm0 23.48h-.01a10.6 10.6 0 0 1-5.41-1.48l-.39-.23-4.08 1.07 1.09-3.98-.25-.41a10.62 10.62 0 0 1-1.63-5.65c0-5.88 4.79-10.67 10.68-10.67 2.85 0 5.53 1.11 7.55 3.13a10.6 10.6 0 0 1 3.12 7.55c0 5.88-4.79 10.67-10.67 10.67zm5.86-7.99c-.32-.16-1.9-.94-2.19-1.04-.29-.11-.51-.16-.72.16-.21.32-.83 1.04-1.02 1.26-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.58-1.59-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.74-.99-2.38-.26-.62-.53-.54-.72-.55h-.62c-.21 0-.56.08-.85.4-.29.32-1.12 1.1-1.12 2.67s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.47 4.84.76.33 1.36.53 1.82.67.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/></svg>
-  </a>
+        <!-- CAIXA DE OFERTA DE ALTA CONVERSÃO COM ÂNCORA #oferta -->
+        <div class="offer reveal sq on" id="oferta">
+          <span class="offer__off">29% OFF</span>
+          <p class="offer__k">Tudo isso de <s>R$ 67,90</s> por apenas</p>
+          <p class="offer__price">R$ 47,90</p>
+          <p class="offer__once">Pagamento único · sem mensalidade · sem taxas ocultas</p>
+          
+          <ul class="offer__stack" role="list">
+            <li class="sq on"><span>Biblioteca de Português Completa</span><em>Incluso</em></li>
+            <li class="sq on"><span>250 páginas de atividades</span><em>Incluso</em></li>
+            <li class="sq on"><span>+1.000 questões c/ gabarito</span><em>Incluso</em></li>
+            <li class="sq on"><span>Arquivos em Word e PDF</span><em>Incluso</em></li>
+            <li class="sq on"><span>3 Bônus exclusivos liberados</span><em>Incluso</em></li>
+          </ul>
+
+          <p class="offer__sum">Você economiza <b>R$ 20,00</b> nesta oferta</p>
+          
+          <a class="btn btn--pulse" href="#checkout" data-checkout="">QUERO ACESSAR A BIBLIOTECA AGORA</a>
+          <p class="offer__safe">🔒 Compra segura · Garantia incondicional de 7 dias</p>
+        </div>
+
+        <p class="zap-selo sq on">
+          <span class="zap-selo__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.8 7.6c.3-.6.6-.6 1-.6h.6c.2 0 .5 0 .7.5l.9 2.1c.1.3 0 .5-.1.7l-.6.7c-.1.2-.2.4 0 .6.6 1 1.4 1.9 2.5 2.5.2.1.4.1.6-.1l.8-.9c.2-.2.4-.3.7-.2l2 1c.3.1.4.3.4.5 0 .5-.2 1.4-1 1.9-.6.4-1.7.6-3.4-.1-2-.8-3.6-2.5-4.6-4.2-.8-1.5-.6-2.8-.5-3.2z" fill="currentColor"></path></svg>
+          </span>
+          Acesso na hora · direto no seu WhatsApp
+        </p>
+      </div>
+
+      <!-- SELO VETORIAL DE GARANTIA DE 7 DIAS -->
+      <div class="sec sec--escuro sec--garantia">
+        <h2 class="tit sq on">Garantia Incondicional de 7 Dias</h2>
+        
+        <div class="pv-selo sq on" role="img" aria-label="Selo: Biblioteca do Professor, 7 dias de garantia incondicional. Seu dinheiro de volta, sem perguntas.">
+          <svg viewBox="0 0 300 300" aria-hidden="true">
+            <defs>
+              <path id="selo-arco" d="M31 150A119 119 0 0 1 269 150"></path>
+              <radialGradient id="selo-centro" cx="40%" cy="30%" r="80%">
+                <stop offset="0" stop-color="#0b4fc0"></stop>
+                <stop offset="1" stop-color="#01266a"></stop>
+              </radialGradient>
+            </defs>
+            <circle cx="150" cy="150" r="149" fill="#011d52"></circle>
+            <circle cx="150" cy="150" r="127" fill="none" stroke="#01c6ce" stroke-width="36"></circle>
+            <circle cx="150" cy="150" r="108" fill="url(#selo-centro)" stroke="#011d52" stroke-width="4"></circle>
+            <text class="pv-selo__arco"><textPath href="#selo-arco" startOffset="50%" text-anchor="middle">BIBLIOTECA DO PROFESSOR</textPath></text>
+            <polygon points="197.6,258.8 200.0,264.5 206.1,265.0 201.4,269.0 202.9,275.0 197.6,271.8 192.3,275.0 193.7,269.0 189.0,265.0 195.2,264.5" fill="#fff"></polygon>
+            <polygon points="174.2,265.7 176.6,271.4 182.8,271.9 178.1,275.9 179.5,281.9 174.2,278.7 168.9,281.9 170.4,275.9 165.7,271.9 171.9,271.4" fill="#fff"></polygon>
+            <polygon points="150.0,268.0 152.4,273.7 158.6,274.2 153.9,278.3 155.3,284.3 150.0,281.1 144.7,284.3 146.1,278.3 141.4,274.2 147.6,273.7" fill="#fff"></polygon>
+            <polygon points="125.8,265.7 128.1,271.4 134.3,271.9 129.6,275.9 131.1,281.9 125.8,278.7 120.5,281.9 121.9,275.9 117.2,271.9 123.4,271.4" fill="#fff"></polygon>
+            <polygon points="102.4,258.8 104.8,264.5 111.0,265.0 106.3,269.0 107.7,275.0 102.4,271.8 97.1,275.0 98.6,269.0 93.9,265.0 100.0,264.5" fill="#fff"></polygon>
+            <text x="150" y="126" class="pv-selo__7">7</text>
+            <text x="150" y="150" class="pv-selo__dias">DIAS</text>
+            <path d="M96 159H142M158 159H204" stroke="#01c6ce" stroke-width="2"></path>
+            <path d="M150 155l4 4-4 4-4-4z" fill="#01c6ce"></path>
+            <text x="150" y="186" class="pv-selo__gar">GARANTIA</text>
+            <text x="150" y="204" class="pv-selo__inc">INCONDICIONAL</text>
+            <text x="150" y="222" class="pv-selo__txt">Seu dinheiro de volta.</text>
+            <text x="150" y="239" class="pv-selo__txt">Sem perguntas.</text>
+            <circle cx="247" cy="247" r="23" fill="#fff" stroke="#dcfce7" stroke-width="3"></circle>
+            <path d="M236 247.5l7.5 7.5 14-15" fill="none" stroke="#15803d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+
+        <p class="rot sq on">Funciona assim:</p>
+        <p class="txt sq on">Você acessa a Biblioteca do Professor agora, entra no aplicativo, explora as 250 páginas de atividades, baixa arquivos em Word, imprime os PDFs e testa em sala de aula.</p>
+        <p class="txt sq on">Se nesses 7 dias você achar que o material não facilitou sua rotina ou não economizou seu tempo (por qualquer motivo, sem precisar dar explicações), basta enviar uma mensagem e devolvemos 100% do seu dinheiro.</p>
+        <p class="txt sq on"><b>Sem burocracia, sem perguntas e sem complicação.</b></p>
+      </div>
+
+      <!-- FAQ & FECHAMENTO -->
+      <div class="sec sec--branco sec--fim">
+        <h2 class="tit sq on">Perguntas Frequentes</h2>
+        <div class="faq sq on">
+          <details class="pv-faq__item sq on">
+            <summary>O que exatamente eu recebo ao entrar na Biblioteca?</summary>
+            <p>Você recebe acesso imediato e vitalício ao aplicativo com 250 páginas de atividades organizadas por ano escolar (6º ao 9º) e pelos 4 bimestres letivos, banco com mais de 1.000 questões com gabarito do professor, planejamentos BNCC e os bônus de slides didáticos e mapas mentais ilustrados.</p>
+          </details>
+
+          <details class="pv-faq__item sq on">
+            <summary>Os arquivos vêm em PDF e também editáveis em Word?</summary>
+            <p>Sim! Você tem total flexibilidade: pode baixar o PDF já diagramado e pronto para imprimir, ou o arquivo em Word (.docx) para trocar o cabeçalho, colocar o nome da sua escola e turma, ou adaptar questões.</p>
+          </details>
+
+          <details class="pv-faq__item sq on">
+            <summary>O material está de acordo com a BNCC?</summary>
+            <p>Sim. Todas as atividades, planejamentos bimestrais e propostas pedagógicas foram elaborados respeitando as competências e habilidades da BNCC para Língua Portuguesa no Ensino Fundamental II.</p>
+          </details>
+
+          <details class="pv-faq__item sq on">
+            <summary>Preciso pagar mensalidade ou renovação anual?</summary>
+            <p>Não! O pagamento é único no valor promocional de R$ 47,90. Você não paga mensalidades, taxas adicionais ou cobranças surpresas.</p>
+          </details>
+
+          <details class="pv-faq__item sq on">
+            <summary>Como recebo o acesso ao aplicativo?</summary>
+            <p>Na hora! Assim que a sua inscrição for confirmada, os dados de acesso chegam imediatamente no seu WhatsApp e no seu e-mail de compra para você começar a usar em poucos segundos.</p>
+          </details>
+
+          <details class="pv-faq__item sq on">
+            <summary>Funciona no celular e também no computador?</summary>
+            <p>Sim, funciona perfeitamente em qualquer dispositivo: computador, notebook, tablet e celular (Android ou iPhone), sem precisar de instalações pesadas.</p>
+          </details>
+        </div>
+
+        <p class="fecho sq on">Se você quer parar de se sobrecarregar todo fim de semana e quer ter aulas preparadas em poucos minutos com materiais profissionais, a <b>Biblioteca do Professor</b> é para você.</p>
+        <p class="fecho sq on"><b>Clique no botão abaixo e garanta seu acesso com desconto agora mesmo.</b></p>
+        
+        <a class="btn btn--pulse sq on" href="#oferta" data-checkout="">QUERO GARANTIR MEU ACESSO</a>
+        
+        <p class="zap-selo sq on">
+          <span class="zap-selo__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.8 7.6c.3-.6.6-.6 1-.6h.6c.2 0 .5 0 .7.5l.9 2.1c.1.3 0 .5-.1.7l-.6.7c-.1.2-.2.4 0 .6.6 1 1.4 1.9 2.5 2.5.2.1.4.1.6-.1l.8-.9c.2-.2.4-.3.7-.2l2 1c.3.1.4.3.4.5 0 .5-.2 1.4-1 1.9-.6.4-1.7.6-3.4-.1-2-.8-3.6-2.5-4.6-4.2-.8-1.5-.6-2.8-.5-3.2z" fill="currentColor"></path></svg>
+          </span>
+          Acesso na hora · direto no seu WhatsApp
+        </p>
+      </div>
+
+    </section>
+  </main>
 
   <script>
-    if (window.lucide) window.lucide.createIcons();
-
-    // Carrossel automático contínuo
-    (function(){
-      var viewport = document.getElementById('carousel-viewport');
-      var track = document.getElementById('product-carousel');
-      if (!track || !viewport) return;
-
-      Array.from(track.children).forEach(function(slide){
-        var clone = slide.cloneNode(true);
-        clone.setAttribute('aria-hidden', 'true');
-        track.appendChild(clone);
-      });
-
-      var isPaused = false;
-      var pos = 0;
-      function loop(){
-        if (!isPaused) {
-          pos -= 0.6;
-          if (Math.abs(pos) >= track.scrollWidth / 2) pos = 0;
-          track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
-        }
-        requestAnimationFrame(loop);
-      }
-      viewport.addEventListener('mouseenter', function(){ isPaused = true; });
-      viewport.addEventListener('mouseleave', function(){ isPaused = false; });
-      viewport.addEventListener('touchstart', function(){ isPaused = true; }, { passive: true });
-      viewport.addEventListener('touchend', function(){ setTimeout(function(){ isPaused = false; }, 1000); }, { passive: true });
-      requestAnimationFrame(loop);
-    })();
-
-    // Animação ao rolar
-    (function(){
-      var items = document.querySelectorAll('.info-card,.navy-highlight-card,.topics-box,.phone-mock,.compare-box,.contrast-panel,.app-intro-card,.bonus-card,.offer-card');
-      if (!('IntersectionObserver' in window)) return;
-      items.forEach(function(el, i){
-        el.classList.add('reveal-card');
-        el.style.transitionDelay = (i % 3) * 70 + 'ms';
-      });
-      var obs = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+    (function() {
+      let ultimoToque = 0;
+      function onTap(el, fn) {
+        let id = null, sx = 0, sy = 0;
+        el.addEventListener("pointerdown", (e) => {
+          if (e.pointerType === "mouse") return;
+          id = e.pointerId; sx = e.clientX; sy = e.clientY;
+        }, { passive: true });
+        el.addEventListener("pointercancel", () => { id = null; });
+        el.addEventListener("pointerup", (e) => {
+          if (e.pointerType === "mouse" || e.pointerId !== id) return;
+          id = null;
+          if (Math.hypot(e.clientX - sx, e.clientY - sy) > 10) return;
+          ultimoToque = Date.now();
+          fn(e);
         });
-      }, { threshold: 0.1 });
-      items.forEach(function(el){ obs.observe(el); });
+        el.addEventListener("click", (e) => {
+          if (Date.now() - ultimoToque < 700) { e.preventDefault(); return; }
+          fn(e);
+        });
+      }
+
+      function mountPar(root) {
+        const palco = root.querySelector(".ad__palco"), par = palco && palco.firstElementChild;
+        if (!par) return () => {};
+        const usaZoom = !!(window.CSS && CSS.supports && CSS.supports("zoom", "0.5"));
+        const ajusta = () => {
+          const k = Math.min(1, palco.clientWidth / 620);
+          if (usaZoom) par.style.zoom = k;
+          else {
+            par.style.transform = `scale(${k})`;
+            palco.style.height = `${par.offsetHeight * k}px`;
+          }
+        };
+        ajusta();
+        const ro = "ResizeObserver" in window ? new ResizeObserver(ajusta) : null;
+        if (ro) ro.observe(palco);
+        return () => { if (ro) ro.disconnect(); };
+      }
+
+      function mountCarrossel(host) {
+        if (!host) return () => {};
+        const tr = host.querySelector(".pv-carrossel__trilho");
+        const pts = [...host.querySelectorAll(".pv-carrossel__pontos i")];
+        const atual = () => Math.round(tr.scrollLeft / Math.max(1, tr.clientWidth));
+        host.querySelectorAll("[data-dir]").forEach((b) => onTap(b, () => {
+          const n = tr.children.length, i = (atual() + Number(b.dataset.dir) + n) % n;
+          tr.scrollTo({ left: i * tr.clientWidth, behavior: "smooth" });
+        }));
+        const onScroll = () => {
+          const i = atual();
+          pts.forEach((p, j) => p.classList.toggle("on", j === i));
+        };
+        tr.addEventListener("scroll", onScroll, { passive: true });
+        return () => {
+          tr.removeEventListener("scroll", onScroll);
+        };
+      }
+
+      function mountWhats(root) {
+        const zaps = [...root.querySelectorAll("[data-wa]")];
+        if (!zaps.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return () => {};
+        let vivo = true;
+        const timers = new Set(), visivel = new Map(), acorda = new Map(), iniciado = new Set();
+        const espera = (ms) => new Promise((r) => {
+          const t = setTimeout(() => { timers.delete(t); r(); }, ms);
+          timers.add(t);
+        });
+        const naTela = (z) => (visivel.get(z) ? Promise.resolve() : new Promise((r) => acorda.set(z, r)));
+        const roda = async (z) => {
+          const st = z.querySelector("[data-wa-st]");
+          const itens = [...z.querySelectorAll("[data-wa-item]")];
+          await espera(350);
+          for (const it of itens) {
+            await naTela(z);
+            if (!vivo) return;
+            if (it.hasAttribute("data-wa-ela")) {
+              it.classList.add("is-dig");
+              if (st && z.dataset.waDigita) st.textContent = "digitando…";
+              await espera(1200);
+              if (!vivo) return;
+              it.classList.remove("is-dig");
+              if (st) st.textContent = st.dataset.waSt;
+            }
+            it.classList.add("is-on");
+            await espera(it.matches(".wa__dia") ? 300 : 650);
+          }
+        };
+        zaps.forEach((z) => z.classList.add("wa--anim"));
+        const io = new IntersectionObserver((ents) => ents.forEach((e) => {
+          const z = e.target;
+          visivel.set(z, e.isIntersecting);
+          if (!e.isIntersecting) return;
+          const r = acorda.get(z);
+          if (r) { acorda.delete(z); r(); }
+          if (!iniciado.has(z)) {
+            iniciado.add(z);
+            roda(z);
+          }
+        }), { threshold: 0.4 });
+        zaps.forEach((z) => io.observe(z));
+        return () => {
+          vivo = false;
+          io.disconnect();
+          timers.forEach(clearTimeout);
+          acorda.forEach((r) => r());
+        };
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const app = document.getElementById("app") || document.body;
+        mountPar(app);
+        mountCarrossel(app.querySelector("[data-carrossel]"));
+        mountWhats(app);
+        
+        const backBtn = document.querySelector("[data-restart]");
+        if (backBtn) {
+          backBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        }
+      });
     })();
   </script>
 </body>
