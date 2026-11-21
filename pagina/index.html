@@ -374,7 +374,7 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
 .pv__h1 { font-size: clamp(23px, 6.5vw, 28px); line-height: 1.22; text-align: center; text-wrap: balance; }
 
 .topo { position: relative; container-type: inline-size; overflow: hidden; border-radius: var(--raio); background: #dce7f3; box-shadow: var(--sombra); }
-.topo__img { width: 100%; height: 100%; object-fit: cover; }
+.topo__img { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; }
 .topo picture, .foto picture { display: contents; }
 .orc {
   position: absolute; right: 2.5%; top: 50%; transform: translateY(-50%); width: 34%; overflow: hidden;
@@ -1026,7 +1026,31 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
   font-weight: 800;
 }
 
-  </style>
+  .topo .app-hero-showcase{display:none!important}
+  /* Refinos visuais no cartão existente: melhora contraste e leitura sem mudar sua estrutura. */
+  .orc{
+    border:1px solid rgba(255,255,255,.92);
+    border-radius:1.5cqw;
+    box-shadow:0 .7cqw 1.8cqw rgba(4,23,63,.24),0 2.4cqw 4.8cqw -1cqw rgba(4,23,63,.42);
+  }
+  .orc__top{
+    padding:1.8cqw 2cqw;
+    background:linear-gradient(118deg,#08275f 0%,#1048c7 68%,#1650f0 100%);
+    box-shadow:inset 0 -.35cqw 0 rgba(93,231,186,.9);
+  }
+  .orc__top b{font-size:2.6cqw;letter-spacing:-.025em}
+  .orc__top b span{color:#b9f4df}
+  .orc__corpo{padding:1.8cqw 2cqw 2cqw}
+  .orc__quem{margin:0 0 .5cqw}
+  .orc__quem b{color:#101d37;letter-spacing:-.015em}
+  .orc__quem span{color:#52627c}
+  .orc__linhas{margin:1cqw 0 0;padding:0}
+  .orc__linhas li{border-top:1px solid #dce5f1}
+  .orc__linhas b{color:#1248c4}
+  .orc__total{margin-top:1cqw}
+  .orc__total b{background:#ffcb18;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+  .orc__wa{background:linear-gradient(135deg,#16a957,#20c66b);box-shadow:0 .35cqw .8cqw rgba(22,169,87,.24)}
+</style>
 </head>
 <body class="pv-body">
   <main id="app" class="app" aria-live="polite" data-step="oferta">
@@ -1036,10 +1060,7 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
       <div class="sec sec--claro">
         <div class="pv__bar" style="justify-content: center; position: relative;">
           <div class="app-brand" style="justify-content: center;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-              <path d="m9 9.5 2 2 4-4"></path>
+            
             </svg>
           
           </div>
@@ -1056,7 +1077,8 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
         </p>
 
         <!-- PREVIEW REAL DO APP (JANELA DO APP COM CORES REAIS DO CÓDIGO) + CARD FLUTUANTE DE RESUMO -->
-        <div class="topo sq on" role="img" aria-label="Visualização do aplicativo Biblioteca do Professor com os anos e bimestres organizados" style="aspect-ratio:1920 / 1080">
+        <div class="topo sq on"  style="aspect-ratio:1920 / 1080">
+          <img class="topo__img" src="image/sala-dos-professores.jpeg" alt="Dois professores consultam a Biblioteca do Professor em um celular, na sala dos professores" width="1600" height="900" fetchpriority="high" decoding="async">
           <div class="app-hero-showcase">
             <div class="app-window">
               <div class="app-window-head">
@@ -1186,11 +1208,7 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
           <p>Tudo o que você precisa do 6º ao 9º ano organizado para os 4 bimestres letivos.</p>
         </div>
 
-        <!-- BOTÕES DE ATALHO RÁPIDO NA 2ª DOBRA -->
-        <div style="margin-top: 14px; text-align: center;">
-          <a href="#bonus" class="btn btn--bonus">🎁 VER OS 3 BÔNUS EXCLUSIVOS INCLUSOS</a>
-          <a href="#oferta" class="btn--outline">QUERO IR DIRETO PARA O VALOR DA OFERTA</a>
-        </div>
+      
       </div>
 
       <!-- POR DENTRO DO APP (FIEL ÀS TELAS DO APP REACT) -->
@@ -1241,7 +1259,7 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
 
             <!-- FONE 3 -->
             <div class="telas__item">
-              <b class="telas__pronto">Pronto para a aula! ✓</b>
+              <b class="telas__pronto">Pronto! ✓</b>
               <span class="pv-fone" aria-hidden="true">
                 <div class="fone-mockup">
                   <div class="fone-topbar">
@@ -1355,7 +1373,7 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
         </ul>
         <figure class="foto sq on">
           <!-- IMAGEM CONTEXTUALIZADA DE PILHA DE CADERNOS/PLANEJAMENTO CANSATIVO -->
-          <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1280&q=80" alt="Mesa cheia de livros e anotações de planejamento escolar exaustivo" width="1280" height="720" loading="lazy">
+          <img src="image/rotina-sem-biblioteca.png" alt="Professor cansado preparando aulas à noite entre pilhas de papéis, livros e atividades" width="1672" height="928" loading="lazy">
         </figure>
       </div>
 
@@ -1374,13 +1392,13 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
         </ul>
         <figure class="foto sq on">
           <!-- IMAGEM CONTEXTUALIZADA DE PROFESSORA ENSINANDO COM ALEGRIA E LEVEZA -->
-          <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1280&q=80" alt="Professora lecionando com tranquilidade e sorriso em sala de aula" width="1280" height="720" loading="lazy">
+          <img src="image/rotina-com-biblioteca.png" alt="Professora apresenta no celular o aplicativo Biblioteca do Professor, com atividades e materiais organizados" width="1672" height="928" loading="lazy">
         </figure>
       </div>
 
       <!-- SEÇÃO DE DORES -->
       <div class="sec sec--dor">
-        <h2 class="tit sq on">Se você leciona Português, provavelmente já <mark class="mt">passou por isso…</mark></h2>
+        <h2 class="tit sq on">Se você é professor de Português, provavelmente já <mark class="mt">passou por isso…</mark></h2>
         <ul class="lista lista--seta lista--solta sq on" role="list">
           <li class="sq on"><span>Já passou o domingo à noite no computador caçando texto e atividade</span></li>
           <li class="sq on"><span>Já baixou atividade da internet e teve que refazer toda a formatação quebrada</span></li>
