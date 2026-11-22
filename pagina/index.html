@@ -8,7 +8,6 @@
   <meta name="description" content="Prepare suas aulas de Língua Portuguesa em 1 minuto com materiais 100% prontos, alinhados à BNCC, com gabarito e editáveis em Word.">
   <link rel="preconnect" href="https://ar-no-preco-certo.vercel.app" crossorigin>
   <link rel="preload" href="https://ar-no-preco-certo.vercel.app/fonts/poppins-800.woff2" as="font" type="font/woff2" crossorigin="">
-  <link rel="preload" href="https://ar-no-preco-certo.vercel.app/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="preload" href="https://ar-no-preco-certo.vercel.app/fonts/poppins-500.woff2" as="font" type="font/woff2" crossorigin="">
   <style>
 
@@ -611,6 +610,7 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
 
 .pv-carrossel__img { display: block; aspect-ratio: 600 / 1186; padding-top: 18px; overflow: hidden; border-radius: var(--raio); background: #111; box-shadow: var(--sombra); }
 .pv-carrossel__img picture { display: contents; }
+.pv-carrossel__img.prova-slot { aspect-ratio: 4 / 5; box-sizing: border-box; padding: 0; border: 1px solid #e3eaf4; background: #f1f5fa; box-shadow: none; }
 .pv-carrossel__img img { width: 100%; height: 100%; object-fit: contain; object-position: 50% 0; }
 .pv-carrossel__tag { position: absolute; z-index: 2; top: 0; left: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 4px; padding: 5px 12px; border-radius: 99px; border: 2px solid #fff; background: #ffd200; color: #0a1f5c; font-size: 13px; font-weight: 800; line-height: 1.25; letter-spacing: .01em; white-space: nowrap; box-shadow: 0 2px 8px rgba(0, 0, 0, .35); pointer-events: none; }
 .pv-carrossel__seta { position: absolute; z-index: 3; top: 48%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .92); color: #111; font-size: 28px; line-height: 1; box-shadow: 0 2px 8px rgba(0, 0, 0, .3); }
@@ -915,61 +915,6 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
   padding: 4px;
 }
 
-/* Depoimentos reais de professores */
-.depo-card {
-  background: #ffffff;
-  padding: 24px 20px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-.depo-stars {
-  color: #f59e0b;
-  font-size: 16px;
-  margin-bottom: 12px;
-  letter-spacing: 2px;
-}
-.depo-text {
-  font-size: 14.5px;
-  line-height: 1.55;
-  color: #1f2937;
-  font-style: italic;
-  margin-bottom: 16px;
-}
-.depo-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border-top: 1px solid #e5e7eb;
-  padding-top: 14px;
-}
-.depo-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #e0e7ff;
-  color: #3730a3;
-  font-weight: 800;
-  font-size: 15px;
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-}
-.depo-meta b {
-  display: block;
-  font-size: 14px;
-  color: #0b1f52;
-  font-weight: 800;
-}
-.depo-meta span {
-  display: block;
-  font-size: 11.5px;
-  color: #64748b;
-  font-weight: 600;
-}
-
 /* Cards de bônus estilizados */
 .bonus-card-styled {
   background: #fff;
@@ -1078,7 +1023,7 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
 
         <!-- PREVIEW REAL DO APP (JANELA DO APP COM CORES REAIS DO CÓDIGO) + CARD FLUTUANTE DE RESUMO -->
         <div class="topo sq on"  style="aspect-ratio:1920 / 1080">
-          <img class="topo__img" src="image/sala-dos-professores.jpeg" alt="Dois professores consultam a Biblioteca do Professor em um celular, na sala dos professores" width="1600" height="900" fetchpriority="high" decoding="async">
+          <img class="topo__img" src="image/sala-dos-professores.webp" alt="Dois professores consultam a Biblioteca do Professor em um celular, na sala dos professores" width="1600" height="900" fetchpriority="high" decoding="async">
           <div class="app-hero-showcase">
             <div class="app-window">
               <div class="app-window-head">
@@ -1373,7 +1318,7 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
         </ul>
         <figure class="foto sq on">
           <!-- IMAGEM CONTEXTUALIZADA DE PILHA DE CADERNOS/PLANEJAMENTO CANSATIVO -->
-          <img src="image/rotina-sem-biblioteca.png" alt="Professor cansado preparando aulas à noite entre pilhas de papéis, livros e atividades" width="1672" height="928" loading="lazy">
+          <img src="image/rotina-sem-biblioteca.webp" alt="Professor cansado preparando aulas à noite entre pilhas de papéis, livros e atividades" width="1672" height="941" loading="lazy">
         </figure>
       </div>
 
@@ -1392,7 +1337,7 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
         </ul>
         <figure class="foto sq on">
           <!-- IMAGEM CONTEXTUALIZADA DE PROFESSORA ENSINANDO COM ALEGRIA E LEVEZA -->
-          <img src="image/rotina-com-biblioteca.png" alt="Professora apresenta no celular o aplicativo Biblioteca do Professor, com atividades e materiais organizados" width="1672" height="928" loading="lazy">
+          <img src="image/rotina-com-biblioteca.webp" alt="Professora apresenta no celular o aplicativo Biblioteca do Professor, com atividades e materiais organizados" width="1672" height="941" loading="lazy">
         </figure>
       </div>
 
@@ -1418,7 +1363,7 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
         </ul>
         <h2 class="tit sq on">É por isso que você se sente <mark class="mt">exausto e sobrecarregado</mark></h2>
         <figure class="foto sq on">
-          <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1280&q=80" alt="Livros didáticos de leitura e escrita escolar" width="1280" height="720" loading="lazy">
+          <img src="image/professor-sobrecarga.webp" alt="Professor de Português cansado diante do computador e de pilhas de atividades por corrigir" width="1232" height="1277" loading="lazy">
         </figure>
       </div>
 
@@ -1443,7 +1388,7 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
           </ol>
           <p class="card__ok"><span aria-hidden="true">✅</span> Simples, rápido e organizado</p>
           <figure class="foto">
-            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1000&q=80" alt="Professores colaborando e preparando aulas com tecnologia" width="1000" height="600" loading="lazy">
+            <img src="image/professores-conhecem-biblioteca.webp" alt="Dois professores consultam juntos no celular a Biblioteca do Professor" width="1448" height="1086" loading="lazy">
             <figcaption class="foto__selo">Feito sob medida para professores de Português</figcaption>
           </figure>
         </div>
@@ -1480,100 +1425,21 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
         </div>
       </div>
 
-      <!-- NOVA SEÇÃO: VEJA COMO OS PROFESSORES USAM O APP (DEPOIMENTOS & CASOS DE USO) -->
+      <!-- PROVA SOCIAL: MENSAGENS DE PROFESSORES -->
       <div class="sec sec--claro">
-        <h2 class="tit sq on">Veja como os professores <mark class="mt">usam o app</mark> no dia a dia…</h2>
+        <h2 class="tit sq on">Veja como o app <mark class="mt">ajudou professores</mark> no dia a dia…</h2>
         
-        <div class="pv-carrossel sq on" data-carrossel="">
+        <div class="pv-carrossel sq on" data-carrossel="" aria-label="Mensagens de professores sobre o aplicativo">
           <div class="pv-carrossel__trilho">
-            
-            <!-- DEPOIMENTO 1 -->
-            <figure class="pv-carrossel__slide">
-              <span class="pv-carrossel__img" style="background:#fff; padding:0; text-align:left;">
-                <div class="depo-card">
-                  <div>
-                    <div class="depo-stars">★★★★★</div>
-                    <p class="depo-text">"Minha rotina mudou completamente. Eu perdia todo o domingo montando provas e caçando texto na internet. Agora eu abro o app pelo celular, escolho o bimestre e baixo no Word com meu cabeçalho em 2 minutos!"</p>
-                  </div>
-                  <div class="depo-author">
-                    <div class="depo-avatar">MC</div>
-                    <div class="depo-meta">
-                      <b>Profª. Maria Clara</b>
-                      <span>Português • 6º e 7º Anos (SP)</span>
-                    </div>
-                  </div>
-                </div>
-              </span>
-              <span class="pv-carrossel__tag"><span aria-hidden="true">💡</span> Como ela usa o app</span>
-            </figure>
-
-            <!-- DEPOIMENTO 2 -->
-            <figure class="pv-carrossel__slide">
-              <span class="pv-carrossel__img" style="background:#fff; padding:0; text-align:left;">
-                <div class="depo-card">
-                  <div>
-                    <div class="depo-stars">★★★★★</div>
-                    <p class="depo-text">"O gabarito pronto com explicação das questões me salvou demais. Antes eu tinha que resolver questão por questão antes de aplicar. O material de orações e concordância é nota 10!"</p>
-                  </div>
-                  <div class="depo-author">
-                    <div class="depo-avatar">RS</div>
-                    <div class="depo-meta">
-                      <b>Prof. Ricardo Santos</b>
-                      <span>Língua Portuguesa • 8º e 9º Anos (MG)</span>
-                    </div>
-                  </div>
-                </div>
-              </span>
-              <span class="pv-carrossel__tag"><span aria-hidden="true">💡</span> Como ele usa o app</span>
-            </figure>
-
-            <!-- DEPOIMENTO 3 -->
-            <figure class="pv-carrossel__slide">
-              <span class="pv-carrossel__img" style="background:#fff; padding:0; text-align:left;">
-                <div class="depo-card">
-                  <div>
-                    <div class="depo-stars">★★★★★</div>
-                    <p class="depo-text">"Os slides para projetar em sala foram o melhor achado. Eu não perco mais tempo copiando tudo no quadro. Os alunos prestam muito mais atenção e sobra tempo para tirar dúvidas."</p>
-                  </div>
-                  <div class="depo-author">
-                    <div class="depo-avatar">AF</div>
-                    <div class="depo-meta">
-                      <b>Profª. Ana Flávia</b>
-                      <span>Ensino Fundamental II (PR)</span>
-                    </div>
-                  </div>
-                </div>
-              </span>
-              <span class="pv-carrossel__tag"><span aria-hidden="true">💡</span> Como ela usa o app</span>
-            </figure>
-
-            <!-- DEPOIMENTO 4 -->
-            <figure class="pv-carrossel__slide">
-              <span class="pv-carrossel__img" style="background:#fff; padding:0; text-align:left;">
-                <div class="depo-card">
-                  <div>
-                    <div class="depo-stars">★★★★★</div>
-                    <p class="depo-text">"O que eu mais gostei foi a organização por bimestre. A coordenadora sempre pedia os planejamentos com os códigos da BNCC e eu ficava louca. No app já veio tudo amarradinho com o sumário."</p>
-                  </div>
-                  <div class="depo-author">
-                    <div class="depo-avatar">LS</div>
-                    <div class="depo-meta">
-                      <b>Profª. Luciana Silva</b>
-                      <span>Docente há 12 anos (RJ)</span>
-                    </div>
-                  </div>
-                </div>
-              </span>
-              <span class="pv-carrossel__tag"><span aria-hidden="true">💡</span> Como ela usa o app</span>
-            </figure>
-
+            <figure class="pv-carrossel__slide"><span class="pv-carrossel__img prova-slot"><img src="image/prova-social-01.jpg" alt="Captura de conversa em que um professor comenta que recebeu o material por e-mail e gostou da completude" width="750" height="922" loading="lazy" decoding="async"></span></figure>
+            <figure class="pv-carrossel__slide"><span class="pv-carrossel__img prova-slot"><img src="image/prova-social-02.jpg" alt="Mensagem de uma professora dizendo que as atividades e mapas mentais agradaram aos alunos" width="750" height="922" loading="lazy" decoding="async"></span></figure>
+            <figure class="pv-carrossel__slide"><span class="pv-carrossel__img prova-slot"><img src="image/prova-social-03.jpg" alt="Mensagem de uma professora relatando que o conteúdo é direto, atualizado e ajuda a economizar tempo" width="750" height="922" loading="lazy" decoding="async"></span></figure>
+            <figure class="pv-carrossel__slide"><span class="pv-carrossel__img prova-slot"><img src="image/prova-social-04.jpg" alt="Mensagens de um professor contando que o material oferece suporte e economiza tempo" width="1300" height="1600" loading="lazy" decoding="async"></span></figure>
           </div>
-          
-          <button class="pv-carrossel__seta pv-carrossel__seta--ant" type="button" data-dir="-1" aria-label="Depoimento anterior">‹</button>
-          <button class="pv-carrossel__seta pv-carrossel__seta--prox" type="button" data-dir="1" aria-label="Próximo depoimento">›</button>
+          <button class="pv-carrossel__seta pv-carrossel__seta--ant" type="button" data-dir="-1" aria-label="Imagem anterior">‹</button>
+          <button class="pv-carrossel__seta pv-carrossel__seta--prox" type="button" data-dir="1" aria-label="Próxima imagem">›</button>
           <div class="pv-carrossel__pontos" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
         </div>
-        <p class="pv-carrossel__nota sq on">Exemplos reais de como a Biblioteca facilita a rotina de quem leciona.</p>
 
         <!-- SEÇÃO DE BÔNUS EXCLUSIVOS COM ÂNCORA #bonus -->
         <div id="bonus" style="margin-top:34px; scroll-margin-top: 30px;">
@@ -1818,22 +1684,51 @@ body.pv-body .app { padding-top: 0; padding-bottom: 0; }
       function mountCarrossel(host) {
         if (!host) return () => {};
         const tr = host.querySelector(".pv-carrossel__trilho");
+        if (!tr) return () => {};
+        const slides = [...tr.children];
         const pts = [...host.querySelectorAll(".pv-carrossel__pontos i")];
+        const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+        let inView = false, timer = null;
         const atual = () => Math.round(tr.scrollLeft / Math.max(1, tr.clientWidth));
+        const parar = () => { if (timer !== null) { clearInterval(timer); timer = null; } };
+        const avancar = (delta) => {
+          const n = slides.length, i = (atual() + delta + n) % n;
+          tr.scrollTo({ left: i * tr.clientWidth, behavior: reduced ? "auto" : "smooth" });
+        };
+        const iniciar = () => {
+          if (timer !== null || !inView || document.hidden || reduced || slides.length < 2) return;
+          timer = setInterval(() => avancar(1), 3000);
+        };
         host.querySelectorAll("[data-dir]").forEach((b) => onTap(b, () => {
-          const n = tr.children.length, i = (atual() + Number(b.dataset.dir) + n) % n;
-          tr.scrollTo({ left: i * tr.clientWidth, behavior: "smooth" });
+          avancar(Number(b.dataset.dir));
+          parar(); iniciar();
         }));
         const onScroll = () => {
           const i = atual();
           pts.forEach((p, j) => p.classList.toggle("on", j === i));
         };
+        const onVisibility = () => document.hidden ? parar() : iniciar();
+        const onPointerStart = () => parar();
+        const onPointerEnd = () => iniciar();
         tr.addEventListener("scroll", onScroll, { passive: true });
+        tr.addEventListener("pointerdown", onPointerStart, { passive: true });
+        tr.addEventListener("pointerup", onPointerEnd, { passive: true });
+        tr.addEventListener("pointercancel", onPointerEnd, { passive: true });
+        document.addEventListener("visibilitychange", onVisibility);
+        const io = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
+          inView = entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.25);
+          if (inView) iniciar(); else parar();
+        }, { threshold: [0, 0.25] }) : null;
+        if (io) io.observe(host);
         return () => {
+          parar(); io?.disconnect();
           tr.removeEventListener("scroll", onScroll);
+          tr.removeEventListener("pointerdown", onPointerStart);
+          tr.removeEventListener("pointerup", onPointerEnd);
+          tr.removeEventListener("pointercancel", onPointerEnd);
+          document.removeEventListener("visibilitychange", onVisibility);
         };
       }
-
       function mountWhats(root) {
         const zaps = [...root.querySelectorAll("[data-wa]")];
         if (!zaps.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return () => {};
